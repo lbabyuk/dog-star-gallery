@@ -1,7 +1,15 @@
+import { Outlet } from 'react-router-dom';
+import HeaderComponent from './components/molecules/Header';
+
 import './App.css';
 
 function App() {
-  return <h1>Dog App</h1>;
+  return (
+    <>
+      <HeaderComponent />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
