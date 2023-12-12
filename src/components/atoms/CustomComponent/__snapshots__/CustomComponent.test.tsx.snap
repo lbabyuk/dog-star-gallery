@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomComponent should match snapshot Primary 1`] = `
+<div>
+  <div>
+    Custom Component 123 
+    contained
+  </div>
+</div>
+`;
+
+exports[`CustomComponent should match snapshot Secondary 1`] = `
+<div>
+  <div>
+    Custom Component 123 
+    outlined
+  </div>
+</div>
+`;
