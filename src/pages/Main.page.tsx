@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { Box, Button, Stack } from '@mui/material';
-import { useGetImagesQuery } from '../services/images';
 import { useAddFavoritesMutation } from '../services/favorites';
+import { useGetImagesWithFavorites } from '../utilities';
 
 export const Main = () => {
   const [page, setPage] = useState(0);
-  const { data: images, isLoading } = useGetImagesQuery({ limit: 4, page });
-  const [addfavorite] = useAddFavoritesMutation();
+  const { data: favoriteImages, isLoading } = useGetImagesWithFavorites({
+    page
+  });
+  const [addFavorite] = useAddFavoritesMutation();
 
   const handleAddClick = (id: string) => () => {
-    addfavorite({ image_id: id });
+    addFavorite({ image_id: id, sub_id: 'olena' });
   };
 
   return (
@@ -22,11 +24,15 @@ export const Main = () => {
       <Button type="button" onClick={() => setPage(prev => prev - 1)}>
         PREV
       </Button>
+      <div>
+        <input type="text" placeholder="Search..." />
+      </div>
       <Stack direction="row">
-        {(images || []).map(image => (
-          <Box key={image.id} sx={{ maxWidth: '300px' }}>
-            <Button onClick={handleAddClick(image.id)}>Like</Button>
-            <img src={image.url} width="100%" alt={image.id} />
+        {(favoriteImages || []).map(favoriteImage => (
+          <Box key={favoriteImage.id} sx={{ maxWidth: '300px' }}>
+            <Button onClick={handleAddClick(favoriteImage.id)}>Like</Button>
+            <img src={favoriteImage.url} alt={favoriteImage.id} width="100%" />
+            <p>{favoriteImage.id}</p>
           </Box>
         ))}
       </Stack>

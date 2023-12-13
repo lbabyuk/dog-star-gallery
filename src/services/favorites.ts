@@ -28,7 +28,8 @@ export const favoritesApi = api.injectEndpoints({
       invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
     }),
     getFavorites: build.query<FavoriteResponse, void>({
-      query: () => ({ url: 'favourites' }),
+      // query: ({ sub_id }) => ({ url: `favourites?sub_id=${sub}` }),
+      query: () => ({ url: `favourites?sub_id=olena` }),
       providesTags: (result = []) =>
         result
           ? [
@@ -37,7 +38,7 @@ export const favoritesApi = api.injectEndpoints({
             ]
           : [{ type: 'Favorites' as const, id: 'LIST' }]
     }),
-    deleteFavorites: build.mutation<{ id: string }, string>({
+    deleteFavorites: build.mutation<{ id: number }, number>({
       query: id => ({
         url: `favourites/${id}`,
         method: 'DELETE'
