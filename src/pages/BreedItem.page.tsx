@@ -8,6 +8,7 @@ import {
   Button
 } from '@mui/material';
 import { useGetBreedsQuery } from '../services/breeds';
+import LoadingStatus from '../components/atoms/LoadingStatus';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -15,10 +16,14 @@ export const BreedItem = () => {
   const navigate = useNavigate();
 
   const breed = breeds?.find(item => item.id === Number(breedId));
+
   return (
     <>
-      {isLoading && <div>Loading...</div>}
-      <p>{breedId}</p>
+      {isLoading && (
+        <div>
+          <LoadingStatus />
+        </div>
+      )}
       <img src={breed?.image.url} alt={breed?.name} width="250px" />
       <Button onClick={() => navigate(`/breeds`)}>Back to Breeds</Button>
       <Grid item xs={4}>
@@ -37,8 +42,8 @@ export const BreedItem = () => {
           <ListItem alignItems="flex-start">
             <ListItemText>
               <Typography>
-                Weight Range:{' '}
-                <span className="span">{breed?.weight.imperial}</span>
+                Weight:{' '}
+                <span className="span">{breed?.weight.imperial} pounds</span>
               </Typography>
             </ListItemText>
           </ListItem>
@@ -46,7 +51,10 @@ export const BreedItem = () => {
           <ListItem alignItems="flex-start">
             <ListItemText>
               <Typography>
-                Height: <span className="span">{breed?.height.imperial}</span>
+                Height:{' '}
+                <span className="span">
+                  {breed?.height.imperial} inches at the shoulder
+                </span>
               </Typography>
             </ListItemText>
           </ListItem>
@@ -54,7 +62,8 @@ export const BreedItem = () => {
           <ListItem alignItems="flex-start">
             <ListItemText>
               <Typography>
-                Life span: <span className="span">{breed?.life_span}</span>
+                Life span:{' '}
+                <span className="span">{breed?.life_span} years</span>
               </Typography>
             </ListItemText>
           </ListItem>

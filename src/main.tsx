@@ -10,12 +10,13 @@ import App from './App';
 import './index.css';
 
 import { store } from './services/store';
+import ErrorPage from './pages/Error.page';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <div>Error 404</div>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: 'breeds',

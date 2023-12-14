@@ -6,20 +6,28 @@ import { useTypedSelector } from '../../services/store';
 type GetImagesWithFavoritesProps = {
   limit?: number;
   page: number;
+  mime_types?: string;
+  order?: string;
 };
 
 export const useGetImagesWithFavorites = ({
-  limit = 4,
-  page
+  limit = 10,
+  page,
+  mime_types,
+  order
 }: GetImagesWithFavoritesProps) => {
   const { isLoading: isLoadingImages } = useGetImagesQuery({
     limit,
-    page
+    page,
+    mime_types,
+    order
   });
-  const { isLoading: isLoadingFavorites } = useGetFavoritesQuery();
+  const { isLoading: isLoadingFavorites } = useGetFavoritesQuery({
+    sub_id: 'olena'
+  });
   const favoriteImages = useTypedSelector(
     selectImagesWithFavorites({
-      getImagesProps: { limit, page }
+      getImagesProps: { limit, page, mime_types, order }
     })
   );
   return {

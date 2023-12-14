@@ -30,9 +30,22 @@ type ImagesResponse = Image[];
 
 export const imagesApi = api.injectEndpoints({
   endpoints: build => ({
-    getImages: build.query<ImagesResponse, { limit?: number; page?: number }>({
-      query: ({ limit = 10, page = 0 }) => ({
-        url: `images/search?limit=${limit}&page=${page}`
+    getImages: build.query<
+      ImagesResponse,
+      {
+        limit?: number;
+        page?: number;
+        order?: string;
+        mime_types?: string;
+      }
+    >({
+      query: ({
+        limit = 10,
+        page = 0,
+        order = 'RANDOM',
+        mime_types = 'jpg'
+      }) => ({
+        url: `images/search?limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}`
       }),
       providesTags: (result = []) =>
         result
@@ -44,7 +57,7 @@ export const imagesApi = api.injectEndpoints({
     }),
     getImageById: build.query<ImagesResponse, { id?: string }>({
       query: ({ id }) => ({
-        url: `images/${id}`
+        url: `images/${id}?`
       })
     })
   })

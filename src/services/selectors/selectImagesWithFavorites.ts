@@ -7,6 +7,8 @@ export interface GetImageProps {
   getImagesProps: {
     limit: number;
     page: number;
+    mime_types?: string;
+    order?: string;
   };
 }
 
