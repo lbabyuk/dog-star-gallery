@@ -37,8 +37,18 @@ export const breedsApi = api.injectEndpoints({
               { type: 'Breeds', id: 'LIST' }
             ]
           : [{ type: 'Breeds', id: 'LIST' }]
+    }),
+    searchBreedsName: build.query<BreedsResponse, { name?: string }>({
+      query: () => ({ url: `breeds/search&q=${name}` }),
+      providesTags: (result = []) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Breeds' as const, id })),
+              { type: 'Breeds', id: 'LIST' }
+            ]
+          : [{ type: 'Breeds', id: 'LIST' }]
     })
   })
 });
 
-export const { useGetBreedsQuery } = breedsApi;
+export const { useGetBreedsQuery, useSearchBreedsNameQuery } = breedsApi;

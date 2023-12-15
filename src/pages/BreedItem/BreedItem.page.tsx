@@ -18,6 +18,7 @@ import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
 import GridWrapper from '../../components/atoms/GridWrapper';
 
 import './BreedItem.css';
+import PowIcon from '../../components/atoms/Icons/PowIcon';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -68,10 +69,13 @@ export const BreedItem = () => {
                 <ListItem alignItems="flex-start">
                   <ListItemText>
                     <Typography
-                      component="h1"
+                      component="h3"
                       sx={{ fontSize: '1.65rem', m: 0, p: 0 }}
                     >
-                      {breed?.name}
+                      {breed?.name}{' '}
+                      <span>
+                        <PowIcon />
+                      </span>{' '}
                     </Typography>
                   </ListItemText>
                 </ListItem>
