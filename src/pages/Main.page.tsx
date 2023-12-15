@@ -6,23 +6,15 @@ import {
   ImageList,
   ImageListItem,
   Box,
-  styled,
-  Autocomplete,
-  TextField,
-  Stack,
-  List,
-  ListItem
+  styled
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 
 import { useAddFavoritesMutation } from '../services/favorites';
 import { useGetImagesWithFavorites } from '../utilities';
 
 import YellowBorderHeartIcon from '../components/atoms/Icons/YellowBorderHeartIcon';
 import LoadingStatus from '../components/atoms/LoadingStatus';
-import SortedComponent from '../components/molecules/SortedComponent';
-import { useGetBreedsQuery } from '../services/breeds';
-import YellowArrowIcon from '../components/atoms/Icons/YellowArrowIcon';
+import BlackBorderHeartIcon from '../components/atoms/Icons/BlackBorderHeartIcon';
 
 export const StyledBox = styled(Box)(() => ({
   margin: 40,
@@ -33,44 +25,12 @@ export const StyledBox = styled(Box)(() => ({
 
 export const Main = () => {
   const [page, setPage] = useState(0);
-  const [input, setInput] = useState('');
 
   const { data: favoriteImages, isLoading } = useGetImagesWithFavorites({
     page
   });
 
-  const { data: breeds } = useGetBreedsQuery();
-  const navigate = useNavigate();
-
   const [addFavorite] = useAddFavoritesMutation();
-
-  // *****
-
-  const searchedBreed = (breeds || []).filter(breed =>
-    breed.name.toLocaleLowerCase().includes(input)
-  );
-
-  const image = searchedBreed.map(item => (
-    <ListItem key={item.id}>
-      <img src={item.image.url} alt="breed" width="300px" />
-      <Button
-        variant="text"
-        endIcon={<YellowArrowIcon />}
-        onClick={() => navigate(`/breeds/${item.id}`)}
-        sx={{
-          color: '#FFF',
-          m: 2
-        }}
-      />
-    </ListItem>
-  ));
-
-  const inputHandler = event => {
-    const lowerCase = event.target.value.toLowerCase();
-    setInput(lowerCase);
-  };
-
-  // *****
 
   const handleAddClick = (id: string) => () => {
     addFavorite({ image_id: id, sub_id: 'olena' });
@@ -93,7 +53,13 @@ export const Main = () => {
         onClick={handleAddClick(favoriteImage.id)}
         sx={{ position: 'absolute', m: 2 }}
         variant="text"
-        startIcon={<YellowBorderHeartIcon />}
+        startIcon={
+          favoriteImage.isFavorite ? (
+            <YellowBorderHeartIcon />
+          ) : (
+            <BlackBorderHeartIcon />
+          )
+        }
       />
       <img
         src={favoriteImage.url}
@@ -111,31 +77,6 @@ export const Main = () => {
           <LoadingStatus />
         </div>
       )}
-      <StyledBox>
-        <Stack spacing={2} sx={{ width: 300 }}>
-          <Autocomplete
-            freeSolo
-            id="free-solo-2-demo"
-            disableClearable
-            options={(breeds || []).map(breed => breed.name)}
-            onChange={inputHandler}
-            renderInput={params => (
-              <TextField
-                {...params}
-                label="Search dog by name"
-                InputProps={{
-                  ...params.InputProps,
-                  type: 'search'
-                }}
-              />
-            )}
-          />
-        </Stack>
-        <SortedComponent />
-      </StyledBox>
-
-      <List>{image}</List>
-
       <Box>
         <ImageList>{renderFavoriteImage}</ImageList>
       </Box>

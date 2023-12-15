@@ -27,7 +27,7 @@ export const favoritesApi = api.injectEndpoints({
       }),
       invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
     }),
-    getFavorites: build.query<FavoriteResponse, void>({
+    getFavorites: build.query<FavoriteResponse, { sub_id?: string }>({
       query: ({ sub_id }) => ({ url: `favourites?sub_id=${sub_id}` }),
 
       providesTags: (result = []) =>
