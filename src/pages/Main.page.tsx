@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 import {
   Button,
   Container,
@@ -12,23 +12,7 @@ import { useAddFavoritesMutation } from '../services/favorites';
 import { useGetImagesWithFavorites } from '../utilities';
 
 import YellowBorderHeartIcon from '../components/atoms/Icons/YellowBorderHeartIcon';
-import BlackBorderHeartIcon from '../components/atoms/Icons/BlackBorderHeartIcon';
 import LoadingStatus from '../components/atoms/LoadingStatus';
-
-type HeartIconProps = {
-  state: 'active' | 'default';
-};
-
-export const ImageIcon: FC<PropsWithChildren<HeartIconProps>> = ({ state }) => {
-  if (state === 'active') {
-    return <YellowBorderHeartIcon />;
-  }
-  if (state === 'default') {
-    return <BlackBorderHeartIcon />;
-  }
-
-  throw new Error(`Invalid state: ${state}`);
-};
 
 export const Main = () => {
   const [page, setPage] = useState(0);
@@ -54,12 +38,14 @@ export const Main = () => {
   const renderFavoriteImage = (favoriteImages || []).map(favoriteImage => (
     <ImageListItem
       key={favoriteImage.id}
-      onClick={handleAddClick(favoriteImage.id)}
       sx={{ boxShadow: '8px 8px 10px #000', m: 2, borderRadius: '20px' }}
     >
-      <Button sx={{ position: 'absolute' }}>
-        <ImageIcon state={favoriteImage.isFavorite ? 'active' : 'default'} />
-      </Button>
+      <Button
+        onClick={handleAddClick(favoriteImage.id)}
+        sx={{ position: 'absolute', m: 2 }}
+        variant="text"
+        startIcon={<YellowBorderHeartIcon />}
+      />
       <img
         src={favoriteImage.url}
         alt={favoriteImage.id}
