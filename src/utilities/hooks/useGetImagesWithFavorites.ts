@@ -27,7 +27,8 @@ export const useGetImagesWithFavorites = ({
   });
   const favoriteImages = useTypedSelector(
     selectImagesWithFavorites({
-      getImagesProps: { limit, page, mime_types, order }
+      getImagesProps: { limit, page, mime_types, order },
+      sub_id: 'olena'
     })
   );
   return {

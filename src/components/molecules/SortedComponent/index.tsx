@@ -9,13 +9,13 @@ const StyledTypography = styled(Typography)(({ theme: { palette } }) => ({
   margin: 20
 }));
 
-const SortedComponent = () => (
+const SortedComponent = ({ ordered }: any) => (
   <ButtonGroup variant="text" aria-label="outlined button group">
     <StyledTypography>Sort by: </StyledTypography>
-    <Button>
+    <Button onClick={() => ordered('DESC')}>
       <SortDownIcon />
     </Button>
-    <Button>
+    <Button onClick={() => ordered('ASC')}>
       <SortUpIcon />
     </Button>
   </ButtonGroup>

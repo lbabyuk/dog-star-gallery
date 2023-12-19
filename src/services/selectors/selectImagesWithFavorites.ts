@@ -12,12 +12,15 @@ export interface GetImageProps {
   };
 }
 
-export const selectImagesWithFavorites = ({ getImagesProps }: GetImageProps) =>
+export const selectImagesWithFavorites = ({
+  getImagesProps,
+  sub_id
+}: GetImageProps) =>
   createSelector(
     (state: RootState) =>
       imagesApi.endpoints.getImages.select(getImagesProps)(state)?.data || [],
     (state: RootState) =>
-      favoritesApi.endpoints.getFavorites.select()(state)?.data || [],
+      favoritesApi.endpoints.getFavorites.select({ sub_id })(state)?.data || [],
     (images, favorites) => {
       const favoriteIds = new Set(favorites.map(fav => fav.image_id));
       return images.map(image => ({

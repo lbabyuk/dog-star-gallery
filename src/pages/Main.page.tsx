@@ -15,6 +15,7 @@ import { useGetImagesWithFavorites } from '../utilities';
 import YellowBorderHeartIcon from '../components/atoms/Icons/YellowBorderHeartIcon';
 import LoadingStatus from '../components/atoms/LoadingStatus';
 import BlackBorderHeartIcon from '../components/atoms/Icons/BlackBorderHeartIcon';
+import SortedComponent from '../components/molecules/SortedComponent';
 
 export const StyledBox = styled(Box)(() => ({
   margin: 40,
@@ -25,9 +26,11 @@ export const StyledBox = styled(Box)(() => ({
 
 export const Main = () => {
   const [page, setPage] = useState(0);
+  const [order, setOrder] = useState();
 
   const { data: favoriteImages, isLoading } = useGetImagesWithFavorites({
-    page
+    page,
+    order
   });
 
   const [addFavorite] = useAddFavoritesMutation();
@@ -77,7 +80,8 @@ export const Main = () => {
           <LoadingStatus />
         </div>
       )}
-      <Box>
+      <Box sx={{ m: 4 }}>
+        <SortedComponent ordered={setOrder} />
         <ImageList>{renderFavoriteImage}</ImageList>
       </Box>
       <Box display="flex" justifyContent="flex-end" alignItems="center">
