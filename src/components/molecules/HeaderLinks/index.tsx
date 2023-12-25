@@ -9,6 +9,10 @@ const headerMenu = [
   {
     title: 'Breeds',
     path: '/breeds'
+  },
+  {
+    title: 'Votes',
+    path: '/votes'
   }
 ];
 

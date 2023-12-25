@@ -1,31 +1,34 @@
-import { useNavigate, useParams } from 'react-router-dom';
+/* eslint-disable react/jsx-props-no-spreading */
+import { FC } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   Grid,
   Box,
+  Container,
   List,
-  ListItem,
   ListItemText,
-  Typography,
-  Button,
-  ImageList,
-  ImageListItem,
-  Container
+  ListItem
 } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
-import Image from '../../components/atoms/Image';
-import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
-import GridWrapper from '../../components/atoms/GridWrapper';
-
+import {
+  Item,
+  TypographyElement,
+  ButtonElement,
+  ImageElement
+} from './BreedItemStyled';
 import './BreedItem.css';
 import PowIcon from '../../components/atoms/Icons/PowIcon';
+import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
+import BreedImageList from './BreedImageList/BreedImageList';
+import powGroup from '../../assets/path-group.png';
 
-export const BreedItem = () => {
+export const BreedItem: FC = () => {
   const { breedId } = useParams();
   const { data: breeds, isLoading } = useGetBreedsQuery();
   const navigate = useNavigate();
 
-  const breed = breeds?.find(item => item.id === Number(breedId));
+  const breed = (breeds || []).find(item => item.id === Number(breedId));
 
   return (
     <>
@@ -34,115 +37,91 @@ export const BreedItem = () => {
           <LoadingStatus />
         </div>
       )}
-      <Container maxWidth="xl" sx={{ p: 2 }}>
-        <Box maxWidth="xl" className="box">
-          <GridWrapper container columnSpacing={1} rowSpacing={1} height="70vh">
+      <Container maxWidth="xl" className="container">
+        <Box sx={{ width: '100%' }}>
+          <Grid
+            container
+            rowSpacing={1}
+            columns={{ xs: 4, md: 12 }}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
             <Grid item xs={5}>
-              <img
-                src={breed?.image.url}
-                alt={breed?.name}
-                style={{
-                  boxShadow: '8px 8px 10px #000',
-                  margin: '20px',
-                  borderRadius: '20px',
-                  width: '300px'
-                }}
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <ImageList cols={1} variant="standard" className="image-list">
-                {(breeds || []).map(item => (
-                  <ImageListItem key={item.id} sx={{ width: '125px' }}>
-                    <Image
-                      src={item.image.url}
-                      alt={item.name}
-                      className="image"
-                      aria-hidden="true"
-                      onClick={() => navigate(`/breeds/${item.id}`)}
-                    />
-                  </ImageListItem>
-                ))}
-              </ImageList>
+              <Item elevation={0}>
+                <img
+                  className="breed-image"
+                  src={breed?.image.url}
+                  alt={breed?.name}
+                />
+              </Item>
             </Grid>
             <Grid item xs={5}>
-              <List sx={{ width: '100%', maxWidth: 440 }}>
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography
-                      component="h3"
-                      sx={{ fontSize: '1.65rem', m: 0, p: 0 }}
+              <Item elevation={0}>
+                <List sx={{ width: '100%' }}>
+                  <ListItem>
+                    <ListItemText>
+                      <TypographyElement>
+                        {breed?.name}{' '}
+                        <span>
+                          <PowIcon />
+                        </span>{' '}
+                      </TypographyElement>
+                    </ListItemText>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText>
+                      <TypographyElement>
+                        Bred for:{' '}
+                        <span className="span">{breed?.bred_for}</span>
+                      </TypographyElement>
+                    </ListItemText>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText>
+                      <TypographyElement>
+                        Breed group:{' '}
+                        <span className="span">{breed?.breed_group}</span>
+                      </TypographyElement>
+                    </ListItemText>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText>
+                      <TypographyElement>
+                        Life span:{' '}
+                        <span className="span">{breed?.life_span}</span>
+                      </TypographyElement>
+                    </ListItemText>
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText>
+                      <TypographyElement>
+                        Temperament:{' '}
+                        <span className="span">{breed?.temperament}</span>
+                      </TypographyElement>
+                    </ListItemText>
+                  </ListItem>
+                  <ListItem>
+                    <ButtonElement
+                      onClick={() => navigate(`/breeds`)}
+                      endIcon={<YellowArrowIcon />}
                     >
-                      {breed?.name}{' '}
-                      <span>
-                        <PowIcon />
-                      </span>{' '}
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography>
-                      Weight:{' '}
-                      <span className="span">
-                        {breed?.weight.imperial} pounds
-                      </span>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography>
-                      Height:{' '}
-                      <span className="span">
-                        {breed?.height.imperial} inches at the shoulder
-                      </span>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography>
-                      Life span:{' '}
-                      <span className="span">{breed?.life_span} years</span>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography>
-                      Bred for: <span className="span">{breed?.bred_for}</span>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-
-                <ListItem alignItems="flex-start">
-                  <ListItemText>
-                    <Typography>
-                      Temperament:{' '}
-                      <span className="span">{breed?.temperament}</span>
-                    </Typography>
-                  </ListItemText>
-                </ListItem>
-                <ListItem>
-                  <Button
-                    onClick={() => navigate(`/breeds`)}
-                    variant="outlined"
-                    endIcon={<YellowArrowIcon />}
-                    sx={{
-                      color: '#000',
-                      boxShadow: '6px 6px 4px #000'
-                    }}
-                  >
-                    Back to Breeds
-                  </Button>
-                </ListItem>
-              </List>
+                      Back to Breeds
+                    </ButtonElement>
+                  </ListItem>
+                </List>
+              </Item>
             </Grid>
-          </GridWrapper>
+
+            <Grid item xs={2}>
+              <BreedImageList />
+            </Grid>
+          </Grid>
+        </Box>
+        <Box>
+          <ImageElement
+            src={powGroup}
+            alt="powGroup"
+            className="powGroup-image"
+          />
         </Box>
       </Container>
     </>

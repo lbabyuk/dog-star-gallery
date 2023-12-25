@@ -1,17 +1,17 @@
-import { ButtonGroup, Typography, styled } from '@mui/material';
+import { FC } from 'react';
+import { ButtonGroup } from '@mui/material';
 import Button from '../../atoms/Button';
 import { SortDownIcon } from '../../atoms/Icons/SortDownIcon';
 import { SortUpIcon } from '../../atoms/Icons/SortUpIcon';
+import SortedTypography from './SortedTopography';
 
-const StyledTypography = styled(Typography)(({ theme: { palette } }) => ({
-  color: palette.grey[500],
-  fontSize: 20,
-  margin: 20
-}));
+type Ordered = {
+  ordered: (arg: string) => void;
+};
 
-const SortedComponent = ({ ordered }: any) => (
+const SortedComponent: FC<Ordered> = ({ ordered }) => (
   <ButtonGroup variant="text" aria-label="outlined button group">
-    <StyledTypography>Sort by: </StyledTypography>
+    <SortedTypography>Sort by: </SortedTypography>
     <Button onClick={() => ordered('DESC')}>
       <SortDownIcon />
     </Button>

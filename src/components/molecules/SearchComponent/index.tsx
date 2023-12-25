@@ -1,26 +1,25 @@
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
+import { FC, ChangeEvent } from 'react';
+import { FormControl } from '@mui/material';
+import BootstrapInput from './BootstrapInput';
 
-const SearchComponent = () => {
-  <Stack spacing={2} sx={{ width: 300 }}>
-    <Autocomplete
-      freeSolo
-      id="free-solo-2-demo"
-      disableClearable
-      options={(breeds || []).map(breed => breed.name)}
-      renderInput={params => (
-        <TextField
-          {...params}
-          label="Search input"
-          InputProps={{
-            ...params.InputProps,
-            type: 'search'
-          }}
-        />
-      )}
-    />
-  </Stack>;
+type InputProps = {
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  input: string;
+};
+
+// eslint-disable-next-line arrow-body-style
+const SearchComponent: FC<InputProps> = ({ onChange, input }) => {
+  return (
+    <FormControl sx={{ m: 1, width: 500 }} variant="standard">
+      <BootstrapInput
+        id="demo-customized-textbox"
+        type="text"
+        placeholder="Search dog by breed"
+        value={input}
+        onChange={onChange}
+      />
+    </FormControl>
+  );
 };
 
 export default SearchComponent;

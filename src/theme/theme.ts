@@ -19,7 +19,8 @@ const theme = createTheme({
     grey: {
       100: '#FBFAFC',
       300: '#E6E6E6',
-      500: '#ADA7B8'
+      500: '#ADA7B8',
+      900: '#000'
     },
     action: {
       hover: '#A239F4',

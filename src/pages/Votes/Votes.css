@@ -1,0 +1,50 @@
+.swiper {
+    max-width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .swiper-wrapper {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .swiper-slide {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .button-next,
+  .button-prev {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFCF32;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+  }
+  :is(.button-next, .button-prev):hover {
+    background-color: #FFCF32;
+  }
+  
+  .button-next {
+    right: 10px;
+  }
+  .button-prev {
+    left: 10px;
+  }
+  

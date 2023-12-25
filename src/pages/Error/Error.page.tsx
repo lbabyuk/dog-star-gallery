@@ -1,18 +1,10 @@
 import { FC } from 'react';
-import { Button, Container, styled } from '@mui/material';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import errorImage from '../assets/404 .png';
+import { StyledContainer } from './ErrorStyled';
+import errorImage from '../../assets/404.png';
 
-export const StyledContainer = styled(Container)(() => ({
-  margin: '0 auto',
-  height: '90vh',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center'
-}));
-
-const ErrorPage: FC = () => {
+export const ErrorPage: FC = () => {
   const navigate = useNavigate();
   const handelRefreshPage = () => navigate('/main');
 
@@ -25,5 +17,3 @@ const ErrorPage: FC = () => {
     </StyledContainer>
   );
 };
-
-export default ErrorPage;

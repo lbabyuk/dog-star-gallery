@@ -4,13 +4,20 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { DogAppThemeProvider } from './theme';
-import { BreedItem, Breeds, Favorites, Main } from './pages';
+import {
+  BreedItem,
+  Breeds,
+  Favorites,
+  Main,
+  ErrorPage,
+  Votes,
+  Upload
+} from './pages';
 
 import App from './App';
 import './index.css';
 
 import { store } from './services/store';
-import ErrorPage from './pages/Error.page';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +40,15 @@ const router = createBrowserRouter([
       {
         path: '/favorites',
         element: <Favorites />
+      },
+      {
+        path: '/votes',
+        element: <Votes />
+      },
+
+      {
+        path: '/upload',
+        element: <Upload />
       }
     ]
   }

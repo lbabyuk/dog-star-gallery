@@ -1,13 +1,6 @@
-import {
-  Card,
-  IconButton,
-  styled,
-  Box,
-  CardActions,
-  CardMedia
-} from '@mui/material';
-import React, { FC, PropsWithChildren, useState } from 'react';
-import YellowBorderHeartIcon from '../../atoms/Icons/YellowBorderHeartIcon';
+import { Card, IconButton, styled, Box, CardMedia } from '@mui/material';
+import { FC, PropsWithChildren } from 'react';
+import YellowBorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
 import BlackBorderHeartIcon from '../../atoms/Icons/BlackBorderHeartIcon';
 
 type HeartIconProps = {

@@ -8,23 +8,13 @@ import {
   ImageListItem,
   ImageListItemBar,
   Container,
-  Typography,
-  Autocomplete,
-  Stack,
-  TextField,
-  styled
+  Typography
 } from '@mui/material';
-import { useGetBreedsQuery } from '../services/breeds';
-import LoadingStatus from '../components/atoms/LoadingStatus';
-import YellowArrowIcon from '../components/atoms/Icons/YellowArrowIcon';
-import SortedComponent from '../components/molecules/SortedComponent';
-
-export const StyledBox = styled(Box)(() => ({
-  margin: 40,
-  display: 'flex',
-  justifyContent: 'space-around',
-  alignItems: 'center'
-}));
+import { useGetBreedsQuery } from '../../services/breeds';
+import LoadingStatus from '../../components/atoms/LoadingStatus';
+import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
+import SearchComponent from '../../components/molecules/SearchComponent';
+import { StyledBox } from './BreedsStyled';
 
 export const Breeds = () => {
   const [input, setInput] = useState('');
@@ -33,18 +23,19 @@ export const Breeds = () => {
 
   const { data: breeds, isLoading } = useGetBreedsQuery();
 
-  const options = (breeds || []).map(breed => breed.name);
-
-  const searchedBreed = (breeds || []).filter(breed => {
+  const getFilteredBreed = () => {
     if (input === '') {
-      return breed;
+      return breeds;
     }
-    return breed.name.toLowerCase().includes(input);
-  });
+    return (breeds || []).filter(breed =>
+      breed.name.toLowerCase().includes(input)
+    );
+  };
 
-  const inputHandler = event => {
-    const lowerCase = event.target.value.toLowerCase();
-    setInput(lowerCase);
+  const searchedBreed = getFilteredBreed();
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(event.target.value);
   };
 
   return (
@@ -55,27 +46,7 @@ export const Breeds = () => {
         </div>
       )}
       <StyledBox>
-        <Stack spacing={2} sx={{ width: 300 }}>
-          <Autocomplete
-            freeSolo
-            id="free-solo-2-demo"
-            disableClearable
-            options={options}
-            onChange={inputHandler}
-            renderInput={params => (
-              <TextField
-                {...params}
-                label="Search dog by name"
-                InputProps={{
-                  ...params.InputProps,
-                  type: 'search'
-                }}
-              />
-            )}
-          />
-        </Stack>
-
-        <SortedComponent />
+        <SearchComponent onChange={handleChange} input={input} />
       </StyledBox>
 
       <Box>
@@ -83,12 +54,12 @@ export const Breeds = () => {
           {(searchedBreed || []).map(breed => (
             <ImageListItem
               key={breed.id}
-              sx={{ boxShadow: '8px 8px 5px #000', m: 2, borderRadius: '20px' }}
+              sx={{ boxShadow: '8px 8px 5px #000', m: 2 }}
             >
               <img
                 src={breed.image.url}
                 alt={breed.name}
-                style={{ borderRadius: '20px' }}
+                className="image"
                 loading="lazy"
               />
               <ImageListItemBar

@@ -57,7 +57,7 @@ export const imagesApi = api.injectEndpoints({
     }),
     getImageById: build.query<ImagesResponse, { id?: string }>({
       query: ({ id }) => ({
-        url: `images/${id}?`
+        url: `images/${id}`
       })
     })
   })
