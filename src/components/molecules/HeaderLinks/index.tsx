@@ -13,6 +13,10 @@ const headerMenu = [
   {
     title: 'Votes',
     path: '/votes'
+  },
+  {
+    title: 'History',
+    path: '/history'
   }
 ];
 

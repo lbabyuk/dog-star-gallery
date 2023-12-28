@@ -5,17 +5,17 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Box, styled, Container, Button, ButtonGroup } from '@mui/material';
-// import { useGetImagesQuery } from '../../services/images';
+import { Box, styled, Container, Button } from '@mui/material';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
 import PaginationComponent from '../../components/molecules/Pagination/PaginationComponent';
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
-import { useGetImagesWithFavorites } from '../../utilities';
+import { useGetVotesImages } from '../../utilities';
 
 import './Votes.css';
 import LikeIcon from '../../components/atoms/Icons/LikeIcon';
-import HeartIcon from '../../components/atoms/Icons/HeartIcon';
+import Image from '../../components/atoms/Image';
+import { useAddVotesMutation } from '../../services/votes';
 
 export const StyledImage = styled('img')(() => ({
   borderRadius: '20px',
@@ -33,19 +33,18 @@ export const StyledButton = styled(Button)(({ theme }) => ({
 
 export const Votes = () => {
   const [page, setPage] = useState(0);
-  // const { data: images, isLoading } = useGetImagesQuery({ page });
+  const { data: votesImages, isLoading } = useGetVotesImages({ page });
 
-  const { data: favoriteImages, isLoading } = useGetImagesWithFavorites({
-    page
-  });
+  const [addVoted] = useAddVotesMutation();
 
   const handlePagination = (event: ChangeEvent<unknown>, value: number) => {
     event.preventDefault();
     setPage(value);
   };
 
-  const handleLikeClick = () => console.log('like');
-  const handleHeartClick = () => console.log('heart');
+  const handleLikeClick = (id: string) => () => {
+    addVoted({ image_id: id, sub_id: 'olena', value: 0 });
+  };
 
   return (
     <>
@@ -73,32 +72,27 @@ export const Votes = () => {
             slideShadows: true
           }}
         >
-          {(favoriteImages || []).map(slide => (
-            <SwiperSlide key={slide.id} className="slide-inner">
+          {(votesImages || []).map(votesImage => (
+            <SwiperSlide key={votesImage.id} className="slide-inner">
               {({ isActive }) => (
                 // eslint-disable-next-line react/jsx-no-useless-fragment
                 <>
                   {isActive ? (
                     <>
-                      <StyledImage src={slide.url} alt={slide.url} />
-                      <ButtonGroup
+                      <StyledImage src={votesImage.url} alt={votesImage.url} />
+                      <StyledButton
                         style={{ position: 'absolute', bottom: 0 }}
                         variant="text"
-                      >
-                        <StyledButton
-                          startIcon={<LikeIcon />}
-                          onClick={handleLikeClick}
-                        />
-                        <StyledButton
-                          endIcon={<HeartIcon />}
-                          onClick={handleHeartClick}
-                        />
-                      </ButtonGroup>
+                        onClick={handleLikeClick(votesImage.id)}
+                        startIcon={
+                          <LikeIcon style={{ width: '45px', height: '45px' }} />
+                        }
+                      />
                     </>
                   ) : (
                     <StyledImage
-                      src={slide.url}
-                      alt={slide.url}
+                      src={votesImage.url}
+                      alt={votesImage.url}
                       style={{ filter: 'grayscale(100%)' }}
                     />
                   )}
@@ -107,10 +101,10 @@ export const Votes = () => {
             </SwiperSlide>
           ))}
           <div className="button-prev">
-            <img src={arrowLeft} alt="Left" />
+            <Image src={arrowLeft} alt="Left" />
           </div>
           <div className="button-next">
-            <img src={arrowRight} alt="Right" />
+            <Image src={arrowRight} alt="Right" />
           </div>
         </Swiper>
         <Box display="flex" justifyContent="center" alignItems="center">

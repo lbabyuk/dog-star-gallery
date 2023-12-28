@@ -44,19 +44,11 @@ export const favoritesApi = api.injectEndpoints({
         method: 'DELETE'
       }),
       invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
-    }),
-    login: build.mutation<{ sub_id: string; user: Favorite }, unknown>({
-      query: (credentials: unknown) => ({
-        url: 'login',
-        method: 'POST',
-        body: credentials
-      })
     })
   })
 });
 
 export const {
-  useLoginMutation,
   useAddFavoritesMutation,
   useGetFavoritesQuery,
   useDeleteFavoritesMutation

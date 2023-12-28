@@ -1,7 +1,8 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-const LikeIcon = () => (
-  <SvgIcon>
+const LikeIcon = (props: SvgIconProps) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <SvgIcon {...props}>
     <svg
       width="26"
       height="27"

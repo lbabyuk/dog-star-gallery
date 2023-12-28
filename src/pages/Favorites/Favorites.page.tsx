@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box,
@@ -50,8 +50,8 @@ export const Favorites = () => {
         ) : (
           <ImageList>
             {(breeds || []).map(breed => (
-              <>
-                <StyledImageListItem key={breed.id}>
+              <Fragment key={breed.id}>
+                <StyledImageListItem>
                   <img
                     src={breed.image.url}
                     alt={breed.image_id}
@@ -97,7 +97,7 @@ export const Favorites = () => {
                     </StyledBox>
                   </StyledPaper>
                 </Modal>
-              </>
+              </Fragment>
             ))}
           </ImageList>
         )}
