@@ -17,6 +17,10 @@ const headerMenu = [
   {
     title: 'History',
     path: '/history'
+  },
+  {
+    title: 'Your Uploads',
+    path: '/yourUploads'
   }
 ];
 

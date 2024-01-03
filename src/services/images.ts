@@ -55,6 +55,32 @@ export const imagesApi = api.injectEndpoints({
             ]
           : [{ type: 'Images' as const, id: 'LIST' }]
     }),
+    getUploadImages: build.query<
+      ImagesResponse,
+      {
+        sub_id?: string;
+        original_filename?: string;
+      }
+    >({
+      query: ({ sub_id, original_filename }) => ({
+        url: `images/?sub_id=${sub_id}&original_filename=${original_filename}`
+      }),
+      providesTags: (result = []) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Images', id }) as const),
+              { type: 'Images', id: 'LIST' }
+            ]
+          : [{ type: 'Images' as const, id: 'LIST' }]
+    }),
+    addUploadedImage: build.mutation<unknown, ImagesResponse>({
+      query: body => ({
+        url: `images/upload`,
+        method: 'POST',
+        body
+      }),
+      invalidatesTags: [{ type: 'Images' as const, id: 'LIST' }]
+    }),
     getImageById: build.query<ImagesResponse, { id?: string }>({
       query: ({ id }) => ({
         url: `images/${id}`
@@ -63,4 +89,9 @@ export const imagesApi = api.injectEndpoints({
   })
 });
 
-export const { useGetImagesQuery, useGetImageByIdQuery } = imagesApi;
+export const {
+  useGetImagesQuery,
+  useGetImageByIdQuery,
+  useGetUploadImagesQuery,
+  useAddUploadedImageMutation
+} = imagesApi;

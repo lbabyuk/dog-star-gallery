@@ -4,5 +4,6 @@ export * from './Main/Main.page';
 export * from './Favorites/Favorites.page';
 export * from './Error/Error.page';
 export * from './Votes/Votes.page';
-export * from './Upload/Upload.page';
+export * from './YourUploads/YourUploads.page';
 export * from './history/History.page';
+export * from './Uploads/Uploads.page';

@@ -11,8 +11,9 @@ import {
   Main,
   ErrorPage,
   Votes,
-  Upload,
-  History
+  Uploads,
+  History,
+  YourUploads
 } from './pages';
 
 import App from './App';
@@ -47,12 +48,16 @@ const router = createBrowserRouter([
         element: <Votes />
       },
       {
-        path: '/upload',
-        element: <Upload />
+        path: '/yourUploads',
+        element: <YourUploads />
       },
       {
         path: '/history',
         element: <History />
+      },
+      {
+        path: '/upload',
+        element: <Uploads />
       }
     ]
   }

@@ -6,6 +6,7 @@ import {
   Typography,
   Button
 } from '@mui/material';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
 import { useDeleteVotesMutation, useGetVotesQuery } from '../../services/votes';
@@ -71,7 +72,7 @@ export const History = () => {
                   m={1}
                   p={1}
                 >
-                  {breed.created_at}`
+                  {moment(breed.created_at).format('DD.MM.YYYY HH:MM')}
                 </Typography>
                 <Button
                   variant="contained"
