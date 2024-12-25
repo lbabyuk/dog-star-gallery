@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
 
 const headerMenu = [
   {
     title: 'Main',
-    path: '/main'
+    path: ''
   },
   {
     title: 'Breeds',
@@ -17,10 +17,6 @@ const headerMenu = [
   {
     title: 'History',
     path: '/history'
-  },
-  {
-    title: 'Your Uploads',
-    path: '/yourUploads'
   }
 ];
 
@@ -35,30 +31,57 @@ const HeaderLinks = () => (
       }
     }}
   >
-    {headerMenu.map(item => (
-      <NavLink
-        key={item.title}
-        to={item.path}
-        style={{
-          textDecoration: 'none',
-          color: '#5F556D'
-        }}
-        end
-      >
-        {({ isActive }) => (
-          <Box
+    <List
+      sx={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: '50px'
+      }}
+    >
+      {headerMenu.map(item => (
+        <ListItem key={item.title}>
+          <NavLink
+            to={item.path}
+            end
             style={{
-              display: 'inline-block',
-              margin: 5,
-              color: isActive ? '#921FED' : 'inherit',
-              fontSize: 20
+              textDecoration: 'none'
             }}
           >
-            {item.title}
-          </Box>
-        )}
-      </NavLink>
-    ))}
+            {({ isActive }) => (
+              <ListItemButton
+                sx={{
+                  height: '33px',
+                  padding: '4px 10px',
+                  borderRadius: '6px',
+
+                  color: theme =>
+                    isActive
+                      ? theme.palette.grey[600]
+                      : theme.palette.text.primary,
+
+                  boxShadow: theme =>
+                    isActive
+                      ? `2px 2px 0 0 ${theme.palette.grey[900]}`
+                      : 'none',
+
+                  backgroundColor: theme =>
+                    isActive ? theme.palette.action.selected : 'none',
+                  fontWeight: 400,
+
+                  '&:hover': {
+                    backgroundColor: theme => theme.palette.action.hover,
+                    color: theme => theme.palette.grey[600]
+                  }
+                }}
+              >
+                <Typography variant="body1">{item.title}</Typography>
+              </ListItemButton>
+            )}
+          </NavLink>
+        </ListItem>
+      ))}
+    </List>
   </Box>
 );
 

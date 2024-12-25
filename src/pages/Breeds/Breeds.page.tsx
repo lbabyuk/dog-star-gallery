@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -8,34 +8,60 @@ import {
   ImageListItem,
   ImageListItemBar,
   Container,
-  Typography
+  Typography,
+  styled,
+  ButtonGroup
 } from '@mui/material';
-import { useGetBreedsQuery } from '../../services/breeds';
+import { useGetBreedsQuery, Breed } from '../../services/breeds';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
 import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
 import SearchComponent from '../../components/molecules/SearchComponent';
 import { StyledBox } from './BreedsStyled';
+import { SortDownIcon } from '../../components/atoms/Icons/SortDownIcon';
+import { SortUpIcon } from '../../components/atoms/Icons/SortUpIcon';
+import { useDebounce } from '../../utilities/hooks/useDebounce';
+
+const StyledTypography = styled(Typography)(({ theme: { palette } }) => ({
+  color: palette.grey[500],
+  textAlign: 'left',
+  fontSize: 20
+}));
 
 export const Breeds = () => {
-  const [input, setInput] = useState('');
+  const { data: breeds, isLoading } = useGetBreedsQuery();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sorted, setSorted] = useState<Breed[]>([]);
+
+  const debouncedSearchQuery = useDebounce(searchQuery, 500);
 
   const navigate = useNavigate();
 
-  const { data: breeds, isLoading } = useGetBreedsQuery();
-
-  const getFilteredBreed = () => {
-    if (input === '') {
-      return breeds;
+  useEffect(() => {
+    if (breeds) {
+      setSorted(breeds);
     }
-    return (breeds || []).filter(breed =>
-      breed.name.toLowerCase().includes(input)
+  }, [breeds]);
+
+  const handleSortedUp = () => {
+    const sortedBreeds = [...sorted].sort((a, b) =>
+      b.name.localeCompare(a.name)
     );
+    setSorted(sortedBreeds);
   };
 
-  const searchedBreed = getFilteredBreed();
+  const handleSortedDown = () => {
+    const sortedBreeds = [...sorted].sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    setSorted(sortedBreeds);
+  };
+
+  const filteredBreeds = sorted.filter(breed =>
+    breed.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(event.target.value);
+    setSearchQuery(event.target.value);
   };
 
   return (
@@ -46,12 +72,21 @@ export const Breeds = () => {
         </div>
       )}
       <StyledBox>
-        <SearchComponent onChange={handleChange} input={input} />
+        <SearchComponent onChange={handleChange} input={searchQuery} />
+        <StyledTypography variant="caption">Sort by:</StyledTypography>
+        <ButtonGroup variant="text" aria-label="text button group">
+          <Button onClick={handleSortedDown}>
+            <SortDownIcon />
+          </Button>
+          <Button onClick={handleSortedUp}>
+            <SortUpIcon />
+          </Button>
+        </ButtonGroup>
       </StyledBox>
 
       <Box>
         <ImageList>
-          {(searchedBreed || []).map(breed => (
+          {(filteredBreeds || []).map(breed => (
             <ImageListItem
               key={breed.id}
               sx={{ boxShadow: '8px 8px 5px #000', m: 2 }}
@@ -74,7 +109,7 @@ export const Breeds = () => {
                     endIcon={<YellowArrowIcon />}
                     onClick={() => navigate(`/breeds/${breed.id}`)}
                     sx={{
-                      color: '#FFF',
+                      color: '#fff',
                       m: 2
                     }}
                   >

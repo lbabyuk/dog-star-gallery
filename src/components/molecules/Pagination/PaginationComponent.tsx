@@ -1,24 +1,32 @@
-import { FC, ChangeEvent } from 'react';
-import { Pagination } from '@mui/material';
+import { Container, Pagination, Stack } from '@mui/material';
 
-type PaginationProps = {
-  count: number;
+type PaginationComponentProps = {
   page: number;
-  onChange: (event: ChangeEvent<unknown>, value: number) => void;
+  count: number;
+  onChange: (event: React.ChangeEvent<unknown>, value: number) => void;
 };
 
-const PaginationComponent: FC<PaginationProps> = ({
-  count,
+const PaginationComponent = ({
   page,
-  onChange
-}) => (
-  <Pagination
-    count={count}
-    page={page}
-    onChange={onChange}
-    showFirstButton
-    showLastButton
-  />
+  onChange,
+  count
+}: PaginationComponentProps) => (
+  <Container
+    maxWidth="md"
+    sx={{ p: 2, display: 'flex', justifyContent: 'center' }}
+  >
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <Pagination
+        count={count}
+        page={page}
+        onChange={onChange}
+        siblingCount={1}
+        boundaryCount={1}
+        showFirstButton
+        showLastButton
+      />
+    </Stack>
+  </Container>
 );
 
 export default PaginationComponent;

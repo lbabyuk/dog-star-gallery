@@ -10,9 +10,8 @@ type InputProps = {
 // eslint-disable-next-line arrow-body-style
 const SearchComponent: FC<InputProps> = ({ onChange, input }) => {
   return (
-    <FormControl sx={{ m: 1, width: 500 }} variant="standard">
+    <FormControl sx={{ m: 1, width: '500px' }} variant="standard">
       <BootstrapInput
-        id="demo-customized-textbox"
         type="text"
         placeholder="Search dog by breed"
         value={input}

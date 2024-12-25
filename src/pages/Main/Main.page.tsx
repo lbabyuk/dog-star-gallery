@@ -1,9 +1,7 @@
 import { useState, ChangeEvent } from 'react';
 import { Container, ImageList, Box } from '@mui/material';
-
 import { useAddFavoritesMutation } from '../../services/favorites';
 import { useGetImagesWithFavorites } from '../../utilities';
-
 import BorderHeartIcon from '../../components/atoms/Icons/BorderHeartIcon';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
 import SortedComponent from '../../components/molecules/SortedComponent';
@@ -37,13 +35,9 @@ export const Main = () => {
 
   return (
     <Container>
-      {isLoading && (
-        <div>
-          <LoadingStatus />
-        </div>
-      )}
       <Box sx={{ m: 4 }}>
-        <SortedComponent ordered={setOrder} />
+        {isLoading && <LoadingStatus />}
+        <SortedComponent ordered={setOrder} order={order} />
         <ImageList rowHeight={350}>
           {(favoriteImages || []).map(favoriteImage => (
             <StyledImageListItem key={favoriteImage.id}>
@@ -52,11 +46,19 @@ export const Main = () => {
                 startIcon={
                   favoriteImage.isFavorite ? (
                     <BorderHeartIcon
-                      sx={{ color: '#FFCF32', width: '35px', height: '35px' }}
+                      sx={{
+                        color: theme => theme.palette.warning.main,
+                        width: '35px',
+                        height: '35px'
+                      }}
                     />
                   ) : (
                     <BorderHeartIcon
-                      sx={{ color: '#000', width: '35px', height: '35px' }}
+                      sx={{
+                        color: theme => theme.palette.grey[900],
+                        width: '35px',
+                        height: '35px'
+                      }}
                     />
                   )
                 }

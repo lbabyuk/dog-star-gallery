@@ -72,7 +72,8 @@ export const History = () => {
                   m={1}
                   p={1}
                 >
-                  {moment(breed.created_at).format('DD.MM.YYYY HH:MM')}
+                  {/* {moment(breed.created_at).format('DD.MM.YYYY HH:MM')} */}
+                  {moment(breed.created_at).calendar()}
                 </Typography>
                 <Button
                   variant="contained"

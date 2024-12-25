@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
 import { DogAppThemeProvider } from './theme';
 import {
   BreedItem,
@@ -11,9 +10,7 @@ import {
   Main,
   ErrorPage,
   Votes,
-  Uploads,
-  History,
-  YourUploads
+  History
 } from './pages';
 
 import App from './App';
@@ -28,6 +25,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: '',
+        element: <Main />
+      },
+
+      {
         path: 'breeds',
         element: <Breeds />
       },
@@ -35,10 +37,7 @@ const router = createBrowserRouter([
         path: 'breeds/:breedId',
         element: <BreedItem />
       },
-      {
-        path: '/main',
-        element: <Main />
-      },
+
       {
         path: '/favorites',
         element: <Favorites />
@@ -48,16 +47,8 @@ const router = createBrowserRouter([
         element: <Votes />
       },
       {
-        path: '/yourUploads',
-        element: <YourUploads />
-      },
-      {
         path: '/history',
         element: <History />
-      },
-      {
-        path: '/upload',
-        element: <Uploads />
       }
     ]
   }
