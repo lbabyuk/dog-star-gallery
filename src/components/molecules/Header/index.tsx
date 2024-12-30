@@ -1,10 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import { Toolbar, Container, styled, IconButton, Stack } from '@mui/material';
-import HeaderLinks from '../HeaderLinks';
-import LogoIcon from '../../atoms/Icons/LogoIcon';
-import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
+import {
+  Toolbar,
+  Container,
+  styled,
+  IconButton,
+  Box,
+  AppBar
+} from '@mui/material';
 
-export const StyledHeader = styled('header')(({ theme }) => ({
+import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
+import LogoIcon from '../../atoms/Icons/LogoIcon';
+import HeaderLinks from '../HeaderLinks';
+
+import { HeaderPopupMenu } from '../HeaderPopupMenu';
+
+export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
@@ -16,28 +26,47 @@ export const StyledHeader = styled('header')(({ theme }) => ({
 }));
 
 const HeaderComponent = () => (
-  <StyledHeader>
-    <Container maxWidth="lg">
+  <StyledHeader position="sticky">
+    <Container maxWidth="xl">
       <Toolbar disableGutters>
         <NavLink to="/">
-          <LogoIcon />
+          <LogoIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
         </NavLink>
-        <HeaderLinks />
 
-        <Stack flexDirection="row" sx={{ flexGrow: 0, gap: '30px' }}>
-          <IconButton
-            sx={{
-              padding: 0
-            }}
-            end
-            component={NavLink}
-            to="/favorites"
-          >
+        <Box
+          sx={{
+            flexGrow: { xs: 1, md: 0 },
+            display: { xs: 'flex', md: 'none' }
+          }}
+        >
+          <HeaderPopupMenu />
+        </Box>
+        <Box
+          sx={{
+            justifyContent: 'center',
+            flexGrow: { xs: 1, md: 0 }
+          }}
+        >
+          <NavLink to="/">
+            <LogoIcon
+              sx={{
+                display: { xs: 'flex', md: 'none' },
+                mr: 1
+              }}
+            />
+          </NavLink>
+        </Box>
+
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <HeaderLinks />
+        </Box>
+        <Box sx={{ flexGrow: 0 }}>
+          <IconButton end component={NavLink} to="/favorites" sx={{ p: 0 }}>
             <BorderHeartIcon
               sx={{ color: theme => theme.palette.warning.main }}
             />
           </IconButton>
-        </Stack>
+        </Box>
       </Toolbar>
     </Container>
   </StyledHeader>

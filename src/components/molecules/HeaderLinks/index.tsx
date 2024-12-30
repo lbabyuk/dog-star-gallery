@@ -1,24 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
-
-const headerMenu = [
-  {
-    title: 'Main',
-    path: ''
-  },
-  {
-    title: 'Breeds',
-    path: '/breeds'
-  },
-  {
-    title: 'Votes',
-    path: '/votes'
-  },
-  {
-    title: 'History',
-    path: '/history'
-  }
-];
+import { headerMenu } from '../../../constants/headerMenu';
 
 const HeaderLinks = () => (
   <Box
