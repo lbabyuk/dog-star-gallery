@@ -14,8 +14,12 @@ import { useGetVotesImages } from '../../utilities';
 
 import './Votes.css';
 import LikeIcon from '../../components/atoms/Icons/LikeIcon';
+import DislikeIcon from '../../components/atoms/Icons/DislikeIcon';
+import BorderHeartIcon from '../../components/atoms/Icons/BorderHeartIcon';
 import Image from '../../components/atoms/Image';
 import { useAddVotesMutation } from '../../services/votes';
+
+// import { SliderComponent } from '../../components/molecules/Slider/SliderComponent';
 
 export const StyledImage = styled('img')(() => ({
   borderRadius: '20px',
@@ -42,8 +46,8 @@ export const Votes = () => {
     setPage(value);
   };
 
-  const handleLikeClick = (id: string) => () => {
-    addVoted({ image_id: id, sub_id: 'olena', value: 0 });
+  const handleLikeClick = (id: string, value: number) => () => {
+    addVoted({ image_id: id, sub_id: 'olena', value });
   };
 
   return (
@@ -54,6 +58,11 @@ export const Votes = () => {
         </div>
       )}
       <Container>
+        {/* <SliderComponent
+          votesImages={votesImages}
+          handleLikeClick={handleLikeClick}
+        /> */}
+
         <Swiper
           modules={[EffectCoverflow, Navigation]}
           navigation={{
@@ -81,11 +90,48 @@ export const Votes = () => {
                     <>
                       <StyledImage src={votesImage.url} alt={votesImage.url} />
                       <StyledButton
-                        style={{ position: 'absolute', bottom: 0 }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '10px',
+                          left: '50%',
+                          transform: 'translateX(-50%)'
+                        }}
                         variant="text"
-                        onClick={handleLikeClick(votesImage.id)}
+                        onClick={handleLikeClick(votesImage.id, 1)}
                         startIcon={
                           <LikeIcon style={{ width: '45px', height: '45px' }} />
+                        }
+                      />
+                      <StyledButton
+                        style={{
+                          position: 'absolute',
+                          bottom: '10px',
+                          left: '10px' //
+                        }}
+                        variant="text"
+                        onClick={handleLikeClick(votesImage.id, 0)}
+                        startIcon={
+                          <BorderHeartIcon
+                            sx={{
+                              color: theme => theme.palette.warning.main,
+                              width: '45px',
+                              height: '45px'
+                            }}
+                          />
+                        }
+                      />
+                      <StyledButton
+                        style={{
+                          position: 'absolute',
+                          bottom: '10px',
+                          right: '10px'
+                        }}
+                        variant="text"
+                        onClick={handleLikeClick(votesImage.id, -1)}
+                        startIcon={
+                          <DislikeIcon
+                            style={{ width: '45px', height: '45px' }}
+                          />
                         }
                       />
                     </>

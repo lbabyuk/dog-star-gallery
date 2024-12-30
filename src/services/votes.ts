@@ -6,7 +6,7 @@ export interface Votes {
   value: number;
 }
 
-type VotesResponse = {
+export type VotesResponse = {
   created_at: string;
   country_code: string;
   id: number;
@@ -17,6 +17,7 @@ type VotesResponse = {
   image_id: string;
   sub_id: string | null;
   user_id: string;
+  value: number;
 }[];
 
 export const votesApi = api.injectEndpoints({
@@ -27,7 +28,8 @@ export const votesApi = api.injectEndpoints({
         method: 'POST',
         body
       }),
-      invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
+      // invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
+      invalidatesTags: [{ type: 'Votes' as const, id: 'LIST' }]
     }),
     getVotes: build.query<VotesResponse, { sub_id?: string }>({
       query: ({ sub_id }) => ({ url: `votes?sub_id=${sub_id}` }),

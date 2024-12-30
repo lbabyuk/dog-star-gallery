@@ -11,7 +11,7 @@ type GetImagesWithFavoritesProps = {
 };
 
 export const useGetImagesWithFavorites = ({
-  limit = 10,
+  limit = 12,
   page,
   mime_types,
   order
@@ -22,6 +22,7 @@ export const useGetImagesWithFavorites = ({
     mime_types,
     order
   });
+
   const { isLoading: isLoadingFavorites } = useGetFavoritesQuery({
     sub_id: 'olena'
   });

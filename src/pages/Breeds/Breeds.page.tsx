@@ -4,9 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
   Container,
   Typography,
   styled,
@@ -31,6 +28,7 @@ export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery();
   const [searchQuery, setSearchQuery] = useState('');
   const [sorted, setSorted] = useState<Breed[]>([]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
 
@@ -41,6 +39,10 @@ export const Breeds = () => {
       setSorted(breeds);
     }
   }, [breeds]);
+
+  const loadMore = () => {
+    setVisibleCount(prevCount => prevCount + 6);
+  };
 
   const handleSortedUp = () => {
     const sortedBreeds = [...sorted].sort((a, b) =>
@@ -84,42 +86,114 @@ export const Breeds = () => {
         </ButtonGroup>
       </StyledBox>
 
-      <Box>
-        <ImageList>
-          {(filteredBreeds || []).map(breed => (
-            <ImageListItem
-              key={breed.id}
-              sx={{ boxShadow: '8px 8px 5px #000', m: 2 }}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr 1fr' },
+          gap: '20px',
+          padding: '20px'
+        }}
+      >
+        {(filteredBreeds || []).slice(0, visibleCount).map(breed => (
+          <Box
+            key={breed.id}
+            onClick={() => navigate(`/breeds/${breed.id}`)}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              border: '1px solid #ccc',
+              padding: '16px',
+              borderRadius: '8px',
+              boxShadow: theme => `6px 6px 0 0  ${theme.palette.grey[900]}`,
+              cursor: 'pointer',
+              '&:hover': {
+                boxShadow: theme => `6px 6px 0 0 ${theme.palette.action.hover}`
+              }
+            }}
+          >
+            <img
+              style={{
+                width: '100%',
+                aspectRatio: 1,
+                objectFit: 'cover',
+                borderRadius: '8px',
+                marginBottom: '16px'
+              }}
+              src={breed.image.url}
+              alt={breed.name}
+              loading="lazy"
+            />
+            <Typography variant="body1">{breed.name}</Typography>
+
+            <Typography
+              variant="body2"
+              sx={{
+                color: theme => theme.palette.grey[900],
+                marginBottom: '16px'
+              }}
             >
-              <img
-                src={breed.image.url}
-                alt={breed.name}
-                className="image"
-                loading="lazy"
-              />
-              <ImageListItemBar
-                title={
-                  <Typography noWrap textAlign="left">
-                    {breed.name}
-                  </Typography>
-                }
-                actionIcon={
-                  <Button
-                    variant="text"
-                    endIcon={<YellowArrowIcon />}
-                    onClick={() => navigate(`/breeds/${breed.id}`)}
-                    sx={{
-                      color: '#fff',
-                      m: 2
-                    }}
-                  >
-                    Learn More
-                  </Button>
-                }
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
+              Temperament:{' '}
+              <Typography
+                component="span"
+                sx={{
+                  color: theme => theme.palette.grey[700],
+                  fontSize: '1.2rem'
+                }}
+              >
+                {breed.temperament
+                  ? breed.temperament
+                  : 'Playful, Adventures, Curious'}
+              </Typography>
+            </Typography>
+
+            <Box>
+              <Button
+                endIcon={<YellowArrowIcon />}
+                onClick={() => navigate(`/breeds/${breed.id}`)}
+                sx={{
+                  padding: '8px 16px',
+                  borderRadius: '6px',
+                  color: theme => theme.palette.secondary.main,
+                  backgroundColor: theme => theme.palette.action.selected,
+                  fontWeight: 400,
+                  '&:hover': {
+                    backgroundColor: theme => theme.palette.action.hover,
+                    boxShadow: theme =>
+                      `2px 2px 0 0 ${theme.palette.grey[900]}`,
+                    color: theme => theme.palette.grey[600]
+                  }
+                }}
+              >
+                Learn More
+              </Button>
+            </Box>
+          </Box>
+        ))}
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'end',
+          width: '100%',
+          margin: '50px 0'
+        }}
+      >
+        <Button
+          variant="text"
+          onClick={loadMore}
+          endIcon={<YellowArrowIcon />}
+          sx={{
+            '&:hover': {
+              backgroundColor: theme => theme.palette.action.hover,
+              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
+              color: theme => theme.palette.grey[600],
+              border: theme => theme.palette.grey[600]
+            }
+          }}
+        >
+          Load More breeds
+        </Button>
       </Box>
     </Container>
   );

@@ -10,6 +10,8 @@ export interface GetImageProps {
     mime_types?: string;
     order?: string;
   };
+  sub_id: string;
+  value: number;
 }
 
 export const selectImagesWithFavorites = ({

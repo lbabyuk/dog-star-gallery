@@ -21,10 +21,13 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-export const StyledImage = styled('img')(() => ({
+export const StyledImage = styled('img')(({ theme }) => ({
   borderRadius: '20px',
   width: '100%',
   height: '100%',
   display: 'block',
-  objectFit: 'cover'
+  objectFit: 'cover',
+  '&:hover': {
+    boxShadow: `6px 6px 0 0 ${theme.palette.action.hover}`
+  }
 }));

@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -41,12 +40,9 @@ export const Favorites = () => {
       )}
       <Box>
         {(breeds || []).length === 0 ? (
-          <>
-            <Typography variant="h4" component="h4" align="center" m={4} p={4}>
-              No favorite dogs breed yet
-            </Typography>
-            <Link to="/main">Choose your favorite breed here</Link>
-          </>
+          <Typography variant="h4" component="h4" align="center" m={4} p={4}>
+            No favorite dogs yet
+          </Typography>
         ) : (
           <ImageList>
             {(breeds || []).map(breed => (
