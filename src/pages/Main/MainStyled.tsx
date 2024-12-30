@@ -1,4 +1,4 @@
-import { Box, ImageListItem, styled, Button } from '@mui/material';
+import { Box, ImageListItem, styled } from '@mui/material';
 
 export const StyledBox = styled(Box)(() => ({
   margin: 40,
@@ -11,14 +11,6 @@ export const StyledImageListItem = styled(ImageListItem)(({ theme }) => ({
   boxShadow: `2px 4px 6px #000`,
   margin: theme.spacing(2),
   borderRadius: '20px'
-}));
-
-export const StyledButton = styled(Button)(({ theme }) => ({
-  position: 'absolute',
-  margin: theme.spacing(2),
-  '&:focus': {
-    outline: 'none'
-  }
 }));
 
 export const StyledImage = styled('img')(({ theme }) => ({

@@ -16,17 +16,20 @@ const SortedComponent: FC<Ordered> = ({ ordered, order }) => (
     alignItems="center"
     direction="row"
     justifyContent="center"
-    spacing={2}
+    spacing={1}
   >
     <Stack
       direction="row"
       justifyContent="center"
       alignItems="center"
-      spacing={1}
+      spacing={0.5}
     >
       <SortedTypography>Sort by: </SortedTypography>
       <Typography
-        sx={{ color: theme => theme.palette.grey[700], fontSize: '20px' }}
+        sx={{
+          color: theme => theme.palette.grey[700],
+          fontSize: { xs: '15px', md: '20px' }
+        }}
       >
         {order}
       </Typography>{' '}

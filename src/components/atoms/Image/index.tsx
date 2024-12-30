@@ -6,14 +6,28 @@ type ImageProps = {
   alt: string;
   width?: string;
   height?: string;
-  sx?: object;
   style?: object;
   className?: string;
-  onClick?: () => void;
 };
 
-const Image: FC<ImageProps> = ({ alt, src, ...rest }) => (
-  <img src={src} alt={alt} {...rest} />
+const Image: FC<ImageProps> = ({
+  id,
+  src,
+  alt,
+  width,
+  height,
+  style,
+  className
+}) => (
+  <img
+    id={id}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    style={style}
+    className={className}
+  />
 );
 
 export default Image;
