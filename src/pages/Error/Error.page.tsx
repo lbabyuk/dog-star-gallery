@@ -6,7 +6,7 @@ import errorImage from '../../assets/404.png';
 
 export const ErrorPage: FC = () => {
   const navigate = useNavigate();
-  const handelRefreshPage = () => navigate('/main');
+  const handelRefreshPage = () => navigate('/');
 
   return (
     <StyledContainer maxWidth="md">

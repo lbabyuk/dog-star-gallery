@@ -29,34 +29,33 @@ export const FavoriteImageList = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <Box>
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            sx: '1fr',
-            md: '1fr 1fr',
-            lg: '1fr 1fr 1fr'
-          },
-          gap: '20px',
-          padding: '20px'
-        }}
-      >
-        {(favoriteImages || []).map(favoriteImage => (
-          <Fragment key={favoriteImage.id}>
-            <FavoriteImageListItem
-              favoriteImage={favoriteImage}
-              onOpen={handleOpen}
-            />
-            <DeleteFavoriteImageModal
-              favoriteImageId={favoriteImage.id}
-              open={open}
-              onDeleteFavorite={handleDeleteFavorite}
-              onClose={handleClose}
-            />
-          </Fragment>
-        ))}
-      </Box>
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: '1fr 1fr',
+          md: '1fr 1fr 1fr',
+          lg: '1fr 1fr 1fr 1fr'
+        },
+        gap: '20px',
+        padding: '20px'
+      }}
+    >
+      {(favoriteImages || []).map(favoriteImage => (
+        <Fragment key={favoriteImage.id}>
+          <FavoriteImageListItem
+            favoriteImage={favoriteImage}
+            onOpen={handleOpen}
+          />
+          <DeleteFavoriteImageModal
+            favoriteImageId={favoriteImage.id}
+            open={open}
+            onDeleteFavorite={handleDeleteFavorite}
+            onClose={handleClose}
+          />
+        </Fragment>
+      ))}
     </Box>
   );
 };

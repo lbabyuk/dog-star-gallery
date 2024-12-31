@@ -9,11 +9,11 @@ import {
 } from '@mui/material';
 
 import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
-import LogoIcon from '../../atoms/Icons/LogoIcon';
 import HeaderLinks from '../HeaderLinks';
 
 import { HeaderPopupMenu } from '../HeaderPopupMenu';
 import HeartIcon from '../../atoms/Icons/HeartIcon';
+import BigLogoIcon from '../../atoms/Icons/BigLogoIcon';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',
@@ -23,6 +23,7 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.grey[500],
   boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
   borderRadius: '0 0 32px 32px',
+  padding: '0 30px',
   height: '82px'
 }));
 
@@ -31,12 +32,12 @@ const HeaderComponent = () => (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
         <NavLink to="/">
-          <LogoIcon
+          <BigLogoIcon
             sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
-              width: { xs: '35px', md: '40px' },
-              height: { xs: '35px', md: '40px' }
+              width: { xs: '100px', md: '160px' },
+              height: { xs: '40px', md: '40px' }
             }}
           />
         </NavLink>
@@ -56,10 +57,12 @@ const HeaderComponent = () => (
           }}
         >
           <NavLink to="/">
-            <LogoIcon
+            <BigLogoIcon
               sx={{
                 display: { xs: 'flex', md: 'none' },
-                mr: 1
+                mr: 1,
+                width: { xs: '150px', md: '130px' },
+                height: { xs: '40px', md: '40px' }
               }}
             />
           </NavLink>
@@ -71,7 +74,11 @@ const HeaderComponent = () => (
         <Box sx={{ flexGrow: 0 }}>
           <NavLink to="/favorites" end>
             {({ isActive }) => (
-              <IconButton sx={{ p: 0 }}>
+              <IconButton
+                sx={{
+                  p: 0
+                }}
+              >
                 {isActive ? (
                   <HeartIcon
                     sx={{

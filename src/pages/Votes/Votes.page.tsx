@@ -11,21 +11,23 @@ import PaginationComponent from '../../components/molecules/Pagination/Paginatio
 import arrowLeft from '../../assets/arrow-left.svg';
 import arrowRight from '../../assets/arrow-right.svg';
 import { useGetVotesImages } from '../../utilities';
-
 import './Votes.css';
 import LikeIcon from '../../components/atoms/Icons/LikeIcon';
 import DislikeIcon from '../../components/atoms/Icons/DislikeIcon';
-import BorderHeartIcon from '../../components/atoms/Icons/BorderHeartIcon';
 import Image from '../../components/atoms/Image';
 import { useAddVotesMutation } from '../../services/votes';
-
-// import { SliderComponent } from '../../components/molecules/Slider/SliderComponent';
+import HeartIcon from '../../components/atoms/Icons/HeartIcon';
 
 export const StyledImage = styled('img')(() => ({
+  position: 'absolute',
   borderRadius: '20px',
   width: '100%',
   height: '100%',
-  boxShadow: '4px 4px 2px #000'
+  boxShadow: `4px 4px 0 0 #212121`,
+  cursor: 'pointer',
+  '&:hover': {
+    boxShadow: `4px 4px 0 0 #A239F4,`
+  }
 }));
 
 export const StyledButton = styled(Button)(({ theme }) => ({
@@ -51,18 +53,13 @@ export const Votes = () => {
   };
 
   return (
-    <>
+    <Container>
       {isLoading && (
         <div>
           <LoadingStatus />
         </div>
       )}
-      <Container>
-        {/* <SliderComponent
-          votesImages={votesImages}
-          handleLikeClick={handleLikeClick}
-        /> */}
-
+      <Box>
         <Swiper
           modules={[EffectCoverflow, Navigation]}
           navigation={{
@@ -97,23 +94,10 @@ export const Votes = () => {
                           transform: 'translateX(-50%)'
                         }}
                         variant="text"
-                        onClick={handleLikeClick(votesImage.id, 1)}
-                        startIcon={
-                          <LikeIcon style={{ width: '45px', height: '45px' }} />
-                        }
-                      />
-                      <StyledButton
-                        style={{
-                          position: 'absolute',
-                          bottom: '10px',
-                          left: '10px' //
-                        }}
-                        variant="text"
                         onClick={handleLikeClick(votesImage.id, 0)}
                         startIcon={
-                          <BorderHeartIcon
+                          <HeartIcon
                             sx={{
-                              color: theme => theme.palette.warning.main,
                               width: '45px',
                               height: '45px'
                             }}
@@ -124,7 +108,20 @@ export const Votes = () => {
                         style={{
                           position: 'absolute',
                           bottom: '10px',
-                          right: '10px'
+                          left: '10px'
+                        }}
+                        variant="text"
+                        onClick={handleLikeClick(votesImage.id, 1)}
+                        startIcon={
+                          <LikeIcon style={{ width: '45px', height: '45px' }} />
+                        }
+                      />
+
+                      <StyledButton
+                        style={{
+                          position: 'absolute',
+                          bottom: '10px',
+                          right: '-10px'
                         }}
                         variant="text"
                         onClick={handleLikeClick(votesImage.id, -1)}
@@ -153,14 +150,14 @@ export const Votes = () => {
             <Image src={arrowRight} alt="Right" />
           </div>
         </Swiper>
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <PaginationComponent
-            count={10}
-            page={page}
-            onChange={handlePagination}
-          />
-        </Box>
-      </Container>
-    </>
+      </Box>
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <PaginationComponent
+          count={10}
+          page={page}
+          onChange={handlePagination}
+        />
+      </Box>
+    </Container>
   );
 };

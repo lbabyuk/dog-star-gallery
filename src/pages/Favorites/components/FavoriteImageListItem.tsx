@@ -37,6 +37,7 @@ export const FavoriteImageListItem = ({
       }}
     />
     <Button
+      variant="text"
       disableRipple
       size="large"
       color="warning"
@@ -45,8 +46,8 @@ export const FavoriteImageListItem = ({
         <DeleteTwoToneIcon
           sx={{
             color: theme => theme.palette.warning.main,
-            width: '45px',
-            height: '45px'
+            width: '40px',
+            height: '40px'
           }}
         />
       }
@@ -62,6 +63,8 @@ export const FavoriteImageListItem = ({
           outline: 'none'
         }
       }}
-    />
+    >
+      Delete
+    </Button>
   </Box>
 );

@@ -30,7 +30,11 @@ export const Main = () => {
 
   return (
     <Container>
-      {isLoading && <LoadingStatus />}
+      {isLoading && (
+        <div>
+          <LoadingStatus />
+        </div>
+      )}
       <Box sx={{ mt: '50px' }}>
         <SortedComponent ordered={setOrder} />
       </Box>

@@ -14,7 +14,8 @@ export const MainImageList = ({
     sx={{
       display: 'grid',
       gridTemplateColumns: {
-        sx: '1fr',
+        xs: '1fr',
+        sm: '1fr 1fr',
         md: '1fr 1fr',
         lg: '1fr 1fr 1fr'
       },
