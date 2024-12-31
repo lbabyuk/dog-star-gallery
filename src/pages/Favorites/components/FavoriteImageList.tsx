@@ -2,7 +2,7 @@ import { Fragment, useState } from 'react';
 import { Box } from '@mui/material';
 import { DeleteFavoriteImageModal } from './DeleteFavoriteImageModal';
 import { useDeleteFavoritesMutation } from '../../../services/favorites';
-import { FavoriteImageItem } from './FavoriteImageItem';
+import { FavoriteImageListItem } from './FavoriteImageListItem';
 
 type FavoriteImageListProps = {
   favoriteImages: Array<{
@@ -44,7 +44,7 @@ export const FavoriteImageList = ({
       >
         {(favoriteImages || []).map(favoriteImage => (
           <Fragment key={favoriteImage.id}>
-            <FavoriteImageItem
+            <FavoriteImageListItem
               favoriteImage={favoriteImage}
               onOpen={handleOpen}
             />

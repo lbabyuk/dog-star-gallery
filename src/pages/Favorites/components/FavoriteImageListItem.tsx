@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 
-type FavoriteImageItemProps = {
+type FavoriteImageListItemProps = {
   onOpen: () => void;
   favoriteImage: {
     image: { url: string };
@@ -9,10 +9,10 @@ type FavoriteImageItemProps = {
   };
 };
 
-export const FavoriteImageItem = ({
+export const FavoriteImageListItem = ({
   favoriteImage,
   onOpen
-}: FavoriteImageItemProps) => (
+}: FavoriteImageListItemProps) => (
   <Box
     sx={{
       position: 'relative'

@@ -22,6 +22,7 @@ const theme = createTheme({
       500: '#ADA7B8',
       600: '#FCFAFA',
       700: '#B2BAC2',
+      800: '#ccc',
       900: '#212121'
     },
     action: {

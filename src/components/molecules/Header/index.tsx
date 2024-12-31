@@ -13,6 +13,7 @@ import LogoIcon from '../../atoms/Icons/LogoIcon';
 import HeaderLinks from '../HeaderLinks';
 
 import { HeaderPopupMenu } from '../HeaderPopupMenu';
+import HeartIcon from '../../atoms/Icons/HeartIcon';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',
@@ -30,7 +31,14 @@ const HeaderComponent = () => (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
         <NavLink to="/">
-          <LogoIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <LogoIcon
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              mr: 1,
+              width: { xs: '35px', md: '40px' },
+              height: { xs: '35px', md: '40px' }
+            }}
+          />
         </NavLink>
 
         <Box
@@ -61,11 +69,28 @@ const HeaderComponent = () => (
           <HeaderLinks />
         </Box>
         <Box sx={{ flexGrow: 0 }}>
-          <IconButton end component={NavLink} to="/favorites" sx={{ p: 0 }}>
-            <BorderHeartIcon
-              sx={{ color: theme => theme.palette.warning.main }}
-            />
-          </IconButton>
+          <NavLink to="/favorites" end>
+            {({ isActive }) => (
+              <IconButton sx={{ p: 0 }}>
+                {isActive ? (
+                  <HeartIcon
+                    sx={{
+                      width: { xs: '35px', md: '40px' },
+                      height: { xs: '35px', md: '40px' }
+                    }}
+                  />
+                ) : (
+                  <BorderHeartIcon
+                    sx={{
+                      color: theme => theme.palette.warning.main,
+                      width: { xs: '35px', md: '40px' },
+                      height: { xs: '35px', md: '40px' }
+                    }}
+                  />
+                )}
+              </IconButton>
+            )}
+          </NavLink>
         </Box>
       </Toolbar>
     </Container>

@@ -1,15 +1,15 @@
 import { Box, Button } from '@mui/material';
 import BorderHeartIcon from '../../../components/atoms/Icons/BorderHeartIcon';
 
-type MainImageItemProps = {
+type MainImageListItemProps = {
   favoriteImage: { id: string; url: string; isFavorite: boolean };
   onAddFavorite: (id: string) => () => void;
 };
 
-export const MainImageItem = ({
+export const MainImageListItem = ({
   favoriteImage,
   onAddFavorite
-}: MainImageItemProps) => (
+}: MainImageListItemProps) => (
   <Box
     sx={{
       position: 'relative'

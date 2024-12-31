@@ -1,45 +1,13 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-  Box,
-  Container,
-  Stack,
-  Button,
-  Typography,
-  styled
-} from '@mui/material';
+import { Box, Container, Stack, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
-import { ImageElement } from './BreedItemStyled';
-import './BreedItem.css';
-
+import { ImageElement, TypographyElement } from './BreedItemStyled';
 import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
 import powGroup from '../../assets/path-group.png';
 import LogoIcon from '../../components/atoms/Icons/LogoIcon';
 
-const TypographyElement = styled(Typography)(({ theme }) => ({
-  padding: '8px 0',
-  margin: '8px',
-  fontSize: '1.65rem',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '1.2rem'
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '1.45rem'
-  },
-  span: {
-    fontSize: '1.65rem',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '1.2rem'
-    },
-    [theme.breakpoints.up('md')]: {
-      fontSize: '1.45rem'
-    }
-  }
-}));
-
-export const BreedItem: FC = () => {
+export const BreedItem = () => {
   const { breedId } = useParams();
   const { data: breeds, isLoading } = useGetBreedsQuery();
   const navigate = useNavigate();
@@ -74,15 +42,16 @@ export const BreedItem: FC = () => {
           padding: '10px'
         }}
       >
-        <img
-          style={{
+        <Box
+          component="img"
+          sx={{
             width: '100%',
             height: '100%',
             aspectRatio: 1,
             objectFit: 'cover',
             borderRadius: '20px',
             marginBottom: '16px',
-            boxShadow: `6px 6px 0 0 #212121`
+            boxShadow: theme => `6px 6px 0 0 ${theme.palette.grey[900]}`
           }}
           src={breed?.image.url || ''}
           alt={breed?.name}
@@ -140,7 +109,7 @@ export const BreedItem: FC = () => {
                 padding: '8px 16px',
                 borderRadius: '6px',
                 color: theme => theme.palette.grey[900],
-                border: '1px solid #ccc',
+                border: theme => `1px solid ${theme.palette.grey[800]}`,
                 backgroundColor: theme => theme.palette.background.paper,
                 boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
                 fontWeight: 400,

@@ -1,8 +1,9 @@
-import { SvgIcon } from '@mui/material';
+import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export function SortRandomIcon() {
+export function SortRandomIcon(props: SvgIconProps) {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         width="61"
         height="39"

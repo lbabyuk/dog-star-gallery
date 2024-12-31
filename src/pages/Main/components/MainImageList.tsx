@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { MainImageItem } from './MainImageItem';
+import { MainImageListItem } from './MainImageListItem';
 
 type MainImageListProps = {
   favoriteImages: Array<{ id: string; url: string; isFavorite: boolean }>;
@@ -23,7 +23,7 @@ export const MainImageList = ({
     }}
   >
     {(favoriteImages || []).map(favoriteImage => (
-      <MainImageItem
+      <MainImageListItem
         key={favoriteImage.id}
         favoriteImage={favoriteImage}
         onAddFavorite={onAddFavorite}

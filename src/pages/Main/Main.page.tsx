@@ -32,7 +32,7 @@ export const Main = () => {
     <Container>
       {isLoading && <LoadingStatus />}
       <Box sx={{ mt: '50px' }}>
-        <SortedComponent ordered={setOrder} order={order} />
+        <SortedComponent ordered={setOrder} />
       </Box>
       <MainImageList
         favoriteImages={favoriteImages}
