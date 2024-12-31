@@ -6,7 +6,7 @@ import LoadingStatus from '../../components/atoms/LoadingStatus';
 import SortedComponent from '../../components/molecules/SortedComponent';
 import PaginationComponent from '../../components/molecules/Pagination/PaginationComponent';
 import { StyledBox } from './MainStyled';
-import { MainImageList } from '../../components/molecules/MainImageComponent/MainImageList';
+import { MainImageList } from './components/MainImageList';
 
 export const Main = () => {
   const [page, setPage] = useState(0);

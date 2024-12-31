@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
+import BorderHeartIcon from '../../../components/atoms/Icons/BorderHeartIcon';
 
 type MainImageItemProps = {
   favoriteImage: { id: string; url: string; isFavorite: boolean };
@@ -27,7 +27,10 @@ export const MainImageItem = ({
         objectFit: 'cover',
         borderRadius: '20px',
         marginBottom: '16px',
-        boxShadow: theme => `6px 6px 0 0 ${theme.palette.grey[900]}`
+        boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
+        '&:hover': {
+          boxShadow: theme => `4px 4px 0 0 ${theme.palette.action.hover}`
+        }
       }}
     />
     <Button
