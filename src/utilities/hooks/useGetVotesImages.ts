@@ -31,6 +31,7 @@ export const useGetVotesImages = ({
       sub_id: 'olena'
     })
   );
+
   return {
     data: votesImages,
     isLoading: isLoadingImages || isLoadingVotes

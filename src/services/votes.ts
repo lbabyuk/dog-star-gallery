@@ -28,7 +28,6 @@ export const votesApi = api.injectEndpoints({
         method: 'POST',
         body
       }),
-      // invalidatesTags: [{ type: 'Favorites' as const, id: 'LIST' }]
       invalidatesTags: [{ type: 'Votes' as const, id: 'LIST' }]
     }),
     getVotes: build.query<VotesResponse, { sub_id?: string }>({
