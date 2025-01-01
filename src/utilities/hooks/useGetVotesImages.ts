@@ -11,7 +11,7 @@ type GetImagesWithFavoritesProps = {
 };
 
 export const useGetVotesImages = ({
-  limit = 10,
+  limit = 6,
   page,
   mime_types,
   order

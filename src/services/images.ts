@@ -40,7 +40,7 @@ export const imagesApi = api.injectEndpoints({
       }
     >({
       query: ({
-        limit = 10,
+        limit = 6,
         page = 0,
         order = 'RANDOM',
         mime_types = 'jpg'

@@ -11,7 +11,7 @@ type GetImagesWithFavoritesProps = {
 };
 
 export const useGetImagesWithFavorites = ({
-  limit = 12,
+  limit = 6,
   page,
   mime_types,
   order

@@ -3,7 +3,7 @@ import { ImageList, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useGetUploadImagesQuery } from '../../services/images';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
-import PaginationComponent from '../../components/molecules/Pagination/PaginationComponent';
+import { PaginationComponent } from '../../components/molecules/Pagination';
 import { StyledImageListItem } from '../Main/MainStyled';
 
 export const YourUploads: FC = () => {
@@ -12,7 +12,6 @@ export const YourUploads: FC = () => {
   const { data: uploadImages, isLoading } = useGetUploadImagesQuery({
     sub_id: 'olena'
   });
-  console.log(uploadImages);
 
   const handlePagination = (event: ChangeEvent<unknown>, value: number) => {
     event.preventDefault();

@@ -4,8 +4,7 @@ import { useAddFavoritesMutation } from '../../services/favorites';
 import { useGetImagesWithFavorites } from '../../utilities';
 import LoadingStatus from '../../components/atoms/LoadingStatus';
 import SortedComponent from '../../components/molecules/SortedComponent';
-import PaginationComponent from '../../components/molecules/Pagination/PaginationComponent';
-import { StyledBox } from './MainStyled';
+import { PaginationComponent } from '../../components/molecules/Pagination';
 import { MainImageList } from './components/MainImageList';
 
 export const Main = () => {
@@ -35,20 +34,27 @@ export const Main = () => {
           <LoadingStatus />
         </div>
       )}
-      <Box sx={{ mt: '50px' }}>
+      <Box sx={{ m: '50px' }}>
         <SortedComponent ordered={setOrder} />
       </Box>
+
       <MainImageList
         favoriteImages={favoriteImages}
         onAddFavorite={handleAddClick}
       />
-      <StyledBox display="flex" justifyContent="flex-end" alignItems="center">
+
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        alignItems="center"
+        sx={{ m: '50px' }}
+      >
         <PaginationComponent
           count={favoriteImages.length}
           page={page}
           onChange={handlePagination}
         />
-      </StyledBox>
+      </Box>
     </Container>
   );
 };

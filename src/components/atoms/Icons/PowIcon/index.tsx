@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function PowIcon() {
+export default function PowIcon(props: SvgIconProps) {
   return (
-    <SvgIcon>
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <SvgIcon {...props}>
       <svg
         width="30"
         height="28"

@@ -1,12 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import {
-  Toolbar,
-  Container,
-  styled,
-  IconButton,
-  Box,
-  AppBar
-} from '@mui/material';
+import { Toolbar, Container, styled, Box, AppBar } from '@mui/material';
 
 import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
 import HeaderLinks from '../HeaderLinks';
@@ -22,8 +15,8 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
   alignItems: 'center',
   backgroundColor: theme.palette.grey[500],
   boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
-  borderRadius: '0 0 32px 32px',
-  padding: '0 30px',
+  borderRadius: '0 0 20px 20px',
+
   height: '82px'
 }));
 
@@ -41,7 +34,6 @@ const HeaderComponent = () => (
             }}
           />
         </NavLink>
-
         <Box
           sx={{
             flexGrow: { xs: 1, md: 0 },
@@ -71,32 +63,38 @@ const HeaderComponent = () => (
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           <HeaderLinks />
         </Box>
-        <Box sx={{ flexGrow: 0 }}>
+        <Box
+          sx={{
+            flexGrow: 0,
+            width: { md: '160px' },
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center'
+          }}
+        >
           <NavLink to="/favorites" end>
-            {({ isActive }) => (
-              <IconButton
-                sx={{
-                  p: 0
-                }}
-              >
-                {isActive ? (
-                  <HeartIcon
-                    sx={{
-                      width: { xs: '35px', md: '40px' },
-                      height: { xs: '35px', md: '40px' }
-                    }}
-                  />
-                ) : (
-                  <BorderHeartIcon
-                    sx={{
-                      color: theme => theme.palette.warning.main,
-                      width: { xs: '35px', md: '40px' },
-                      height: { xs: '35px', md: '40px' }
-                    }}
-                  />
-                )}
-              </IconButton>
-            )}
+            {({ isActive }) =>
+              isActive ? (
+                <HeartIcon
+                  sx={{
+                    display: 'flex',
+                    width: { xs: '35px', md: '40px' },
+                    height: { xs: '35px', md: '40px' },
+                    p: 0
+                  }}
+                />
+              ) : (
+                <BorderHeartIcon
+                  sx={{
+                    display: 'flex',
+                    color: theme => theme.palette.warning.main,
+                    width: { xs: '35px', md: '40px' },
+                    height: { xs: '35px', md: '40px' },
+                    p: 0
+                  }}
+                />
+              )
+            }
           </NavLink>
         </Box>
       </Toolbar>

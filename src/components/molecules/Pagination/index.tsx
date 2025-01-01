@@ -6,27 +6,21 @@ type PaginationComponentProps = {
   onChange: (event: React.ChangeEvent<unknown>, value: number) => void;
 };
 
-const PaginationComponent = ({
+export const PaginationComponent = ({
   page,
   onChange,
   count
 }: PaginationComponentProps) => (
-  <Container
-    maxWidth="md"
-    sx={{ p: 2, display: 'flex', justifyContent: 'center' }}
-  >
+  <Container sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
     <Stack direction="row" alignItems="center" spacing={1}>
       <Pagination
+        color="secondary"
+        defaultPage={3}
+        siblingCount={0}
         count={count}
         page={page}
         onChange={onChange}
-        siblingCount={1}
-        boundaryCount={1}
-        showFirstButton
-        showLastButton
       />
     </Stack>
   </Container>
 );
-
-export default PaginationComponent;
