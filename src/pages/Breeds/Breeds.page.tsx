@@ -9,12 +9,15 @@ import {
   ButtonGroup
 } from '@mui/material';
 import { useGetBreedsQuery, Breed } from '../../services/breeds';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
-import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
+import {
+  YellowArrowIcon,
+  SortDownIcon,
+  SortUpIcon
+} from '../../components/atoms/Icons';
 import SearchComponent from '../../components/molecules/SearchComponent';
 import { StyledBox, StyledButton } from './BreedsStyled';
-import { SortDownIcon } from '../../components/atoms/Icons/SortDownIcon';
-import { SortUpIcon } from '../../components/atoms/Icons/SortUpIcon';
+
 import { useDebounce } from '../../utilities/hooks/useDebounce';
 import { BreedsList } from './components/BreedsList';
 
@@ -90,7 +93,27 @@ export const Breeds = () => {
           </StyledButton>
         </ButtonGroup>
       </StyledBox>
-      <BreedsList filteredBreeds={filteredBreeds} visibleCount={visibleCount} />
+
+      {filteredBreeds.length === 0 ? (
+        <Box
+          sx={{
+            height: '50vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <Typography variant="h5">
+            Ups, no breed found :(. Try again!
+          </Typography>
+        </Box>
+      ) : (
+        <BreedsList
+          filteredBreeds={filteredBreeds}
+          visibleCount={visibleCount}
+        />
+      )}
+
       <Box
         sx={{
           display: 'flex',

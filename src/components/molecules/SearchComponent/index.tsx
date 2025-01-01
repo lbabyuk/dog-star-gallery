@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC, ChangeEvent } from 'react';
-import { InputBase, Paper } from '@mui/material';
+import { InputBase, Paper, PaperProps, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 type InputProps = {
@@ -7,22 +8,33 @@ type InputProps = {
   input: string;
 };
 
+interface StyledPaperProps extends PaperProps {
+  component?: React.ElementType;
+}
+
+export const StyledPaper = styled((props: StyledPaperProps) => (
+  <Paper {...props} />
+))(({ theme }) => ({
+  padding: '4px 10px',
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+  [theme.breakpoints.up('md')]: {
+    width: '500px'
+  },
+  [theme.breakpoints.up('lg')]: {
+    width: '500px'
+  },
+  borderRadius: 4,
+  borderColor: theme.palette.grey[500],
+  boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
+  '&:hover': {
+    boxShadow: `4px 4px 0 0 ${theme.palette.primary.main}`
+  }
+}));
+
 const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
-  <Paper
-    component="form"
-    sx={{
-      p: '4px 10px',
-      display: 'flex',
-      alignItems: 'center',
-      width: { xs: '100%', md: '500px', lg: '500px' },
-      borderRadius: 4,
-      borderColor: theme => theme.palette.grey[500],
-      boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
-      '&:hover': {
-        boxShadow: theme => `4px 4px 0 0 ${theme.palette.primary.main}`
-      }
-    }}
-  >
+  <StyledPaper component="form">
     <InputBase
       type="text"
       value={input}
@@ -32,7 +44,7 @@ const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
     />
 
     <SearchIcon sx={{ fontSize: 26, color: 'gray', marginLeft: 1 }} />
-  </Paper>
+  </StyledPaper>
 );
 
 export default SearchComponent;

@@ -1,12 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { Toolbar, Container, styled, Box, AppBar } from '@mui/material';
-
-import BorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
 import HeaderLinks from '../HeaderLinks';
-
 import { HeaderPopupMenu } from '../HeaderPopupMenu';
-import HeartIcon from '../../atoms/Icons/HeartIcon';
-import BigLogoIcon from '../../atoms/Icons/BigLogoIcon';
+import { BigLogoIcon, BorderHeartIcon, HeartIcon } from '../../atoms/Icons';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',

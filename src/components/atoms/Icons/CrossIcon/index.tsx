@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export default function CrossIcon() {
+export const CrossIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         width="42"
         height="41"
@@ -17,4 +18,4 @@ export default function CrossIcon() {
       </svg>
     </SvgIcon>
   );
-}
+};

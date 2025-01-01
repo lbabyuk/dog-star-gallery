@@ -1,9 +1,9 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function HeartIcon(props: SvgIconProps) {
+export const HeartIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon {...props}>
+    <SvgIcon sx={sx}>
       <svg
         width="45"
         height="43"
@@ -71,4 +71,4 @@ export default function HeartIcon(props: SvgIconProps) {
       </svg>
     </SvgIcon>
   );
-}
+};

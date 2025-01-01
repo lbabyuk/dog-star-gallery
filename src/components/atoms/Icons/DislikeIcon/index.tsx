@@ -1,9 +1,9 @@
 import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export default function DislikeIcon(props: SvgIconProps) {
+export const DislikeIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <SvgIcon {...props}>
+    <SvgIcon sx={sx}>
       <svg
         width="38"
         height="38"
@@ -69,4 +69,4 @@ export default function DislikeIcon(props: SvgIconProps) {
       </svg>
     </SvgIcon>
   );
-}
+};

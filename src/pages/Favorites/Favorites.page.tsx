@@ -1,6 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
 import { useGetFavoritesQuery } from '../../services/favorites';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
 import { FavoriteImageList } from './components/FavoriteImageList';
 
 export const Favorites = () => {

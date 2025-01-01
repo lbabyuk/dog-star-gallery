@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { List, Box, Container, Typography } from '@mui/material';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
 import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
 

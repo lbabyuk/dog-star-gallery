@@ -1,11 +1,10 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Box, Container, Stack, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
 import { ImageElement, TypographyElement } from './BreedItemStyled';
-import YellowArrowIcon from '../../components/atoms/Icons/YellowArrowIcon';
 import powGroup from '../../assets/path-group.png';
-import LogoIcon from '../../components/atoms/Icons/LogoIcon';
+import { LogoIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 
 export const BreedItem = () => {
   const { breedId } = useParams();

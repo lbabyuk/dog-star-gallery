@@ -1,9 +1,9 @@
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function PowIcon(props: SvgIconProps) {
+export const PowIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <SvgIcon {...props}>
+    <SvgIcon sx={sx}>
       <svg
         width="30"
         height="28"
@@ -20,4 +20,4 @@ export default function PowIcon(props: SvgIconProps) {
       </svg>
     </SvgIcon>
   );
-}
+};

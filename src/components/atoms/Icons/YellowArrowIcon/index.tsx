@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function YellowArrowIcon() {
+export const YellowArrowIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         width="27"
         height="16"
@@ -20,4 +21,4 @@ export default function YellowArrowIcon() {
       </svg>
     </SvgIcon>
   );
-}
+};

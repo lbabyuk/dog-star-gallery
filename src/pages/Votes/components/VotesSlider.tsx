@@ -2,9 +2,11 @@ import { CSSProperties } from 'react';
 import { Box, Button, styled } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
-import DislikeIcon from '../../../components/atoms/Icons/DislikeIcon';
-import HeartIcon from '../../../components/atoms/Icons/HeartIcon';
-import LikeIcon from '../../../components/atoms/Icons/LikeIcon';
+import {
+  DislikeIcon,
+  HeartIcon,
+  LikeIcon
+} from '../../../components/atoms/Icons';
 import { VOTES_VALUE, ICON_STYLE } from '../../../constants/votesData';
 import Image from '../../../components/atoms/Image';
 import arrowLeft from '../../../assets/arrow-left.svg';

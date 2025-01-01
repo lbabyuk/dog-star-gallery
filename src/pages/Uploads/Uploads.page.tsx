@@ -4,7 +4,7 @@ import {
   useAddUploadedImageMutation,
   useGetUploadImagesQuery
 } from '../../services/images';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
 
 export const Uploads = () => {
   const [uploadImages, setUploadImages] = useState([]);

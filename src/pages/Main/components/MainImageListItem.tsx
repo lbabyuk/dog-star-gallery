@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import BorderHeartIcon from '../../../components/atoms/Icons/BorderHeartIcon';
+import { BorderHeartIcon } from '../../../components/atoms/Icons';
 
 type MainImageListItemProps = {
   favoriteImage: { id: string; url: string; isFavorite: boolean };

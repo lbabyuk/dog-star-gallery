@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function BlackBorderHeartIcon() {
+export const BlackBorderHeartIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         width="30"
         height="30"
@@ -32,4 +33,4 @@ export default function BlackBorderHeartIcon() {
       </svg>
     </SvgIcon>
   );
-}
+};

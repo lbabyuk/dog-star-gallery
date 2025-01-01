@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Button } from '@mui/material';
-import YellowArrowIcon from '../../../components/atoms/Icons/YellowArrowIcon';
+import { YellowArrowIcon } from '../../../components/atoms/Icons';
 
 export type BreedListContentProps = {
   filteredBreed: {

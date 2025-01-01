@@ -2,7 +2,7 @@ import { useState, ChangeEvent } from 'react';
 import { Container, Box } from '@mui/material';
 import { useAddFavoritesMutation } from '../../services/favorites';
 import { useGetImagesWithFavorites } from '../../utilities';
-import LoadingStatus from '../../components/atoms/LoadingStatus';
+import LoadingStatus from '../../components/molecules/LoadingStatus';
 import SortedComponent from '../../components/molecules/SortedComponent';
 import { PaginationComponent } from '../../components/molecules/Pagination';
 import { MainImageList } from './components/MainImageList';

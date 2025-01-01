@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export function SortUpIcon() {
+export const SortUpIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         width="61"
         height="39"
@@ -84,4 +85,4 @@ export function SortUpIcon() {
       </svg>
     </SvgIcon>
   );
-}
+};

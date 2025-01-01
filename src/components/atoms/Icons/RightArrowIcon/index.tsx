@@ -1,8 +1,9 @@
-import SvgIcon from '@mui/material/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
-export default function RightArrowIcon() {
+export const RightArrowIcon = (props: SvgIconProps) => {
+  const { sx } = props;
   return (
-    <SvgIcon>
+    <SvgIcon sx={sx}>
       <svg
         fill="#000000"
         height="800px"
@@ -17,4 +18,4 @@ export default function RightArrowIcon() {
       </svg>
     </SvgIcon>
   );
-}
+};

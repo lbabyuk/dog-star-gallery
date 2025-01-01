@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { ButtonGroup, Stack, styled } from '@mui/material';
-import Button from '../../atoms/Button';
-import { SortDownIcon } from '../../atoms/Icons/SortDownIcon';
-import { SortUpIcon } from '../../atoms/Icons/SortUpIcon';
-import SortedTypography from './SortedTopography';
-import { SortRandomIcon } from '../../atoms/Icons/SortRandomIcon';
+import { Button, ButtonGroup, Stack, styled, Typography } from '@mui/material';
+import { SortDownIcon, SortUpIcon, SortRandomIcon } from '../../atoms/Icons';
 
 type Ordered = {
   ordered: (arg: string) => void;
 };
 
+const SortedTypography = styled(Typography)(({ theme: { palette } }) => ({
+  color: palette.grey[900],
+  fontSize: 20
+}));
 const StyledButton = styled(Button)(({ theme: { palette } }) => ({
   '&:focus': {
     outline: 'none'
