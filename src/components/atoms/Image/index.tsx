@@ -1,33 +1,38 @@
-import { FC } from 'react';
+import { Box } from '@mui/material';
+import { ElementType, ReactNode } from 'react';
 
 type ImageProps = {
   id?: string;
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   width?: string;
   height?: string;
-  style?: object;
-  className?: string;
+  sx?: object;
+  children?: ReactNode;
+  component?: ElementType;
 };
 
-const Image: FC<ImageProps> = ({
+export const Image = ({
   id,
   src,
-  alt,
+  alt = '',
   width,
   height,
-  style,
-  className
-}) => (
-  <img
-    id={id}
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    style={style}
-    className={className}
-  />
-);
-
-export default Image;
+  sx,
+  children,
+  component = 'img'
+}: ImageProps) => {
+  return (
+    <Box
+      id={id}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      sx={sx}
+      component={component}
+    >
+      {children}
+    </Box>
+  );
+};

@@ -6,28 +6,21 @@ import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
 import { SortBreed } from './components/SortBreed';
+import { useDebounce } from '../../utilities/hooks/useDebounce';
 
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery();
   const [searchQuery, setSearchQuery] = useState('');
   const [sorted, setSorted] = useState<Breed[]>([]);
   const [visibleCount, setVisibleCount] = useState(6);
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+
+  const debouncedSearchTerm = useDebounce(searchQuery, 500);
 
   useEffect(() => {
     if (breeds) {
       setSorted(breeds);
     }
   }, [breeds]);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      if (searchQuery) {
-        setDebouncedSearchTerm(searchQuery);
-      }
-    }, 500);
-    return () => clearTimeout(handler);
-  }, [searchQuery]);
 
   const loadMore = () => {
     setVisibleCount(prevCount => prevCount + 6);
