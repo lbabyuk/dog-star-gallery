@@ -20,9 +20,3 @@ export const TypographyElement = styled(Typography)(({ theme }) => ({
     }
   }
 }));
-
-export const ImageElement = styled('img')(({ theme }) => ({
-  padding: theme.spacing(2, 1),
-  margin: theme.spacing(2, 0),
-  width: '100%'
-}));

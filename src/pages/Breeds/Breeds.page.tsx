@@ -89,8 +89,7 @@ export const Breeds = () => {
         sx={{
           display: 'flex',
           justifyContent: 'end',
-          width: '100%',
-          margin: '50px 0'
+          width: '100%'
         }}
       >
         <Button

@@ -1,8 +1,9 @@
 import { Fragment, useState } from 'react';
-import { DeleteFavoriteImageModal } from './DeleteFavoriteImageModal';
+//import { DeleteFavoriteImageModal } from './DeleteFavoriteImageModal';
 import { useDeleteFavoritesMutation } from '../../../services/favorites';
 import { FavoriteImageListItem } from './FavoriteImageListItem';
 import { GridWrapper } from '../../../components/atoms/GridWrapper';
+import { ModalComponent } from '../../../components/molecules';
 
 type FavoriteImageListProps = {
   favoriteImages: Array<{
@@ -36,7 +37,7 @@ export const FavoriteImageList = ({
             favoriteImage={favoriteImage}
             onOpen={handleOpen}
           />
-          <DeleteFavoriteImageModal
+          <ModalComponent
             favoriteImageId={favoriteImage.id}
             open={open}
             onDeleteFavorite={handleDeleteFavorite}

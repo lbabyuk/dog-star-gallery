@@ -56,7 +56,7 @@ export const HeaderPopupMenu = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  color: theme => theme.palette.grey[500]
+                  color: theme => theme.palette.primary.main
                 }}
               >
                 {page.title}

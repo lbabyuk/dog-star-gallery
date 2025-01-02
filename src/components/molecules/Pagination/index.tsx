@@ -11,7 +11,7 @@ export const PaginationComponent = ({
   onChange,
   count
 }: PaginationComponentProps) => (
-  <Container sx={{ p: 2, display: 'flex', justifyContent: 'center' }}>
+  <Container sx={{ p: 2, display: 'flex', justifyContent: 'flex-end' }}>
     <Stack direction="row" alignItems="center" spacing={1}>
       <Pagination
         color="secondary"

@@ -1,5 +1,4 @@
-import { styled, Button, Paper, Box } from '@mui/material';
-import image from '../../assets/cat-footprint.png';
+import { styled, Button, Box } from '@mui/material';
 
 export const StyledDiv = styled('div')(() => ({
   width: 540,
@@ -16,20 +15,6 @@ export const StyledButton = styled(Button)(({ theme }) => ({
   '&:focus': {
     outline: 'none'
   }
-}));
-
-export const StyledPaper = styled(Paper)(() => ({
-  backgroundImage: `url(${image})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  position: 'absolute' as const,
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  borderRadius: '20px',
-  padding: '50px'
 }));
 
 export const StyledBox = styled(Box)(() => ({

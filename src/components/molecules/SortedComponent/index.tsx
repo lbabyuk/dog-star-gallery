@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Button, ButtonGroup, Stack, styled, Typography } from '@mui/material';
 import { SortDownIcon, SortUpIcon, SortRandomIcon } from '../../atoms/Icons';
+import { SORTED_ICONS_STYLE } from '../../../constants/SortedIconsStyleData';
 
 type Ordered = {
   ordered: (arg: string) => void;
@@ -41,13 +42,13 @@ export const SortedComponent: FC<Ordered> = ({ ordered }) => (
     </Stack>
     <ButtonGroup variant="text">
       <StyledButton onClick={() => ordered('RENDOM')}>
-        <SortRandomIcon />
+        <SortRandomIcon sx={SORTED_ICONS_STYLE} />
       </StyledButton>
       <StyledButton onClick={() => ordered('DESC')}>
-        <SortDownIcon />
+        <SortDownIcon sx={SORTED_ICONS_STYLE} />
       </StyledButton>
       <StyledButton onClick={() => ordered('ASC')}>
-        <SortUpIcon />
+        <SortUpIcon sx={SORTED_ICONS_STYLE} />
       </StyledButton>
     </ButtonGroup>
   </Stack>

@@ -15,7 +15,7 @@ export const Favorites = () => {
           <LoadingStatus />
         </div>
       )}
-      <Box sx={{ margin: '50px 0' }}>
+      <Box>
         {(favoriteImages || []).length === 0 ? (
           <Typography variant="h4" component="h4" align="center" m={4} p={4}>
             No favorite dogs yet

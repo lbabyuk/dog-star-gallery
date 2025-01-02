@@ -26,6 +26,7 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
   },
   borderRadius: 4,
   borderColor: theme.palette.grey[500],
+  border: `1px solid ${theme.palette.grey[800]}`,
   boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
   '&:hover': {
     boxShadow: `4px 4px 0 0 ${theme.palette.primary.main}`
@@ -34,6 +35,7 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
 
 export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
   <StyledPaper component="form">
+    <SearchIcon sx={{ fontSize: 30, color: 'gray', marginLeft: 1 }} />
     <InputBase
       type="text"
       value={input}
@@ -41,7 +43,5 @@ export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
       sx={{ ml: 1, flex: 1 }}
       placeholder="Search dog by breed"
     />
-
-    <SearchIcon sx={{ fontSize: 26, color: 'gray', marginLeft: 1 }} />
   </StyledPaper>
 );

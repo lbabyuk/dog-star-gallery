@@ -2,8 +2,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Box, Container, Stack, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
-import { ImageElement, TypographyElement } from './BreedItemStyled';
-import powGroup from '../../assets/path-group.png';
+import { TypographyElement } from './BreedItemStyled';
 import { LogoIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 
 export const BreedItem = () => {
@@ -14,16 +13,7 @@ export const BreedItem = () => {
   const breed = (breeds || []).find(item => item.id === Number(breedId));
 
   return (
-    <Container
-      sx={{
-        minHeight: '90vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '20px',
-        overflowX: 'hidden'
-      }}
-    >
+    <Container>
       {isLoading && (
         <div>
           <LoadingStatus />
@@ -59,7 +49,6 @@ export const BreedItem = () => {
             width: '100%',
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr' },
-            margin: '50px 0',
             gap: '60px',
             flexGrow: 1,
             overflowX: 'hidden',
@@ -90,7 +79,7 @@ export const BreedItem = () => {
               height: '100%'
             }}
           >
-            <Stack spacing={2}>
+            <Stack spacing={2} mb={{ xs: 5, md: 0 }}>
               <Stack direction="row" alignItems="center" spacing={1}>
                 <Typography variant="h6">
                   {breed?.name ? breed?.name : '***'}
@@ -149,10 +138,6 @@ export const BreedItem = () => {
           </Box>
         </Box>
       )}
-
-      <Box>
-        <ImageElement src={powGroup} alt="powGroup" />
-      </Box>
     </Container>
   );
 };

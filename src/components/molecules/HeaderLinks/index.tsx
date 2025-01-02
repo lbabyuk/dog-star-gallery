@@ -18,7 +18,7 @@ export const HeaderLinks = () => (
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        gap: '50px'
+        gap: '30px'
       }}
     >
       {headerMenu.map(item => (

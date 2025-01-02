@@ -36,21 +36,15 @@ export const Images = () => {
           <LoadingStatus />
         </div>
       )}
-      <Box sx={{ m: '50px' }}>
-        <SortedComponent ordered={setOrder} />
-      </Box>
+
+      <SortedComponent ordered={setOrder} />
 
       <ImagesList
         favoriteImages={favoriteImages}
         onAddFavorite={handleAddClick}
       />
 
-      <Box
-        display="flex"
-        justifyContent="flex-end"
-        alignItems="center"
-        sx={{ m: '50px' }}
-      >
+      <Box display="flex" justifyContent="flex-end" alignItems="center">
         <PaginationComponent
           count={favoriteImages.length}
           page={page}

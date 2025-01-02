@@ -18,14 +18,14 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
 
 export const Header = () => (
   <StyledHeader position="sticky">
-    <Container maxWidth="xl">
+    <Container>
       <Toolbar disableGutters>
         <NavLink to="/">
           <BigLogoIcon
             sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
-              width: { xs: '100px', md: '160px' },
+              width: { xs: '100px', md: '150px' },
               height: { xs: '40px', md: '40px' }
             }}
           />

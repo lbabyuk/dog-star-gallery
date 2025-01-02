@@ -6,3 +6,4 @@ export * from './LoadingStatus';
 export * from './Pagination';
 export * from './SearchComponent';
 export * from './SortedComponent';
+export * from './ModalComponent';
