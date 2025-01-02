@@ -2,9 +2,9 @@ import { useState, FC, ChangeEvent } from 'react';
 import { ImageList, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useGetUploadImagesQuery } from '../../services/images';
-import LoadingStatus from '../../components/molecules/LoadingStatus';
+import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { PaginationComponent } from '../../components/molecules/Pagination';
-import { StyledImageListItem } from '../Main/MainStyled';
+import { StyledImageListItem } from '../Images/ImagesStyled';
 
 export const YourUploads: FC = () => {
   const [page, setPage] = useState(0);

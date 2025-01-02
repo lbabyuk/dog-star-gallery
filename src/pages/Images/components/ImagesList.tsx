@@ -1,15 +1,15 @@
 import { Box } from '@mui/material';
-import { MainImageListItem } from './MainImageListItem';
+import { ImagesListItem } from './ImagesListItem';
 
-type MainImageListProps = {
+type ImagesListProps = {
   favoriteImages: Array<{ id: string; url: string; isFavorite: boolean }>;
   onAddFavorite: (id: string) => () => void;
 };
 
-export const MainImageList = ({
+export const ImagesList = ({
   favoriteImages,
   onAddFavorite
-}: MainImageListProps) => (
+}: ImagesListProps) => (
   <Box
     sx={{
       display: 'grid',
@@ -24,7 +24,7 @@ export const MainImageList = ({
     }}
   >
     {(favoriteImages || []).map(favoriteImage => (
-      <MainImageListItem
+      <ImagesListItem
         key={favoriteImage.id}
         favoriteImage={favoriteImage}
         onAddFavorite={onAddFavorite}

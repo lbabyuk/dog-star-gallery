@@ -1,14 +1,8 @@
-import { Outlet } from 'react-router-dom';
-import HeaderComponent from './components/molecules/Header';
+import { useRoutes } from 'react-router-dom';
+import { routes } from './routes/routes';
 import './App.css';
 
-function App() {
-  return (
-    <>
-      <HeaderComponent />
-      <Outlet />
-    </>
-  );
-}
-
-export default App;
+export const App = () => {
+  const element = useRoutes(routes);
+  return <div>{element}</div>;
+};

@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Box, Container, Stack, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
-import LoadingStatus from '../../components/molecules/LoadingStatus';
+import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { ImageElement, TypographyElement } from './BreedItemStyled';
 import powGroup from '../../assets/path-group.png';
 import { LogoIcon, YellowArrowIcon } from '../../components/atoms/Icons';

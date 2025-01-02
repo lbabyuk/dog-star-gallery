@@ -24,7 +24,7 @@ const StyledButton = styled(Button)(({ theme: { palette } }) => ({
   }
 }));
 
-const SortedComponent: FC<Ordered> = ({ ordered }) => (
+export const SortedComponent: FC<Ordered> = ({ ordered }) => (
   <Stack
     alignItems="center"
     direction="row"
@@ -52,5 +52,3 @@ const SortedComponent: FC<Ordered> = ({ ordered }) => (
     </ButtonGroup>
   </Stack>
 );
-
-export default SortedComponent;

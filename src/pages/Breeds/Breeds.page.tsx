@@ -1,48 +1,33 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { useState, useEffect } from 'react';
-import {
-  Box,
-  Button,
-  Container,
-  Typography,
-  styled,
-  ButtonGroup
-} from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { useGetBreedsQuery, Breed } from '../../services/breeds';
-import LoadingStatus from '../../components/molecules/LoadingStatus';
-import {
-  YellowArrowIcon,
-  SortDownIcon,
-  SortUpIcon
-} from '../../components/atoms/Icons';
-import SearchComponent from '../../components/molecules/SearchComponent';
-import { StyledBox, StyledButton } from './BreedsStyled';
-
-import { useDebounce } from '../../utilities/hooks/useDebounce';
+import { LoadingStatus, SearchComponent } from '../../components/molecules';
+import { YellowArrowIcon } from '../../components/atoms/Icons';
+import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
-
-const StyledTypography = styled(Typography)(({ theme: { palette } }) => ({
-  color: palette.grey[500],
-  textAlign: 'left',
-  fontSize: 20,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-}));
+import { SortBreed } from './components/SortBreed';
 
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery();
   const [searchQuery, setSearchQuery] = useState('');
   const [sorted, setSorted] = useState<Breed[]>([]);
   const [visibleCount, setVisibleCount] = useState(6);
-
-  const debouncedSearchQuery = useDebounce(searchQuery, 500);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
   useEffect(() => {
     if (breeds) {
       setSorted(breeds);
     }
   }, [breeds]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (searchQuery) {
+        setDebouncedSearchTerm(searchQuery);
+      }
+    }, 500);
+    return () => clearTimeout(handler);
+  }, [searchQuery]);
 
   const loadMore = () => {
     setVisibleCount(prevCount => prevCount + 6);
@@ -62,9 +47,11 @@ export const Breeds = () => {
     setSorted(sortedBreeds);
   };
 
-  const filteredBreeds = sorted.filter(breed =>
-    breed.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
-  );
+  const filteredBreeds = searchQuery
+    ? sorted.filter(breed =>
+        breed.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+      )
+    : sorted;
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -79,19 +66,10 @@ export const Breeds = () => {
       )}
       <StyledBox>
         <SearchComponent onChange={handleChange} input={searchQuery} />
-        <ButtonGroup
-          variant="text"
-          aria-label="text button group"
-          sx={{ marginTop: { xs: '20px', md: 0, lg: 0 } }}
-        >
-          <StyledTypography variant="caption">Sort by:</StyledTypography>
-          <StyledButton onClick={handleSortedDown}>
-            <SortDownIcon />
-          </StyledButton>
-          <StyledButton onClick={handleSortedUp}>
-            <SortUpIcon />
-          </StyledButton>
-        </ButtonGroup>
+        <SortBreed
+          onHandleSortDown={handleSortedDown}
+          onHandleSortUp={handleSortedUp}
+        />
       </StyledBox>
 
       {filteredBreeds.length === 0 ? (

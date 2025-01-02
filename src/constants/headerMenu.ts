@@ -1,18 +1,20 @@
+import { HOME } from './routes';
+
 export const headerMenu = [
   {
-    title: 'Main',
+    title: 'Images',
     path: ''
   },
   {
     title: 'Breeds',
-    path: '/breeds'
+    path: HOME.BREEDS
   },
   {
     title: 'Votes',
-    path: '/votes'
+    path: HOME.VOTES
   },
   {
     title: 'History',
-    path: '/history'
+    path: HOME.HISTORY
   }
 ];

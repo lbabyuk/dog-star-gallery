@@ -7,9 +7,8 @@ export const StyledBox = styled(Box)(() => ({
   height: '90vh'
 }));
 
-const LoadingStatus = () => (
+export const LoadingStatus = () => (
   <StyledBox>
     <CircularProgress color="inherit" />
   </StyledBox>
 );
-export default LoadingStatus;

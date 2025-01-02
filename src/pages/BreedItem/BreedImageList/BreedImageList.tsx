@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { ImageList, ImageListItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useGetBreedsQuery } from '../../../services/breeds';
-import LoadingStatus from '../../../components/molecules/LoadingStatus';
+import { LoadingStatus } from '../../../components/molecules';
 
 import './BreedsImageList.css';
 

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
 import { headerMenu } from '../../../constants/headerMenu';
 
-const HeaderLinks = () => (
+export const HeaderLinks = () => (
   <Box
     sx={{
       flexGrow: 1,
@@ -66,5 +66,3 @@ const HeaderLinks = () => (
     </List>
   </Box>
 );
-
-export default HeaderLinks;

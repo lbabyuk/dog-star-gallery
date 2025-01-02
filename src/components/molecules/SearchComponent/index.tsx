@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { FC, ChangeEvent } from 'react';
 import { InputBase, Paper, PaperProps, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -33,7 +32,7 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
   }
 }));
 
-const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
+export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
   <StyledPaper component="form">
     <InputBase
       type="text"
@@ -46,5 +45,3 @@ const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
     <SearchIcon sx={{ fontSize: 26, color: 'gray', marginLeft: 1 }} />
   </StyledPaper>
 );
-
-export default SearchComponent;

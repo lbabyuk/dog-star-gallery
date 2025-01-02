@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import LoadingStatus from '../../components/molecules/LoadingStatus';
+import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { PaginationComponent } from '../../components/molecules/Pagination';
 import { useGetVotesImages } from '../../utilities';
 import './Votes.css';

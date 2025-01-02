@@ -1,7 +1,6 @@
 import { Card, IconButton, styled, Box, CardMedia } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
-import YellowBorderHeartIcon from '../../atoms/Icons/BorderHeartIcon';
-import BlackBorderHeartIcon from '../../atoms/Icons/BlackBorderHeartIcon';
+import { BorderHeartIcon, BlackBorderHeartIcon } from '../../atoms/Icons';
 
 type HeartIconProps = {
   state: 'active' | 'default';
@@ -28,7 +27,9 @@ export const CustomCardIcon: FC<PropsWithChildren<HeartIconProps>> = ({
   state
 }) => {
   if (state === 'active') {
-    return <YellowBorderHeartIcon />;
+    return (
+      <BorderHeartIcon sx={{ color: theme => theme.palette.warning.main }} />
+    );
   }
   if (state === 'default') {
     return <BlackBorderHeartIcon />;

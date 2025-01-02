@@ -1,65 +1,16 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { DogAppThemeProvider } from './theme';
-import {
-  BreedItem,
-  Breeds,
-  Favorites,
-  Main,
-  ErrorPage,
-  Votes,
-  History
-} from './pages';
-
-import App from './App';
-import './index.css';
-
+import { BrowserRouter } from 'react-router-dom';
+import { App } from './App';
 import { store } from './services/store';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: '',
-        element: <Main />
-      },
-
-      {
-        path: 'breeds',
-        element: <Breeds />
-      },
-      {
-        path: 'breeds/:breedId',
-        element: <BreedItem />
-      },
-
-      {
-        path: '/favorites',
-        element: <Favorites />
-      },
-      {
-        path: '/votes',
-        element: <Votes />
-      },
-      {
-        path: '/history',
-        element: <History />
-      }
-    ]
-  }
-]);
+import { DogAppThemeProvider } from './theme';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
       <DogAppThemeProvider>
-        <RouterProvider router={router} />
+        <App />
       </DogAppThemeProvider>
-    </Provider>
-  </React.StrictMode>
+    </BrowserRouter>
+  </Provider>
 );

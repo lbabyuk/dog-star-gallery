@@ -1,8 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { Toolbar, Container, styled, Box, AppBar } from '@mui/material';
-import HeaderLinks from '../HeaderLinks';
+import { HeaderLinks } from '../HeaderLinks';
 import { HeaderPopupMenu } from '../HeaderPopupMenu';
 import { BigLogoIcon, BorderHeartIcon, HeartIcon } from '../../atoms/Icons';
+import { HOME } from '../../../constants/routes';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',
@@ -12,11 +13,10 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.grey[500],
   boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
   borderRadius: '0 0 20px 20px',
-
   height: '82px'
 }));
 
-const HeaderComponent = () => (
+export const Header = () => (
   <StyledHeader position="sticky">
     <Container maxWidth="xl">
       <Toolbar disableGutters>
@@ -68,7 +68,7 @@ const HeaderComponent = () => (
             alignItems: 'center'
           }}
         >
-          <NavLink to="/favorites" end>
+          <NavLink to={HOME.FAVORITES} end>
             {({ isActive }) =>
               isActive ? (
                 <HeartIcon
@@ -97,4 +97,3 @@ const HeaderComponent = () => (
     </Container>
   </StyledHeader>
 );
-export default HeaderComponent;

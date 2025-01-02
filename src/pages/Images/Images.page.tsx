@@ -2,12 +2,14 @@ import { useState, ChangeEvent } from 'react';
 import { Container, Box } from '@mui/material';
 import { useAddFavoritesMutation } from '../../services/favorites';
 import { useGetImagesWithFavorites } from '../../utilities';
-import LoadingStatus from '../../components/molecules/LoadingStatus';
-import SortedComponent from '../../components/molecules/SortedComponent';
-import { PaginationComponent } from '../../components/molecules/Pagination';
-import { MainImageList } from './components/MainImageList';
+import {
+  SortedComponent,
+  LoadingStatus,
+  PaginationComponent
+} from '../../components/molecules';
+import { ImagesList } from './components/ImagesList';
 
-export const Main = () => {
+export const Images = () => {
   const [page, setPage] = useState(0);
   const [order, setOrder] = useState('RANDOM');
 
@@ -38,7 +40,7 @@ export const Main = () => {
         <SortedComponent ordered={setOrder} />
       </Box>
 
-      <MainImageList
+      <ImagesList
         favoriteImages={favoriteImages}
         onAddFavorite={handleAddClick}
       />
