@@ -11,6 +11,7 @@ export const TypographyElement = styled(Typography)(({ theme }) => ({
     fontSize: '1.45rem'
   },
   span: {
+    color: theme.palette.grey[500],
     fontSize: '1.65rem',
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.2rem'

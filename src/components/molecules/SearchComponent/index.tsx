@@ -27,9 +27,12 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
   borderRadius: 4,
   borderColor: theme.palette.grey[500],
   border: `1px solid ${theme.palette.grey[800]}`,
-  boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
+  boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`,
   '&:hover': {
-    boxShadow: `4px 4px 0 0 ${theme.palette.primary.main}`
+    boxShadow: `6px 6px 8px 0 ${theme.palette.primary.main}`
+  },
+  '&:focused': {
+    boxShadow: `6px 6px 8px 0 ${theme.palette.primary.main}`
   }
 }));
 

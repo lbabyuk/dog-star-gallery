@@ -26,7 +26,7 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
         boxShadow: theme => `6px 6px 0 0  ${theme.palette.grey[900]}`,
         cursor: 'pointer',
         '&:hover': {
-          boxShadow: theme => `6px 6px 0 0 ${theme.palette.action.hover}`
+          boxShadow: theme => `6px 6px 8px 0 ${theme.palette.action.hover}`
         }
       }}
     >

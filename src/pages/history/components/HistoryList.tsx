@@ -38,12 +38,13 @@ export const HistoryList = ({ breed }: BreedProps) => {
         component="img"
         src={breed.image.url}
         alt={breed.image_id}
-        style={{
+        sx={{
           borderRadius: '10%',
           width: '50px',
-          height: '50px',
+          height: '40px',
           objectFit: 'cover',
-          aspectRatio: 1
+          aspectRatio: 1,
+          boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`
         }}
       />
       <TypographyElement width="200px">

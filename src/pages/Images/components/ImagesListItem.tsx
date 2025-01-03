@@ -29,10 +29,10 @@ export const ImagesListItem = ({
         marginBottom: '16px',
         boxShadow: theme =>
           favoriteImage.isFavorite
-            ? `4px 4px 0 0 ${theme.palette.action.selected}`
-            : `4px 4px 0 0 ${theme.palette.grey[900]}`,
+            ? `6px 6px 8px 0 ${theme.palette.action.selected}`
+            : `6px 6px 0 0 ${theme.palette.grey[900]}`,
         '&:hover': {
-          boxShadow: theme => `4px 4px 0 0 ${theme.palette.action.hover}`
+          boxShadow: theme => `6px 6px 8px 0 ${theme.palette.action.hover}`
         }
       }}
     />
