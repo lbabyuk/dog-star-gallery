@@ -3,8 +3,8 @@ import { votesApi } from '../votes';
 import { imagesApi } from '../images';
 import { RootState } from '../store';
 
-export interface GetImageProps {
-  getImagesProps: {
+interface GetImageProps {
+  getVotesProps: {
     limit: number;
     page: number;
     mime_types?: string;
@@ -14,13 +14,10 @@ export interface GetImageProps {
   value: number;
 }
 
-export const selectImagesWithFavorites = ({
-  getImagesProps,
-  sub_id
-}: GetImageProps) =>
+export const selectVotesImages = ({ getVotesProps, sub_id }: GetImageProps) =>
   createSelector(
     (state: RootState) =>
-      imagesApi.endpoints.getImages.select(getImagesProps)(state)?.data || [],
+      imagesApi.endpoints.getImages.select(getVotesProps)(state)?.data || [],
     (state: RootState) =>
       votesApi.endpoints.getVotes.select({ sub_id })(state)?.data || [],
     (images, votes) => {

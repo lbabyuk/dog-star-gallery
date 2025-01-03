@@ -27,7 +27,10 @@ export const ImagesListItem = ({
         objectFit: 'cover',
         borderRadius: '20px',
         marginBottom: '16px',
-        boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
+        boxShadow: theme =>
+          favoriteImage.isFavorite
+            ? `4px 4px 0 0 ${theme.palette.action.selected}`
+            : `4px 4px 0 0 ${theme.palette.grey[900]}`,
         '&:hover': {
           boxShadow: theme => `4px 4px 0 0 ${theme.palette.action.hover}`
         }

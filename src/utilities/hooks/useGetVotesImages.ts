@@ -1,9 +1,10 @@
 import { useGetImagesQuery } from '../../services/images';
-import { selectImagesWithFavorites } from '../../services/selectors';
+//import { selectImagesWithFavorites } from '../../services/selectors';
+import { selectVotesImages } from '../../services/selectors';
 import { useTypedSelector } from '../../services/store';
 import { useGetVotesQuery } from '../../services/votes';
 
-type GetImagesWithFavoritesProps = {
+export type GetImagesWithVotesProps = {
   limit?: number;
   page: number;
   mime_types?: string;
@@ -15,7 +16,7 @@ export const useGetVotesImages = ({
   page,
   mime_types,
   order
-}: GetImagesWithFavoritesProps) => {
+}: GetImagesWithVotesProps) => {
   const { isLoading: isLoadingImages } = useGetImagesQuery({
     limit,
     page,
@@ -26,9 +27,10 @@ export const useGetVotesImages = ({
     sub_id: 'olena'
   });
   const votesImages = useTypedSelector(
-    selectImagesWithFavorites({
-      getImagesProps: { limit, page, mime_types, order },
-      sub_id: 'olena'
+    selectVotesImages({
+      getVotesProps: { limit, page, mime_types, order },
+      sub_id: 'olena',
+      value: 1
     })
   );
 

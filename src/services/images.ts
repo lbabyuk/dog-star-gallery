@@ -1,6 +1,11 @@
 import { api } from './api';
 
 export interface Image {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+  mime_type: string;
   breeds: [
     {
       weight: {
@@ -20,10 +25,6 @@ export interface Image {
       reference_image_ig: string;
     }
   ];
-  id: string;
-  url: string;
-  width: number;
-  height: number;
 }
 
 type ImagesResponse = Image[];
@@ -40,12 +41,12 @@ export const imagesApi = api.injectEndpoints({
       }
     >({
       query: ({
-        limit = 6,
-        page = 0,
+        limit = 10,
+        page = 1,
         order = 'RANDOM',
         mime_types = 'jpg'
       }) => ({
-        url: `images/search?limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}`
+        url: `images/search?size=med&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=true`
       }),
       providesTags: (result = []) =>
         result

@@ -1,9 +1,6 @@
-import { Fragment, useState } from 'react';
-//import { DeleteFavoriteImageModal } from './DeleteFavoriteImageModal';
 import { useDeleteFavoritesMutation } from '../../../services/favorites';
 import { FavoriteImageListItem } from './FavoriteImageListItem';
 import { GridWrapper } from '../../../components/atoms/GridWrapper';
-import { ModalComponent } from '../../../components/molecules';
 
 type FavoriteImageListProps = {
   favoriteImages: Array<{
@@ -19,31 +16,20 @@ type FavoriteImageListProps = {
 export const FavoriteImageList = ({
   favoriteImages = []
 }: FavoriteImageListProps) => {
-  const [open, setOpen] = useState(false);
   const [deleteFavorite] = useDeleteFavoritesMutation();
 
   const handleDeleteFavorite = (id: number) => {
     deleteFavorite(id);
-    setOpen(false);
   };
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   return (
     <GridWrapper>
       {(favoriteImages || []).map(favoriteImage => (
-        <Fragment key={favoriteImage.id}>
-          <FavoriteImageListItem
-            favoriteImage={favoriteImage}
-            onOpen={handleOpen}
-          />
-          <ModalComponent
-            favoriteImageId={favoriteImage.id}
-            open={open}
-            onDeleteFavorite={handleDeleteFavorite}
-            onClose={handleClose}
-          />
-        </Fragment>
+        <FavoriteImageListItem
+          key={favoriteImage.id}
+          favoriteImage={favoriteImage}
+          onDeleteFavorite={handleDeleteFavorite}
+        />
       ))}
     </GridWrapper>
   );

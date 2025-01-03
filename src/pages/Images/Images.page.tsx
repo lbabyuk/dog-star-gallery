@@ -10,7 +10,7 @@ import {
 import { ImagesList } from './components/ImagesList';
 
 export const Images = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [order, setOrder] = useState('RANDOM');
 
   const { data: favoriteImages, isLoading } = useGetImagesWithFavorites({

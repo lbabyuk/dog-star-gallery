@@ -6,10 +6,11 @@ import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
 import { SortBreed } from './components/SortBreed';
-import { useDebounce } from '../../utilities/hooks/useDebounce';
+import { useDebounce } from '../../utilities/hooks';
 
 export const Breeds = () => {
-  const { data: breeds, isLoading } = useGetBreedsQuery();
+  const limit = 20;
+  const { data: breeds, isLoading } = useGetBreedsQuery({ limit });
   const [searchQuery, setSearchQuery] = useState('');
   const [sorted, setSorted] = useState<Breed[]>([]);
   const [visibleCount, setVisibleCount] = useState(6);
