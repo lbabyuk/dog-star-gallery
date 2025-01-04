@@ -121,6 +121,7 @@ export const RelatedImages = () => {
           flexDirection="row"
           justifyContent="space-around"
           alignItems="center"
+          flexWrap="wrap"
         >
           {relatedImages.map((item: GalleryItemProps) => (
             <Box
@@ -133,15 +134,13 @@ export const RelatedImages = () => {
                 height: '150px',
                 objectFit: 'cover',
                 borderRadius: '20px',
-                marginBottom: '16px',
+                margin: '5px',
                 boxShadow: theme => `6px 6px 0 0 ${theme.palette.grey[900]}`
               }}
             />
           ))}
         </Stack>
       </Stack>
-
-      
     </Container>
   );
 };
