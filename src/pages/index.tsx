@@ -7,3 +7,4 @@ export * from './Votes/Votes.page';
 export * from './YourUploads/YourUploads.page';
 export * from './history/History.page';
 export * from './Uploads/Uploads.page';
+export * from './Home/Gallery.page.tsx'

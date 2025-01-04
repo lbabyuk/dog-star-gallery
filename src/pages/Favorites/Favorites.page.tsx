@@ -1,7 +1,8 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { useGetFavoritesQuery } from '../../services/favorites';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { FavoriteImageList } from './components/FavoriteImageList';
+import { PowIcon } from '../../components/atoms/Icons';
 
 export const Favorites = () => {
   const { data: favoriteImages, isLoading } = useGetFavoritesQuery({
@@ -22,6 +23,23 @@ export const Favorites = () => {
   return (
     <Container>
       <Box>
+        <Stack
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="center"
+          gap={1}
+        >
+          <Typography variant="h5">Your favorite images</Typography>
+          <PowIcon
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '60px',
+              height: '60px'
+            }}
+          />
+        </Stack>
         <FavoriteImageList favoriteImages={favoriteImages ?? []} />
       </Box>
     </Container>

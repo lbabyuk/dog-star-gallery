@@ -29,14 +29,10 @@ export const Images = () => {
     setPage(value);
   };
 
+  if (isLoading) return <LoadingStatus />;
+
   return (
     <Container>
-      {isLoading && (
-        <div>
-          <LoadingStatus />
-        </div>
-      )}
-
       <SortedComponent ordered={setOrder} />
 
       <ImagesList

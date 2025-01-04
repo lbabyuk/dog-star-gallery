@@ -1,9 +1,10 @@
 import { HOME } from './routes';
 
 export const headerMenu = [
+  { title: 'Gallery', path: '' },
   {
     title: 'Images',
-    path: ''
+    path: HOME.IMAGES
   },
   {
     title: 'Breeds',

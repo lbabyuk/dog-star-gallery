@@ -7,23 +7,26 @@ import {
   History,
   Votes,
   BreedItem,
-  ErrorPage
+  ErrorPage,
+  Gallery
 } from '../pages';
 import { HomeLayout } from '../layout/HomeLayout';
+import { RelatedImages } from '../pages/Home/components/RelatedImages';
 
 export const routes = [
   {
     path: '/',
     children: [
       {
-        path: ROUTES.MAIN,
+        path: ROUTES.HOME,
         element: (
           <HomeLayout>
             <Outlet />
           </HomeLayout>
         ),
         children: [
-          { path: '', element: <Images /> },
+          { path: '', element: <Gallery /> },
+          { path: HOME.IMAGES, element: <Images /> },
           { path: HOME.BREEDS, element: <Breeds /> },
           {
             path: `${HOME.BREEDS}/:breedId`,
@@ -34,6 +37,10 @@ export const routes = [
           {
             path: HOME.VOTES,
             element: <Votes />
+          },
+          {
+            path: HOME.RELATED,
+            element: <RelatedImages />
           }
         ]
       },

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Box, List, ListItem, ListItemButton, Typography } from '@mui/material';
-import { headerMenu } from '../../../constants/headerMenu';
+import { headerMenu } from '../../../../../constants/headerMenu';
 
 export const HeaderLinks = () => (
   <Box
@@ -18,7 +18,7 @@ export const HeaderLinks = () => (
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        gap: '30px'
+        gap: { md: '5px' }
       }}
     >
       {headerMenu.map(item => (

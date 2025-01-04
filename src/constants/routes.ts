@@ -1,10 +1,12 @@
 export const ROUTES = {
-  MAIN: '/'
+  HOME: '/'
 };
 
 export const HOME = {
+  IMAGES: '/images',
   BREEDS: '/breeds',
   VOTES: '/votes',
   HISTORY: '/history',
-  FAVORITES: '/favoriteS'
+  FAVORITES: '/favorites',
+  RELATED: '/related'
 };

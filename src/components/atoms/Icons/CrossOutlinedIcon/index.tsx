@@ -1,6 +1,6 @@
 import { SvgIcon, SvgIconProps } from '@mui/material';
 
-export const CrossIcon = (props: SvgIconProps) => {
+export const CrossOutlinedIcon = (props: SvgIconProps) => {
   const { sx } = props;
   return (
     <SvgIcon sx={sx}>

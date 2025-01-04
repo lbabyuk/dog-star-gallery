@@ -1,9 +1,10 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Container, Stack, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { TypographyElement } from './BreedItemStyled';
 import { LogoIcon, YellowArrowIcon } from '../../components/atoms/Icons';
+import { HOME } from '../../constants/routes';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -16,28 +17,27 @@ export const BreedItem = () => {
 
   if (!breed) {
     return (
-      <Stack
-        direction="row"
-        spacing={2}
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Typography sx={{ textAlign: 'center' }} variant="h6">
+      <Container>
+        <Typography variant="h4" align="center" m={4} p={4}>
           The Breed not found :(
         </Typography>
 
-        <Link
-          to="/breeds"
-          style={{
-            color: '#921FED',
-            display: 'flex',
-            gap: '10px'
+        <Button
+          onClick={() => navigate(HOME.BREEDS)}
+          variant="text"
+          endIcon={<YellowArrowIcon />}
+          sx={{
+            '&:hover': {
+              backgroundColor: theme => theme.palette.action.hover,
+              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
+              color: theme => theme.palette.grey[600],
+              border: theme => theme.palette.grey[600]
+            }
           }}
         >
           Back to Breeds
-          <YellowArrowIcon />
-        </Link>
-      </Stack>
+        </Button>
+      </Container>
     );
   }
 
@@ -87,7 +87,7 @@ export const BreedItem = () => {
             </Stack>
 
             <Stack spacing={0.5}>
-            <TypographyElement>
+              <TypographyElement>
                 Origin:{' '}
                 <span className="span">
                   {breed?.origin ? breed?.origin : '***'}

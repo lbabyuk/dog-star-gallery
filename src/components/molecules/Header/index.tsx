@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import { Toolbar, Container, styled, Box, AppBar } from '@mui/material';
-import { HeaderLinks } from '../HeaderLinks';
+import { HeaderLinks } from './components/HeaderLinks';
 import { HeaderPopupMenu } from '../HeaderPopupMenu';
-import { BigLogoIcon, BorderHeartIcon, HeartIcon } from '../../atoms/Icons';
-import { HOME } from '../../../constants/routes';
+import { BigLogoIcon } from '../../atoms/Icons';
+import { HeaderIconLinks } from './components/HeaderIconLinks';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',
@@ -59,40 +59,7 @@ export const Header = () => (
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           <HeaderLinks />
         </Box>
-        <Box
-          sx={{
-            flexGrow: 0,
-            width: { md: '160px' },
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'center'
-          }}
-        >
-          <NavLink to={HOME.FAVORITES} end>
-            {({ isActive }) =>
-              isActive ? (
-                <HeartIcon
-                  sx={{
-                    display: 'flex',
-                    width: { xs: '35px', md: '40px' },
-                    height: { xs: '35px', md: '40px' },
-                    p: 0
-                  }}
-                />
-              ) : (
-                <BorderHeartIcon
-                  sx={{
-                    display: 'flex',
-                    color: theme => theme.palette.warning.main,
-                    width: { xs: '35px', md: '40px' },
-                    height: { xs: '35px', md: '40px' },
-                    p: 0
-                  }}
-                />
-              )
-            }
-          </NavLink>
-        </Box>
+        <HeaderIconLinks />
       </Toolbar>
     </Container>
   </StyledHeader>

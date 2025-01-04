@@ -51,13 +51,10 @@ export const Breeds = () => {
     setSearchQuery(event.target.value);
   };
 
+  if (isLoading) return <LoadingStatus />;
+
   return (
     <Container>
-      {isLoading && (
-        <div>
-          <LoadingStatus />
-        </div>
-      )}
       <StyledBox>
         <SearchComponent onChange={handleChange} input={searchQuery} />
         <SortBreed

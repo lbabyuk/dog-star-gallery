@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { Box, Container } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
@@ -10,6 +10,7 @@ import { useGetVotesImages } from '../../utilities';
 import './Votes.css';
 import { useAddVotesMutation } from '../../services/votes';
 import { VotesSlider } from './components/VotesSlider';
+import { PowIcon } from '../../components/atoms/Icons';
 
 export const Votes = () => {
   const [page, setPage] = useState(0);
@@ -26,13 +27,27 @@ export const Votes = () => {
     addVoted({ image_id: id, sub_id: 'olena', value });
   };
 
+  if (isLoading) return <LoadingStatus />;
+
   return (
     <Container>
-      {isLoading && (
-        <div>
-          <LoadingStatus />
-        </div>
-      )}
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={1}
+      >
+        <Typography variant="h5">Your can vote here</Typography>
+        <PowIcon
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '60px',
+            height: '60px'
+          }}
+        />
+      </Stack>
 
       <VotesSlider
         votesImages={votesImages}

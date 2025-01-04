@@ -22,7 +22,7 @@ export interface Image {
       breed_group: string;
       life_span: string;
       temperament: string;
-      reference_image_ig: string;
+      reference_image_id: string;
     }
   ];
 }
@@ -38,15 +38,17 @@ export const imagesApi = api.injectEndpoints({
         page?: number;
         order?: string;
         mime_types?: string;
+        has_breeds?: boolean;
       }
     >({
       query: ({
         limit = 10,
         page = 1,
         order = 'RANDOM',
-        mime_types = 'jpg'
+        mime_types = 'jpg',
+        has_breeds = true
       }) => ({
-        url: `images/search?size=med&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=true`
+        url: `images/search?size=med&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=${has_breeds}`
       }),
       providesTags: (result = []) =>
         result

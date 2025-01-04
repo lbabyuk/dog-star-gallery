@@ -1,7 +1,7 @@
 import { Modal, Box, Button, Typography, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-export const StyledBox = styled(Box)(() => ({
+const StyledBox = styled(Box)(() => ({
   paddingTop: '40px',
   display: 'flex',
   justifyContent: 'space-evenly',
