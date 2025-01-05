@@ -10,7 +10,7 @@ type HomeLayoutProps = {
 const StyledMain = styled('main')(() => ({
   position: 'relative',
   flex: '1 0 auto',
-  backgroundColor: '#fff',
+  backgroundColor: '#FBFAFC',
   paddingTop: '20px',
   paddingBottom: '52px'
 }));

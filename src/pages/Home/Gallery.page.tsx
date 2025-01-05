@@ -16,7 +16,7 @@ export const Gallery = () => {
     has_breeds: true,
     order,
     page,
-    limit: 9
+    limit: 6
   }) as { data: Image[] };
 
   const handlePagination = (event: ChangeEvent<unknown>, value: number) => {
@@ -27,7 +27,9 @@ export const Gallery = () => {
   return (
     <Container>
       <SortedComponent ordered={setOrder} />
-      <GalleryImages images={images} />
+      <Box sx={{ height: '100%' }}>
+        <GalleryImages images={images} />
+      </Box>
       <Box display="flex" justifyContent="flex-end" alignItems="center">
         <PaginationComponent
           count={(images ?? []).length || 0}

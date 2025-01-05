@@ -14,3 +14,4 @@ export * from './SortDownIcon/index';
 export * from './SortRandomIcon/index';
 export * from './SortUpIcon/index';
 export * from './YellowArrowIcon/index';
+export * from './PaginationDotsIcon/index';
