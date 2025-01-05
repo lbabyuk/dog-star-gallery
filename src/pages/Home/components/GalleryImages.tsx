@@ -19,8 +19,6 @@ export const GalleryImages = ({ images }: GalleryImagesProps) => {
     <Container>
       <GridWrapper>
         {images?.map(item => {
-          console.log(item);
-
           const breed = item.breeds[0];
           return (
             <GalleryImagesContent

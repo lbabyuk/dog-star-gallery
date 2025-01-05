@@ -8,7 +8,7 @@ type Ordered = {
 };
 
 const SortedTypography = styled(Typography)(({ theme: { palette } }) => ({
-  color: palette.grey[900],
+  color: palette.text.primary,
   fontSize: 20
 }));
 const StyledButton = styled(Button)(({ theme: { palette } }) => ({

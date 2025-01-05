@@ -48,7 +48,7 @@ export const imagesApi = api.injectEndpoints({
         mime_types = 'jpg',
         has_breeds = true
       }) => ({
-        url: `images/search?size=med&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=${has_breeds}`
+        url: `images/search?size=size&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=${has_breeds}`
       }),
       providesTags: (result = []) =>
         result
