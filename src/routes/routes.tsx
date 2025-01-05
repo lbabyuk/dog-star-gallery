@@ -11,7 +11,7 @@ import {
   Gallery
 } from '../pages';
 import { HomeLayout } from '../layout/HomeLayout';
-import { RelatedImages } from '../pages/Home/components/RelatedImages';
+import { RelatedImages } from '../pages/Home/components/RelatedImages/RelatedImages';
 
 export const routes = [
   {
