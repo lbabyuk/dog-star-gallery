@@ -1,10 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Container, Stack, Button, Typography } from '@mui/material';
+import { Box, Container, Button, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
-import { TypographyElement } from './BreedItemStyled';
-import { LogoIcon, YellowArrowIcon } from '../../components/atoms/Icons';
+import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
+import { BreedItemContent } from './components/BreedItemContent';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -78,47 +78,16 @@ export const BreedItem = () => {
             height: '100%'
           }}
         >
-          <Stack spacing={2} mb={{ xs: 5, md: 0 }}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Typography variant="h6">
-                {breed?.name ? breed?.name : '***'}
-              </Typography>{' '}
-              <LogoIcon />
-            </Stack>
+          <BreedItemContent
+            name={breed?.name}
+            origin={breed?.origin}
+            weight={breed?.weight?.imperial}
+            height={breed?.height?.imperial}
+            life={breed?.life_span}
+            breedFor={breed?.bred_for}
+            breedGroup={breed?.breed_group}
+          />
 
-            <Stack spacing={0.5}>
-              <TypographyElement>
-                Origin:{' '}
-                <span className="span">
-                  {breed?.origin ? breed?.origin : '***'}
-                </span>
-              </TypographyElement>
-              <TypographyElement>
-                Bred for:{' '}
-                <span className="span">
-                  {breed?.bred_for ? breed?.bred_for : '***'}
-                </span>
-              </TypographyElement>
-              <TypographyElement>
-                Breed group:{' '}
-                <span className="span">
-                  {breed?.breed_group ? breed?.breed_group : '***'}
-                </span>
-              </TypographyElement>
-              <TypographyElement>
-                Life span:{' '}
-                <span className="span">
-                  {breed?.life_span ? breed?.life_span : '***'}
-                </span>
-              </TypographyElement>
-              <TypographyElement>
-                Temperament:{' '}
-                <span className="span">
-                  {breed?.temperament ? breed?.temperament : '***'}
-                </span>
-              </TypographyElement>
-            </Stack>
-          </Stack>
           <Box>
             <Button
               onClick={() => navigate(`/breeds`)}

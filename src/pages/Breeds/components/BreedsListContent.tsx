@@ -43,12 +43,12 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
         alt={filteredBreed.name}
         loading="lazy"
       />
-      <Typography variant="body1">{filteredBreed.name}</Typography>
+      <Typography variant="h6">{filteredBreed.name}</Typography>
 
       <Typography
-        variant="body2"
+        variant="body1"
         sx={{
-          color: theme => theme.palette.grey[900],
+          color: theme => theme.palette.text.primary,
           marginBottom: '16px'
         }}
       >

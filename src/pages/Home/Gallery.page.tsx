@@ -7,6 +7,7 @@ import {
   SortedComponent
 } from '../../components/molecules';
 import { Image } from '../../services/images';
+import { PageSkeleton } from '../../components/atoms/PageSkeleton/PageSkeleton';
 
 export const Gallery = () => {
   const [page, setPage] = useState(1);
@@ -27,9 +28,9 @@ export const Gallery = () => {
   return (
     <Container>
       <SortedComponent ordered={setOrder} />
-      <Box sx={{ height: '100%' }}>
-        <GalleryImages images={images} />
-      </Box>
+
+      {!images ? <PageSkeleton /> : <GalleryImages images={images} />}
+
       <Box display="flex" justifyContent="flex-end" alignItems="center">
         <PaginationComponent
           count={(images ?? []).length || 0}
