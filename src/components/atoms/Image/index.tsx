@@ -8,11 +8,12 @@ type ImageProps = {
   width?: string;
   height?: string;
   sx?: object;
+  loading?: string;
   children?: ReactNode;
   component?: ElementType;
 };
 
-export const Image = ({
+export const CustomImage = ({
   id,
   src,
   alt = '',
@@ -20,7 +21,8 @@ export const Image = ({
   height,
   sx,
   children,
-  component = 'img'
+  component = 'img',
+  loading
 }: ImageProps) => {
   return (
     <Box
@@ -31,6 +33,7 @@ export const Image = ({
       height={height}
       sx={sx}
       component={component}
+      loading={loading}
     >
       {children}
     </Box>

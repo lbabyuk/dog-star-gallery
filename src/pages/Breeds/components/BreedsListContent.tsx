@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { YellowArrowIcon } from '../../../components/atoms/Icons';
+import { CustomImage } from '../../../components/atoms/Image';
+import { CustomButton } from '../../../components/atoms/Button';
 
 export type BreedListContentProps = {
   filteredBreed: {
@@ -30,7 +32,7 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
         }
       }}
     >
-      <Box
+      <CustomImage
         component="img"
         sx={{
           width: '100%',
@@ -67,24 +69,24 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
       </Typography>
 
       <Box>
-        <Button
+        <CustomButton
           endIcon={<YellowArrowIcon />}
           onClick={() => navigate(`/breeds/${filteredBreed.id}`)}
-          sx={{
+          sx={theme => ({
             padding: '8px 16px',
             borderRadius: '6px',
-            color: theme => theme.palette.secondary.main,
-            backgroundColor: theme => theme.palette.action.selected,
+            color: theme.palette.secondary.main,
+            backgroundColor: theme.palette.action.selected,
             fontWeight: 400,
             '&:hover': {
-              backgroundColor: theme => theme.palette.action.hover,
-              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme => theme.palette.grey[600]
+              backgroundColor: theme.palette.action.hover,
+              boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
+              color: theme.palette.grey[600]
             }
-          }}
+          })}
         >
           Learn More
-        </Button>
+        </CustomButton>
       </Box>
     </Box>
   );

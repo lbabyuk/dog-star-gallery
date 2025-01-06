@@ -4,11 +4,9 @@ import {
 } from '@mui/material';
 
 export interface ButtonProps extends MuiButtonProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Button = ({ children, ...rest }: ButtonProps) => (
+export const CustomButton = ({ children, ...rest }: ButtonProps) => (
   <MuiButton {...rest}>{children}</MuiButton>
 );
-
-export default Button;

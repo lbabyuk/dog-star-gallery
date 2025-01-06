@@ -3,7 +3,7 @@ import { SvgIcon, SvgIconProps } from '@mui/material';
 export const SortUpIcon = (props: SvgIconProps) => {
   const { sx } = props;
   return (
-    <SvgIcon sx={sx}>
+    <SvgIcon sx={{ width: '58px', height: '36px', ...sx }}>
       <svg
         width="61"
         height="39"

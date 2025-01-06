@@ -1,1 +1,0 @@
-export const SORTED_ICONS_STYLE = { width: '58px', height: '36px' };

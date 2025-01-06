@@ -1,4 +1,4 @@
-import { Image } from '../../../components/atoms/Image';
+import { CustomImage } from '../../../components/atoms/Image';
 
 type VotesImageProps = {
   isActive?: boolean;
@@ -9,9 +9,10 @@ type VotesImageProps = {
 
 export const VotesImage = ({ isActive, src, alt, sx }: VotesImageProps) => {
   return (
-    <Image
+    <CustomImage
       src={src}
       alt={alt}
+      loading="lazy"
       sx={{
         position: 'absolute',
         borderRadius: '20px',

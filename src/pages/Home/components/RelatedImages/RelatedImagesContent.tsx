@@ -1,6 +1,8 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { YellowArrowIcon } from '../../../../components/atoms/Icons';
 import { useNavigate } from 'react-router-dom';
+import { CustomImage } from '../../../../components/atoms/Image';
+import { CustomButton } from '../../../../components/atoms/Button';
 
 type RelatedImagesContentProps = {
   name: string;
@@ -24,20 +26,20 @@ export const RelatedImagesContent = ({
         padding: '10px'
       }}
     >
-      <Box
+      <CustomImage
         component="img"
         loading="lazy"
         src={url}
         alt={name || 'Clicked Dog'}
-        sx={{
+        sx={(theme: { palette: { grey: number[] } }) => ({
           width: '100%',
           height: '100%',
           aspectRatio: 1,
           objectFit: 'cover',
           borderRadius: '20px',
           marginBottom: '16px',
-          boxShadow: theme => `6px 6px 0 0 ${theme.palette.grey[900]}`
-        }}
+          boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
+        })}
       />
       <Box
         sx={{
@@ -48,7 +50,7 @@ export const RelatedImagesContent = ({
         }}
       >
         <Box>
-          <Button
+          <CustomButton
             onClick={() => navigate('/')}
             endIcon={<YellowArrowIcon />}
             sx={{
@@ -66,7 +68,7 @@ export const RelatedImagesContent = ({
             }}
           >
             Back to Gallery
-          </Button>
+          </CustomButton>
         </Box>
       </Box>
     </Box>

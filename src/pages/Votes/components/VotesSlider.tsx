@@ -1,11 +1,12 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
-import { Image } from '../../../components/atoms/Image';
+import { CustomImage } from '../../../components/atoms/Image';
 import arrowLeft from '../../../assets/arrow-left.svg';
 import arrowRight from '../../../assets/arrow-right.svg';
 import { VotesImage } from './VotesImage';
 import { votesButtonData } from './voteButtonData';
+import { CustomButton } from '../../../components/atoms/Button';
 
 type VotesImagesProps = {
   handleLikeClick: (id: string, value: number) => () => void;
@@ -49,7 +50,7 @@ export const VotesSlider = ({
                   />
 
                   {votesButtonData(votesImage.id, handleLikeClick).map(item => (
-                    <Button
+                    <CustomButton
                       variant="text"
                       key={item.key}
                       onClick={item.onclick}
@@ -65,10 +66,20 @@ export const VotesSlider = ({
           </SwiperSlide>
         ))}
         <div className="button-prev">
-          <Image component="img" src={arrowLeft} alt="Left" />
+          <CustomImage
+            component="img"
+            src={arrowLeft}
+            alt="Left"
+            loading="lazy"
+          />
         </div>
         <div className="button-next">
-          <Image component="img" src={arrowRight} alt="Right" />
+          <CustomImage
+            component="img"
+            src={arrowRight}
+            alt="Right"
+            loading="lazy"
+          />
         </div>
       </Swiper>
     </Box>

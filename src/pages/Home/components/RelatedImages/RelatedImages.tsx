@@ -1,9 +1,10 @@
 import { useLocation } from 'react-router-dom';
-import { Container, Typography, Box, Stack } from '@mui/material';
+import { Container, Typography, Stack } from '@mui/material';
 import { GalleryItemProps } from '../GalleryImagesContent';
 import { LogoIcon } from '../../../../components/atoms/Icons';
 import { EmptyStateComponent } from './EmptyStateComponent';
 import { RelatedImagesContent } from './RelatedImagesContent';
+import { CustomImage } from '../../../../components/atoms/Image';
 
 export const RelatedImages = () => {
   const location = useLocation();
@@ -46,19 +47,19 @@ export const RelatedImages = () => {
           flexWrap="wrap"
         >
           {relatedImages.map((item: GalleryItemProps) => (
-            <Box
+            <CustomImage
               component="img"
               key={item.id}
               src={item.url}
               alt={'Related Dog'}
-              sx={{
+              sx={(theme: { palette: { grey: number[] } }) => ({
                 width: '150px',
                 height: '150px',
                 objectFit: 'cover',
                 borderRadius: '20px',
                 margin: '5px',
-                boxShadow: theme => `6px 6px 0 0 ${theme.palette.grey[900]}`
-              }}
+                boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
+              })}
             />
           ))}
         </Stack>

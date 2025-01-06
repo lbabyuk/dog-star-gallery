@@ -1,6 +1,8 @@
-import { Box, Button } from '@mui/material';
-//import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import { Box } from '@mui/material';
+
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { CustomImage } from '../../../components/atoms/Image';
+import { CustomButton } from '../../../components/atoms/Button';
 
 type FavoriteImageListItemProps = {
   onDeleteFavorite: (id: number) => void;
@@ -21,25 +23,27 @@ export const FavoriteImageListItem = ({
         position: 'relative'
       }}
     >
-      <Box
+      <CustomImage
         component="img"
         src={favoriteImage.image.url}
         alt={favoriteImage.image_id}
         loading="lazy"
-        sx={{
+        sx={(theme: {
+          palette: { grey: number[]; action: { hover: string } };
+        }) => ({
           width: '100%',
           height: '100%',
           aspectRatio: 1,
           objectFit: 'cover',
           borderRadius: '20px',
           marginBottom: '16px',
-          boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
+          boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
           '&:hover': {
-            boxShadow: theme => `6px 6px 8px 0 ${theme.palette.action.hover}`
+            boxShadow: `6px 6px 8px 0 ${theme.palette.action.hover}`
           }
-        }}
+        })}
       />
-      <Button
+      <CustomButton
         variant="text"
         disableRipple
         size="large"
@@ -47,22 +51,22 @@ export const FavoriteImageListItem = ({
         onClick={() => onDeleteFavorite(favoriteImage.id)}
         endIcon={
           <FavoriteIcon
-            sx={{
-              color: theme => theme.palette.warning.main,
+            sx={theme => ({
+              color: theme.palette.warning.main,
               width: '40px',
               height: '40px'
-            }}
+            })}
           />
         }
-        sx={{
+        sx={theme => ({
           position: 'absolute',
           top: '10px',
           right: '10px',
           padding: '5px',
           fontWeight: 'bold',
-          color: theme => theme.palette.primary.main,
+          color: theme.palette.primary.main,
           '&:hover': {
-            color: theme => theme.palette.action.hover
+            color: theme.palette.action.hover
           },
           '&:active': {
             outline: 'none'
@@ -70,10 +74,10 @@ export const FavoriteImageListItem = ({
           '&:focus': {
             outline: 'none'
           }
-        }}
+        })}
       >
         Delete
-      </Button>
+      </CustomButton>
     </Box>
   </>
 );

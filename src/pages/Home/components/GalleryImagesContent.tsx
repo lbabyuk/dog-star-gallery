@@ -1,4 +1,6 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import { CustomImage } from '../../../components/atoms/Image';
+import { CustomButton } from '../../../components/atoms/Button';
 
 export type GalleryItemProps = {
   id: string;
@@ -25,22 +27,22 @@ export const GalleryImagesContent = ({
 }: GalleryImagesContentProps) => {
   return (
     <Box
-      sx={{
+      sx={theme => ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        border: theme => `1px solid ${theme.palette.grey[800]}`,
+        border: `1px solid ${theme.palette.grey[800]}`,
         padding: '16px',
         borderRadius: '8px',
         gap: '10px',
-        boxShadow: theme => `6px 6px 0 0  ${theme.palette.grey[900]}`,
+        boxShadow: `6px 6px 0 0  ${theme.palette.grey[900]}`,
         cursor: 'pointer',
         '&:hover': {
-          boxShadow: theme => `6px 6px 8px 0 ${theme.palette.action.hover}`
+          boxShadow: `6px 6px 8px 0 ${theme.palette.action.hover}`
         }
-      }}
+      })}
     >
-      <Box
+      <CustomImage
         component="img"
         sx={{
           width: '100%',
@@ -56,23 +58,23 @@ export const GalleryImagesContent = ({
       <Typography variant="body1" textAlign="center">
         {breedName}
       </Typography>
-      <Button
+      <CustomButton
         onClick={() => onHandleImageClick(item)}
-        sx={{
+        sx={theme => ({
           padding: '8px 16px',
           borderRadius: '6px',
-          color: theme => theme.palette.secondary.main,
-          backgroundColor: theme => theme.palette.action.selected,
+          color: theme.palette.secondary.main,
+          backgroundColor: theme.palette.action.selected,
           fontWeight: 400,
           '&:hover': {
-            backgroundColor: theme => theme.palette.action.hover,
-            boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-            color: theme => theme.palette.grey[600]
+            backgroundColor: theme.palette.action.hover,
+            boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
+            color: theme.palette.grey[600]
           }
-        }}
+        })}
       >
         Show Related Images
-      </Button>
+      </CustomButton>
     </Box>
   );
 };

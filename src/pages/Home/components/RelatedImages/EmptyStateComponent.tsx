@@ -1,6 +1,7 @@
-import { Container, Box, Typography, Button } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { YellowArrowIcon } from '../../../../components/atoms/Icons';
+import { CustomButton } from '../../../../components/atoms/Button';
 
 export const EmptyStateComponent = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export const EmptyStateComponent = () => {
         <Typography variant="h4" align="center" m={4} p={4}>
           No related images found :( Try again
         </Typography>
-        <Button
+        <CustomButton
           onClick={() => navigate('/')}
           variant="text"
           endIcon={<YellowArrowIcon />}
@@ -24,7 +25,7 @@ export const EmptyStateComponent = () => {
           }}
         >
           Back to Gallery
-        </Button>
+        </CustomButton>
       </Box>
     </Container>
   );

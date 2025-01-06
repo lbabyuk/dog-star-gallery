@@ -1,8 +1,10 @@
-import { ListItem, Button, Box } from '@mui/material';
+import { ListItem } from '@mui/material';
 import moment from 'moment';
 import { useDeleteVotesMutation } from '../../../services/votes';
 import { getVoteFeedback } from './historyData';
 import { TypographyElement } from './HistoryListStyled';
+import { CustomImage } from '../../../components/atoms/Image';
+import { CustomButton } from '../../../components/atoms/Button';
 
 type BreedProps = {
   breed: {
@@ -34,23 +36,23 @@ export const HistoryList = ({ breed }: BreedProps) => {
       {voteIcon}
       <TypographyElement>{voteMessage}</TypographyElement>
 
-      <Box
+      <CustomImage
         component="img"
         src={breed.image.url}
         alt={breed.image_id}
-        sx={{
+        sx={(theme: { palette: { grey: number[] } }) => ({
           borderRadius: '10%',
           width: '50px',
           height: '40px',
           objectFit: 'cover',
           aspectRatio: 1,
-          boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`
-        }}
+          boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`
+        })}
       />
       <TypographyElement width="200px">
         {moment(breed.created_at).format('MMMM Do YYYY')}
       </TypographyElement>
-      <Button
+      <CustomButton
         variant="contained"
         onClick={() => handleDeleteVotedImages(breed.id)}
         sx={{
@@ -60,7 +62,7 @@ export const HistoryList = ({ breed }: BreedProps) => {
         }}
       >
         Delete
-      </Button>
+      </CustomButton>
     </ListItem>
   );
 };

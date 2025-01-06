@@ -1,11 +1,15 @@
-import { FC } from 'react';
 import { Button, ButtonGroup, Stack, styled, Typography } from '@mui/material';
 import { SortDownIcon, SortUpIcon, SortRandomIcon } from '../../atoms/Icons';
-import { SORTED_ICONS_STYLE } from '../../../constants/SortedIconsStyleData';
 
 type Ordered = {
   ordered: (arg: string) => void;
 };
+
+export const ORDERED_TYPE_DATA = [
+  { id: 1, type: 'RANDOM', icon: <SortRandomIcon /> },
+  { id: 2, type: 'DESC', icon: <SortDownIcon /> },
+  { id: 3, type: 'ASC', icon: <SortUpIcon /> }
+];
 
 const SortedTypography = styled(Typography)(({ theme: { palette } }) => ({
   color: palette.text.primary,
@@ -25,31 +29,29 @@ const StyledButton = styled(Button)(({ theme: { palette } }) => ({
   }
 }));
 
-export const SortedComponent: FC<Ordered> = ({ ordered }) => (
-  <Stack
-    alignItems="center"
-    direction="row"
-    justifyContent="center"
-    spacing={1}
-  >
+export const SortedComponent = ({ ordered }: Ordered) => {
+  return (
     <Stack
+      alignItems="center"
       direction="row"
       justifyContent="center"
-      alignItems="center"
-      spacing={0.5}
+      spacing={1}
     >
-      <SortedTypography>Sort by: </SortedTypography>
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={0.5}
+      >
+        <SortedTypography>Sort by: </SortedTypography>
+      </Stack>
+      <ButtonGroup variant="text">
+        {ORDERED_TYPE_DATA.map(({ id, type, icon }) => (
+          <StyledButton onClick={() => ordered(type)} key={id}>
+            {icon}
+          </StyledButton>
+        ))}
+      </ButtonGroup>
     </Stack>
-    <ButtonGroup variant="text">
-      <StyledButton onClick={() => ordered('RENDOM')}>
-        <SortRandomIcon sx={SORTED_ICONS_STYLE} />
-      </StyledButton>
-      <StyledButton onClick={() => ordered('DESC')}>
-        <SortDownIcon sx={SORTED_ICONS_STYLE} />
-      </StyledButton>
-      <StyledButton onClick={() => ordered('ASC')}>
-        <SortUpIcon sx={SORTED_ICONS_STYLE} />
-      </StyledButton>
-    </ButtonGroup>
-  </Stack>
-);
+  );
+};

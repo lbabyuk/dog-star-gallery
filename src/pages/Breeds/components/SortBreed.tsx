@@ -1,7 +1,6 @@
 import { ButtonGroup, styled, Typography } from '@mui/material';
 import { SortDownIcon, SortUpIcon } from '../../../components/atoms/Icons';
 import { StyledButton } from '../BreedsStyled';
-import { SORTED_ICONS_STYLE } from '../../../constants/SortedIconsStyleData';
 
 type SortBreedProps = {
   onHandleSortDown: () => void;
@@ -28,10 +27,10 @@ export const SortBreed = ({
   >
     <StyledTypography variant="caption">Sort by:</StyledTypography>
     <StyledButton onClick={onHandleSortDown}>
-      <SortDownIcon sx={SORTED_ICONS_STYLE}/>
+      <SortDownIcon />
     </StyledButton>
     <StyledButton onClick={onHandleSortUp}>
-      <SortUpIcon sx={SORTED_ICONS_STYLE}/>
+      <SortUpIcon />
     </StyledButton>
   </ButtonGroup>
 );
