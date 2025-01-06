@@ -18,8 +18,10 @@ export const Favorites = () => {
   if (favoriteImages?.length === 0) {
     return (
       <Container>
-        <Box>
-          <Typography variant="h4" component="h4" align="center" m={4} p={4}>
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+        >
+          <Typography variant="h4" color="primary">
             No favorite dogs yet
           </Typography>
           <CustomButton

@@ -7,11 +7,11 @@ export const StyledBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(0, 2),
   [theme.breakpoints.down('sm')]: {
     flexDirection: 'column',
-    alignItems: 'flex-start'
+    alignItems: 'center'
   },
   [theme.breakpoints.between('sm', 'md')]: {
     flexDirection: 'column',
-    alignItems: 'flex-start'
+    alignItems: 'center'
   }
 }));
 

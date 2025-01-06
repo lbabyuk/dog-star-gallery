@@ -56,16 +56,22 @@ export const Breeds = () => {
 
   if (filteredBreeds?.length === 0) {
     return (
-      <Box
-        sx={{
-          height: '50vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Typography variant="h5">Ups, no breed found :(. Try again!</Typography>
-      </Box>
+      <Container>
+        <StyledBox>
+          <SearchComponent onChange={handleChange} input={searchQuery} />
+          <SortBreed
+            onHandleSortDown={handleSortedDown}
+            onHandleSortUp={handleSortedUp}
+          />
+        </StyledBox>
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+        >
+          <Typography variant="h4" color="primary">
+            Ups, no breed found :(. Try again!
+          </Typography>
+        </Box>
+      </Container>
     );
   }
 

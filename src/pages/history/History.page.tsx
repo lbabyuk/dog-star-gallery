@@ -5,6 +5,7 @@ import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
 import { CustomButton } from '../../components/atoms/Button';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
+import { HOME } from '../../constants/routes';
 
 export const History = () => {
   const { data: breeds, isLoading } = useGetVotesQuery({ sub_id: 'olena' });
@@ -14,12 +15,12 @@ export const History = () => {
   if (breeds?.length === 0) {
     return (
       <Container>
-        <Box>
-          <Typography variant="h4" align="center" m={4} p={4}>
-            No votes breed yet
+        <Box  sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}>
+        <Typography variant="h4" color="primary">
+            No voted breed yet
           </Typography>
           <CustomButton
-            onClick={() => navigate('/votes')}
+            onClick={() => navigate(HOME.VOTES)}
             variant="text"
             endIcon={<YellowArrowIcon />}
             sx={{

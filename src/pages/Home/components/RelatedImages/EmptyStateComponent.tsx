@@ -7,8 +7,10 @@ export const EmptyStateComponent = () => {
   const navigate = useNavigate();
   return (
     <Container>
-      <Box>
-        <Typography variant="h4" align="center" m={4} p={4}>
+      <Box
+        sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+      >
+        <Typography variant="h4" color="primary">
           No related images found :( Try again
         </Typography>
         <CustomButton
