@@ -3,11 +3,10 @@ import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
 import { Container, Box, SelectChangeEvent, Typography } from '@mui/material';
 import {
+  LoadingStatus,
   PaginationComponent,
   SortedComponent
 } from '../../components/molecules';
-import { Image } from '../../services/images';
-import { PageSkeleton } from '../../components/atoms/PageSkeleton/PageSkeleton';
 import { SelectComponent } from '../../components/molecules/SelectComponent';
 
 export const Gallery = () => {
@@ -15,13 +14,13 @@ export const Gallery = () => {
   const [order, setOrder] = useState('RANDOM');
   const [imageType, setImageType] = useState('jpg');
 
-  const { data: images } = useGetImagesQuery({
+  const { data: images, isLoading } = useGetImagesQuery({
     has_breeds: true,
     order,
     page,
     limit: 6,
     mime_types: imageType
-  }) as { data: Image[] };
+  });
 
   const handlePagination = (event: ChangeEvent<unknown>, value: number) => {
     event.preventDefault();
@@ -31,6 +30,20 @@ export const Gallery = () => {
   const handleImageTypeChange = (event: SelectChangeEvent) => {
     setImageType(event.target.value as string);
   };
+
+  if (isLoading) return <LoadingStatus />;
+
+  if (images?.length === 0) {
+    return (
+      <Box
+        sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+      >
+        <Typography variant="h6" color="primary">
+          No images found for the selected type.
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Container>
@@ -52,19 +65,8 @@ export const Gallery = () => {
         />
         <SortedComponent ordered={setOrder} />
       </Box>
-      {!images ? (
-        <PageSkeleton />
-      ) : images.length === 0 ? (
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h6" color="primary">
-            No images found for the selected type.
-          </Typography>
-        </Box>
-      ) : (
-        <GalleryImages images={images} />
-      )}
+
+      <GalleryImages images={images} />
 
       <Box display="flex" justifyContent="flex-end" alignItems="center">
         <PaginationComponent

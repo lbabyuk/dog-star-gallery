@@ -15,6 +15,7 @@ export const BreedItem = () => {
   const navigate = useNavigate();
 
   const breed = (breeds || []).find(item => item.id === Number(breedId));
+
   if (isLoading) return <LoadingStatus />;
 
   if (!breed) {

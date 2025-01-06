@@ -13,7 +13,7 @@ import { VotesSlider } from './components/VotesSlider';
 import { PowIcon } from '../../components/atoms/Icons';
 
 export const Votes = () => {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const { data: votesImages, isLoading } = useGetVotesImages({ page });
 
   const [addVoted] = useAddVotesMutation();

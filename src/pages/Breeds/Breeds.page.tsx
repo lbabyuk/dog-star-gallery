@@ -54,6 +54,21 @@ export const Breeds = () => {
 
   if (isLoading) return <LoadingStatus />;
 
+  if (filteredBreeds?.length === 0) {
+    return (
+      <Box
+        sx={{
+          height: '50vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        <Typography variant="h5">Ups, no breed found :(. Try again!</Typography>
+      </Box>
+    );
+  }
+
   return (
     <Container>
       <StyledBox>
@@ -64,25 +79,7 @@ export const Breeds = () => {
         />
       </StyledBox>
 
-      {filteredBreeds.length === 0 ? (
-        <Box
-          sx={{
-            height: '50vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <Typography variant="h5">
-            Ups, no breed found :(. Try again!
-          </Typography>
-        </Box>
-      ) : (
-        <BreedsList
-          filteredBreeds={filteredBreeds}
-          visibleCount={visibleCount}
-        />
-      )}
+      <BreedsList filteredBreeds={filteredBreeds} visibleCount={visibleCount} />
 
       <Box
         sx={{
