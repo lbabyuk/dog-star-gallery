@@ -22,14 +22,6 @@ export type VotesResponse = {
 
 export const votesApi = api.injectEndpoints({
   endpoints: build => ({
-    addVotes: build.mutation<unknown, Votes>({
-      query: body => ({
-        url: `votes`,
-        method: 'POST',
-        body
-      }),
-      invalidatesTags: [{ type: 'Votes' as const, id: 'LIST' }]
-    }),
     getVotes: build.query<VotesResponse, { sub_id?: string }>({
       query: ({ sub_id }) => ({ url: `votes?sub_id=${sub_id}` }),
 
@@ -41,6 +33,15 @@ export const votesApi = api.injectEndpoints({
             ]
           : [{ type: 'Votes' as const, id: 'LIST' }]
     }),
+    addVotes: build.mutation<unknown, Votes>({
+      query: body => ({
+        url: `votes`,
+        method: 'POST',
+        body
+      }),
+      invalidatesTags: [{ type: 'Votes' as const, id: 'LIST' }]
+    }),
+
     deleteVotes: build.mutation<{ id: number }, number>({
       query: id => ({
         url: `votes/${id}`,
