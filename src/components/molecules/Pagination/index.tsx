@@ -33,7 +33,7 @@ export const PaginationComponent = ({
       <Pagination
         color="secondary"
         defaultPage={3}
-        siblingCount={0}
+        siblingCount={1}
         count={count}
         page={page}
         onChange={onChange}

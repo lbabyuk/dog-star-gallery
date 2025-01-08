@@ -7,8 +7,8 @@ type Ordered = {
 
 export const ORDERED_TYPE_DATA = [
   { id: 1, type: 'RANDOM', icon: <SortRandomIcon /> },
-  { id: 2, type: 'DESC', icon: <SortDownIcon /> },
-  { id: 3, type: 'ASC', icon: <SortUpIcon /> }
+  { id: 2, type: 'ASC', icon: <SortDownIcon /> },
+  { id: 3, type: 'DESC', icon: <SortUpIcon /> }
 ];
 
 const SortedTypography = styled(Typography)(({ theme: { palette } }) => ({

@@ -10,8 +10,8 @@ import { CustomImage } from '../../components/atoms/Image';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
-  const limit = 20;
-  const { data: breeds, isLoading } = useGetBreedsQuery({ limit });
+
+  const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
   const navigate = useNavigate();
 
   const breed = (breeds || []).find(item => item.id === Number(breedId));
@@ -29,14 +29,14 @@ export const BreedItem = () => {
           onClick={() => navigate(HOME.BREEDS)}
           variant="text"
           endIcon={<YellowArrowIcon />}
-          sx={{
+          sx={theme => ({
             '&:hover': {
-              backgroundColor: theme => theme.palette.action.hover,
-              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme => theme.palette.grey[600],
-              border: theme => theme.palette.grey[600]
+              backgroundColor: theme.palette.action.hover,
+              boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
+              color: theme.palette.grey[600],
+              border: theme.palette.grey[600]
             }
-          }}
+          })}
         >
           Back to Breeds
         </Button>

@@ -10,8 +10,7 @@ import { useDebounce } from '../../utilities/hooks';
 import { CustomButton } from '../../components/atoms/Button';
 
 export const Breeds = () => {
-  const limit = 20;
-  const { data: breeds, isLoading } = useGetBreedsQuery({ limit });
+  const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
   const [searchQuery, setSearchQuery] = useState('');
   const [sorted, setSorted] = useState<Breed[]>([]);
   const [visibleCount, setVisibleCount] = useState(6);

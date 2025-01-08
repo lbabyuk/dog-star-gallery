@@ -35,7 +35,7 @@ export const breedsApi = api.injectEndpoints({
         page?: number;
       }
     >({
-      query: ({ limit = 10, page = 0 }) => ({
+      query: ({ limit = 25, page = 0 }) => ({
         url: `breeds?limit=${limit}&page=${page}`
       }),
       providesTags: (result = []) =>
