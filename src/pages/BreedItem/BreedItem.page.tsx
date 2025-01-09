@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Container, Button, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
@@ -21,25 +21,21 @@ export const BreedItem = () => {
   if (!breed) {
     return (
       <Container>
-        <Typography variant="h4" align="center" m={4} p={4}>
-          The Breed not found :(
-        </Typography>
-
-        <Button
-          onClick={() => navigate(HOME.BREEDS)}
-          variant="text"
-          endIcon={<YellowArrowIcon />}
-          sx={theme => ({
-            '&:hover': {
-              backgroundColor: theme.palette.action.hover,
-              boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme.palette.grey[600],
-              border: theme.palette.grey[600]
-            }
-          })}
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
         >
-          Back to Breeds
-        </Button>
+          <Typography variant="h4" align="center" m={4} p={4}>
+            The Breed not found :(
+          </Typography>
+
+          <CustomButton
+            onClick={() => navigate(HOME.BREEDS)}
+            variant="textPrimary"
+            endIcon={<YellowArrowIcon />}
+          >
+            Back to Breeds
+          </CustomButton>
+        </Box>
       </Container>
     );
   }
@@ -95,19 +91,7 @@ export const BreedItem = () => {
             <CustomButton
               onClick={() => navigate(`/breeds`)}
               endIcon={<YellowArrowIcon />}
-              sx={theme => ({
-                padding: '8px 16px',
-                borderRadius: '6px',
-                color: theme.palette.grey[900],
-                border: `1px solid ${theme.palette.grey[800]}`,
-                backgroundColor: theme.palette.background.paper,
-                boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`,
-                fontWeight: 400,
-                '&:hover': {
-                  backgroundColor: theme.palette.action.hover,
-                  color: theme.palette.grey[600]
-                }
-              })}
+              variant="outlinedPrimary"
             >
               Back to Breeds
             </CustomButton>

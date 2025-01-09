@@ -47,7 +47,11 @@ export const SortedComponent = ({ ordered }: Ordered) => {
       </Stack>
       <ButtonGroup variant="text">
         {ORDERED_TYPE_DATA.map(({ id, type, icon }) => (
-          <StyledButton onClick={() => ordered(type)} key={id}>
+          <StyledButton
+            onClick={() => ordered(type)}
+            key={id}
+            variant="textSecondary"
+          >
             {icon}
           </StyledButton>
         ))}

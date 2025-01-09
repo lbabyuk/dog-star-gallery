@@ -60,17 +60,12 @@ export const ImagesListItem = ({
       />
 
       <CustomButton
+        variant="textSecondary"
         sx={{
           position: 'absolute',
           top: '0px',
           right: '0px',
-          padding: '5px',
-          '&:active': {
-            outline: 'none'
-          },
-          '&:focus': {
-            outline: 'none'
-          }
+          padding: '5px'
         }}
         onClick={onAddFavorite(favoriteImage.id)}
         startIcon={

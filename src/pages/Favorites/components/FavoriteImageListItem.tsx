@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { CustomImage } from '../../../components/atoms/Image';
 import { CustomButton } from '../../../components/atoms/Button';
@@ -44,8 +43,7 @@ export const FavoriteImageListItem = ({
         })}
       />
       <CustomButton
-        variant="text"
-        disableRipple
+        variant="textSecondary"
         size="large"
         color="warning"
         onClick={() => onDeleteFavorite(favoriteImage.id)}
@@ -58,23 +56,12 @@ export const FavoriteImageListItem = ({
             })}
           />
         }
-        sx={theme => ({
+        sx={{
           position: 'absolute',
           top: '10px',
           right: '10px',
-          padding: '5px',
-          fontWeight: 'bold',
-          color: theme.palette.primary.main,
-          '&:hover': {
-            color: theme.palette.action.hover
-          },
-          '&:active': {
-            outline: 'none'
-          },
-          '&:focus': {
-            outline: 'none'
-          }
-        })}
+          padding: '5px'
+        }}
       >
         Delete
       </CustomButton>

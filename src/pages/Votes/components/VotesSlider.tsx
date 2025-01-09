@@ -51,7 +51,7 @@ export const VotesSlider = ({
 
                   {votesButtonData(votesImage.id, handleLikeClick).map(item => (
                     <CustomButton
-                      variant="text"
+                      variant="textSecondary"
                       key={item.key}
                       onClick={item.onclick}
                       startIcon={item.icon}

@@ -53,19 +53,7 @@ export const RelatedImagesContent = ({
           <CustomButton
             onClick={() => navigate('/')}
             endIcon={<YellowArrowIcon />}
-            sx={theme => ({
-              padding: '8px 16px',
-              borderRadius: '6px',
-              color: theme.palette.grey[900],
-              border: `1px solid ${theme.palette.grey[800]}`,
-              backgroundColor: theme.palette.background.paper,
-              boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
-              fontWeight: 400,
-              '&:hover': {
-                backgroundColor: theme.palette.action.hover,
-                color: theme.palette.grey[600]
-              }
-            })}
+            variant="outlinedPrimary"
           >
             Back to Gallery
           </CustomButton>

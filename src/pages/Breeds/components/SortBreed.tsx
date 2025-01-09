@@ -26,10 +26,10 @@ export const SortBreed = ({
     sx={{ marginTop: { xs: '20px', md: 0, lg: 0 } }}
   >
     <StyledTypography variant="caption">Sort by:</StyledTypography>
-    <StyledButton onClick={onHandleSortDown}>
+    <StyledButton onClick={onHandleSortDown} variant="textSecondary">
       <SortDownIcon />
     </StyledButton>
-    <StyledButton onClick={onHandleSortUp}>
+    <StyledButton onClick={onHandleSortUp} variant="textSecondary">
       <SortUpIcon />
     </StyledButton>
   </ButtonGroup>

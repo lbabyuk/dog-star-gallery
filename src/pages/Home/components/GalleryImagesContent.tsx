@@ -63,22 +63,7 @@ export const GalleryImagesContent = ({
         startIcon={<PowIcon />}
         endIcon={<YellowArrowIcon />}
         onClick={() => onHandleImageClick(item)}
-        sx={theme => ({
-          padding: '8px 16px',
-          borderRadius: '6px',
-          color: theme.palette.secondary.main,
-          backgroundColor: theme.palette.primary.main,
-          fontWeight: 400,
-          justifyContent: 'space-evenly',
-          '& .MuiButton-startIcon>*:nth-of-type(1)': {
-            fontSize: '30px'
-          },
-          '&:hover': {
-            backgroundColor: theme.palette.action.hover,
-            boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
-            color: theme.palette.grey[600]
-          }
-        })}
+        variant="containedPrimary"
       >
         Show Related
       </CustomButton>

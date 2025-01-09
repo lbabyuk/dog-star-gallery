@@ -1,8 +1,16 @@
 import { createTheme } from '@mui/material/styles';
-import { MuiButtonConfig } from './button.config';
+import { MuiButtonConfig } from './customComponents/button.config';
 
-// A custom theme for this app
-const theme = createTheme({
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    containedPrimary: true;
+    textPrimary: true;
+    textSecondary: true;
+    outlinedPrimary: true;
+  }
+}
+
+export const mainTheme = createTheme({
   palette: {
     primary: {
       main: '#921FED',
@@ -43,15 +51,13 @@ const theme = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 600
-  },
-  components: {
-    MuiButton: MuiButtonConfig,
-    MuiTab: {
-      defaultProps: {
-        disableRipple: true
-      }
-    }
   }
 });
 
-export default theme;
+export const theme = createTheme({
+  ...mainTheme,
+  components: {
+    ...mainTheme.components,
+    MuiButton: MuiButtonConfig
+  }
+});

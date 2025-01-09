@@ -89,24 +89,20 @@ export const Breeds = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'end',
+          justifyContent: 'center',
           width: '100%'
         }}
       >
         <CustomButton
-          variant="text"
+          variant="textPrimary"
           onClick={loadMore}
           endIcon={<YellowArrowIcon />}
-          sx={theme => ({
-            '&:hover': {
-              backgroundColor: theme.palette.action.hover,
-              boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme.palette.grey[600],
-              border: theme.palette.grey[600]
-            }
-          })}
+          sx={{
+            color: (theme: { palette: { primary: { main: string } } }) =>
+              theme.palette.primary.main
+          }}
         >
-          Load More breeds
+          Load More
         </CustomButton>
       </Box>
     </Container>

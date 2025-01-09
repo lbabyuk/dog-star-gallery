@@ -15,22 +15,16 @@ export const History = () => {
   if (breeds?.length === 0) {
     return (
       <Container>
-        <Box  sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}>
-        <Typography variant="h4" color="primary">
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+        >
+          <Typography variant="h4" color="primary">
             No voted breed yet
           </Typography>
           <CustomButton
             onClick={() => navigate(HOME.VOTES)}
-            variant="text"
+            variant="textPrimary"
             endIcon={<YellowArrowIcon />}
-            sx={{
-              '&:hover': {
-                backgroundColor: theme => theme.palette.action.hover,
-                boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-                color: theme => theme.palette.grey[600],
-                border: theme => theme.palette.grey[600]
-              }
-            }}
           >
             Vote Breed Here
           </CustomButton>

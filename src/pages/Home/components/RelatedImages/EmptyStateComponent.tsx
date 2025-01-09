@@ -15,16 +15,8 @@ export const EmptyStateComponent = () => {
         </Typography>
         <CustomButton
           onClick={() => navigate('/')}
-          variant="text"
+          variant="textPrimary"
           endIcon={<YellowArrowIcon />}
-          sx={{
-            '&:hover': {
-              backgroundColor: theme => theme.palette.action.hover,
-              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme => theme.palette.grey[600],
-              border: theme => theme.palette.grey[600]
-            }
-          }}
         >
           Back to Gallery
         </CustomButton>

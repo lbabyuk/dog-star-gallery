@@ -70,20 +70,9 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
 
       <Box>
         <CustomButton
+          variant="containedPrimary"
           endIcon={<YellowArrowIcon />}
           onClick={() => navigate(`/breeds/${filteredBreed.id}`)}
-          sx={theme => ({
-            padding: '8px 16px',
-            borderRadius: '6px',
-            color: theme.palette.secondary.main,
-            backgroundColor: theme.palette.action.selected,
-            fontWeight: 400,
-            '&:hover': {
-              backgroundColor: theme.palette.action.hover,
-              boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              color: theme.palette.grey[600]
-            }
-          })}
         >
           Learn More
         </CustomButton>

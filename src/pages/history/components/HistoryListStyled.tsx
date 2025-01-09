@@ -5,6 +5,7 @@ export const TypographyElement = styled(Typography)(({ theme }) => ({
   margin: '8px',
   width: '200px',
   fontSize: '1.45rem',
+  textAlign: 'center',
   [theme.breakpoints.up('sm')]: {
     fontSize: '0.8rem'
   },

@@ -93,7 +93,7 @@ export const Gallery = () => {
         <SortedComponent ordered={setOrder} />
       </Box>
 
-      <GalleryImages images={images} />
+      <GalleryImages images={images || []} />
 
       <Box display="flex" justifyContent="flex-end" alignItems="center">
         <PaginationComponent
