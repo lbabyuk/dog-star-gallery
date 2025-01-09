@@ -53,8 +53,8 @@ export const RelatedImages = () => {
               src={item.url}
               alt={'Related Dog'}
               sx={(theme: { palette: { grey: number[] } }) => ({
-                width: '150px',
-                height: '150px',
+                width: '250px',
+                height: '250px',
                 objectFit: 'cover',
                 borderRadius: '20px',
                 margin: '5px',

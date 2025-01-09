@@ -10,7 +10,6 @@ import {
 import { SelectComponent } from '../../components/molecules/SelectComponent';
 
 export const Gallery = () => {
-  // const [page, setPage] = useState(1);
   const [order, setOrder] = useState('RANDOM');
   const [imageType, setImageType] = useState('jpg');
   const [page, setPage] = useState(1);
@@ -19,7 +18,7 @@ export const Gallery = () => {
     has_breeds: true,
     order,
     page,
-    limit: 9,
+    limit: 25,
     mime_types: imageType
   });
 
