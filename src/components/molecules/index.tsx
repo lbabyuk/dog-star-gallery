@@ -6,3 +6,4 @@ export * from './Pagination';
 export * from './SearchComponent';
 export * from './SortedComponent';
 export * from './ModalComponent';
+export * from './Footer';
