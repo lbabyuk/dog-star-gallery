@@ -22,7 +22,9 @@ export const PaginationComponent = ({
     direction="row"
     alignItems="center"
     spacing={1}
-    justifyContent="flex-end"
+    sx={{
+      justifyContent: { xs: 'center', sm: 'flex-end' }
+    }}
   >
     <Pagination
       color="secondary"

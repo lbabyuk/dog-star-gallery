@@ -49,7 +49,10 @@ export const SelectComponent = ({
           {IMAGE_TYPE_DATA.map(item => (
             <MenuItem
               value={item.value}
-              sx={{ fontSize: '18px' }}
+              sx={{
+                fontSize: '18px',
+                ':hover': { color: theme => theme.palette.grey[600] }
+              }}
               key={item.value}
             >
               {item.text}

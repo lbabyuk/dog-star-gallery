@@ -16,7 +16,10 @@ export const ImagesList = ({
 }: ImagesListProps) => (
   <Box
     sx={{
+      height: '100%',
+      minHeight: '70vh',
       margin: '20px 0',
+      padding: '0 20px',
       display: 'grid',
       gridTemplateColumns: {
         xs: '1fr',

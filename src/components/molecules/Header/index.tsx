@@ -25,8 +25,8 @@ export const Header = () => (
             sx={{
               display: { xs: 'none', md: 'flex' },
               mr: 1,
-              width: { xs: '100px', md: '150px' },
-              height: { xs: '40px', md: '40px' }
+              width: '150px',
+              height: '40px'
             }}
           />
         </NavLink>
@@ -49,8 +49,8 @@ export const Header = () => (
               sx={{
                 display: { xs: 'flex', md: 'none' },
                 mr: 1,
-                width: { xs: '150px', md: '130px' },
-                height: { xs: '40px', md: '40px' }
+                width: '130px',
+                height: '40px'
               }}
             />
           </NavLink>
