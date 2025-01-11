@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { Box, Container, Stack, Typography } from '@mui/material';
+import { Container, Stack, Typography } from '@mui/material';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
@@ -54,13 +54,11 @@ export const Votes = () => {
         handleLikeClick={handleLikeClick}
       />
 
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <PaginationComponent
-          count={votesImages.length}
-          page={page}
-          onChange={handlePagination}
-        />
-      </Box>
+      <PaginationComponent
+        count={votesImages.length}
+        page={page}
+        onChange={handlePagination}
+      />
     </Container>
   );
 };

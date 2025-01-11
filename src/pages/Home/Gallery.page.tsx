@@ -95,13 +95,11 @@ export const Gallery = () => {
 
       <GalleryImages images={images || []} />
 
-      <Box display="flex" justifyContent="flex-end" alignItems="center">
-        <PaginationComponent
-          count={(images ?? []).length || 0}
-          page={page}
-          onChange={handlePagination}
-        />
-      </Box>
+      <PaginationComponent
+        count={(images ?? []).length || 0}
+        page={page}
+        onChange={handlePagination}
+      />
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { Container, Box } from '@mui/material';
+import { Container} from '@mui/material';
 import { useAddFavoritesMutation } from '../../services/favorites';
 import { useGetImagesWithFavorites } from '../../utilities';
 import {
@@ -40,13 +40,11 @@ export const Images = () => {
         onAddFavorite={handleAddClick}
       />
 
-      <Box display="flex" justifyContent="flex-end" alignItems="center">
-        <PaginationComponent
-          count={favoriteImages.length}
-          page={page}
-          onChange={handlePagination}
-        />
-      </Box>
+      <PaginationComponent
+        count={favoriteImages.length}
+        page={page}
+        onChange={handlePagination}
+      />
     </Container>
   );
 };

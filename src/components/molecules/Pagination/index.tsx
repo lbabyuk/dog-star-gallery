@@ -1,13 +1,11 @@
-import {
-  Container,
-  Icon,
-  Pagination,
-  PaginationItem,
-  Stack
-} from '@mui/material';
+import { Icon, Pagination, PaginationItem, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { PaginationDotsIcon } from '../../atoms/Icons';
+import {
+  PAGINATION_STYLE,
+  SVG_SIZE
+} from '../../../constants/paginationStyleData';
 
 type PaginationComponentProps = {
   page: number;
@@ -15,90 +13,104 @@ type PaginationComponentProps = {
   onChange: (event: React.ChangeEvent<unknown>, value: number) => void;
 };
 
-const paginationStyles = {
-  padding: '10px',
-  backgroundColor: 'white.main',
-  height: { xs: '24px', md: '32px' },
-  minWidth: { xs: '24px', md: '32px' },
-  borderRadius: { xs: '8px', md: '12px' }
-};
-
 export const PaginationComponent = ({
   page,
   onChange,
   count
 }: PaginationComponentProps) => (
-  <Container sx={{ p: 2, display: 'flex', justifyContent: 'flex-end' }}>
-    <Stack direction="row" alignItems="center" spacing={1}>
-      <Pagination
-        color="secondary"
-        defaultPage={3}
-        siblingCount={1}
-        count={count}
-        page={page}
-        onChange={onChange}
-        sx={{
-          ...paginationStyles,
-          '& .MuiPaginationItem-root': {
+  <Stack
+    direction="row"
+    alignItems="center"
+    spacing={1}
+    justifyContent="flex-end"
+  >
+    <Pagination
+      color="secondary"
+      defaultPage={3}
+      siblingCount={1}
+      count={count}
+      page={page}
+      onChange={onChange}
+      sx={theme => ({
+        ...PAGINATION_STYLE,
+        '& .MuiPaginationItem-root': {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: theme.palette.text.primary,
+          opacity: 1,
+          '& .MuiPagination-ul': {
             display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: 'grey[500]',
-            opacity: 1,
-            '& .MuiPagination-ul': {
-              display: 'flex',
+            margin: 0,
+            padding: 0,
+            gap: '8px',
+            '& li': {
               margin: 0,
-              padding: 0,
-              gap: '8px',
-              '& li': {
-                margin: 0,
-                display: 'flex',
-                color: 'grey[500]'
-              }
-            },
-            '&.Mui-disabled': {
-              opacity: 1,
-              color: 'grey[700]',
-              backgroundColor: 'grey[600]'
-            },
-            '&.Mui-selected': {
-              color: 'background.paper',
-              backgroundColor: 'action.selected',
-              boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-              '&:hover': {
-                color: 'background.paper',
-                backgroundColor: 'action.hover'
-              }
-            },
-            '&:hover': {
-              color: 'background.paper',
-              backgroundColor: 'action.hover',
-              borderRadius: { xs: '8px', md: '12px' }
+              display: 'flex',
+              color: theme.palette.grey[500]
             }
+          },
+          '&.Mui-disabled': {
+            opacity: 1,
+            color: theme.palette.grey[700],
+            backgroundColor: theme.palette.grey[600]
+          },
+          '&.Mui-selected': {
+            color: theme.palette.background.paper,
+            backgroundColor: theme.palette.action.selected,
+            boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
+            '&:hover': {
+              color: theme.palette.background.paper,
+              backgroundColor: theme.palette.action.hover
+            }
+          },
+          '&:hover': {
+            color: theme.palette.background.paper,
+            backgroundColor: theme.palette.action.hover,
+            borderRadius: PAGINATION_STYLE.borderRadius
           }
-        }}
-        renderItem={item => {
-          if (item.type === 'start-ellipsis' || item.type === 'end-ellipsis') {
-            return (
-              <Icon sx={{ display: 'flex' }}>
-                <PaginationDotsIcon />
-              </Icon>
-            );
-          }
+        }
+      })}
+      renderItem={item => {
+        if (item.type === 'start-ellipsis' || item.type === 'end-ellipsis') {
           return (
-            <PaginationItem
-              slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+            <Icon
               sx={{
-                '&.Mui-selected ': {
-                  ...paginationStyles,
-                  boxShadow: '0px 0px 12px 0px rgba(31, 5, 188, 0.1)'
-                }
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
               }}
-              {...item}
-            />
+            >
+              <PaginationDotsIcon
+                sx={{
+                  width: SVG_SIZE,
+                  height: SVG_SIZE
+                }}
+              />
+            </Icon>
           );
-        }}
-      />
-    </Stack>
-  </Container>
+        }
+        return (
+          <PaginationItem
+            slots={{
+              previous: ArrowBackIcon,
+              next: ArrowForwardIcon
+            }}
+            sx={{
+              fontSize: { xs: '16px', md: '18px', lg: '20px' },
+              '&.Mui-selected ': {
+                ...PAGINATION_STYLE,
+                boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`
+              },
+              svg: {
+                width: SVG_SIZE,
+                height: SVG_SIZE
+              }
+            }}
+            {...item}
+          />
+        );
+      }}
+    />
+  </Stack>
 );
