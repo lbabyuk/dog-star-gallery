@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { MuiButtonConfig } from './customComponents/button.config';
+import { overrideTypography } from './customComponents/overrideTypography';
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -7,6 +8,20 @@ declare module '@mui/material/Button' {
     textPrimary: true;
     textSecondary: true;
     outlinedPrimary: true;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    subtitle3: true;
+    subtitle4: true;
+    semiBold1: true;
+    semiBold2: true;
+    underlined1: true;
+    underlined2: true;
+    caption1: true;
+    caption2: true;
+    span: true;
   }
 }
 
@@ -58,6 +73,26 @@ export const theme = createTheme({
   ...mainTheme,
   components: {
     ...mainTheme.components,
-    MuiButton: MuiButtonConfig
+    MuiButton: MuiButtonConfig,
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle3: 'h6',
+          subtitle4: 'h6',
+          semiBold1: 'p',
+          semiBold2: 'p',
+          underlined1: 'p',
+          underlined2: 'p',
+          caption1: 'p',
+          caption2: 'p',
+          span: 'span'
+        }
+      }
+    }
+  },
+  typography: {
+    ...mainTheme.typography,
+    fontFamily: "'Dosis', sans-serif",
+    ...overrideTypography(mainTheme)
   }
 });

@@ -19,3 +19,8 @@ export const headerMenu = [
     path: HOME.HISTORY
   }
 ];
+
+export const ICON_SIZE = {
+  xs: '30px',
+  md: '35px'
+};

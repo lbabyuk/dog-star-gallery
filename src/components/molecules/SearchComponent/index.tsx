@@ -38,7 +38,13 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
 
 export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
   <StyledPaper component="form">
-    <SearchIcon sx={{ fontSize: 30, color: 'gray', marginLeft: 1 }} />
+    <SearchIcon
+      sx={{
+        fontSize: { xs: 20, sm: 25 },
+        color: theme => theme.palette.grey[500],
+        marginLeft: 1
+      }}
+    />
     <InputBase
       type="text"
       value={input}

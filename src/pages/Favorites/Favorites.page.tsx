@@ -19,23 +19,19 @@ export const Favorites = () => {
     return (
       <Container>
         <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+          sx={{
+            textAlign: 'center',
+            mt: 4,
+            height: 'auto'
+          }}
         >
-          <Typography variant="h4" color="primary">
-            No favorite dogs yet
+          <Typography variant="h2" m={4} p={4}>
+            No favorite dogs yet 🙁 Try again
           </Typography>
           <CustomButton
             onClick={() => navigate(HOME.IMAGES)}
-            variant="text"
+            variant="textPrimary"
             endIcon={<YellowArrowIcon />}
-            sx={{
-              '&:hover': {
-                backgroundColor: theme => theme.palette.action.hover,
-                boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
-                color: theme => theme.palette.grey[600],
-                border: theme => theme.palette.grey[600]
-              }
-            }}
           >
             Add Favorite Breed Here
           </CustomButton>

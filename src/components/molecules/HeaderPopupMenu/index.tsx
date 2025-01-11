@@ -63,7 +63,7 @@ export const HeaderPopupMenu = () => {
             >
               {({ isActive }) => (
                 <Typography
-                  variant="body1"
+                  variant="subtitle3"
                   sx={{
                     color: theme =>
                       isActive

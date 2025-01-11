@@ -1,7 +1,5 @@
 import { Stack, Typography } from '@mui/material';
-
 import { LogoIcon } from '../../../components/atoms/Icons';
-import { TypographyElement } from '../BreedItemStyled';
 
 type BreedItemContentProps = {
   name: string;
@@ -25,29 +23,63 @@ export const BreedItemContent = ({
   return (
     <Stack spacing={2} mb={{ xs: 5, md: 0 }}>
       <Stack direction="row" alignItems="center" spacing={1}>
-        <Typography variant="h6">{name ? name : '***'}</Typography> <LogoIcon />
+        <Typography variant="h3">{name ? name : '***'}</Typography> <LogoIcon />
       </Stack>
-      <Stack spacing={0.5}>
-        <TypographyElement>
-          Origin: <span className="span">{origin ? origin : '***'}</span>
-        </TypographyElement>
-        <TypographyElement>
+      <Stack spacing={2}>
+        <Typography variant="body1">
+          Origin:{' '}
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {origin ? origin : '***'}
+          </Typography>
+        </Typography>
+        <Typography>
           Weight Range:{' '}
-          <span className="span">{weight ? weight : '***'} kg</span>
-        </TypographyElement>
-        <TypographyElement>
-          Height: <span className="span">{height ? height : '***'} sm</span>
-        </TypographyElement>
-        <TypographyElement>
-          Life span: <span className="span">{life ? life : '***'}</span>
-        </TypographyElement>
-        <TypographyElement>
-          Bred for: <span className="span">{breedFor ? breedFor : '***'}</span>
-        </TypographyElement>
-        <TypographyElement>
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {weight ? weight : '***'} kg
+          </Typography>
+        </Typography>
+        <Typography>
+          Height:{' '}
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {height ? height : '***'} sm
+          </Typography>
+        </Typography>
+        <Typography>
+          Life span:{' '}
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {life ? life : '***'}
+          </Typography>
+        </Typography>
+        <Typography>
+          Bred for:{' '}
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {breedFor ? breedFor : '***'}
+          </Typography>
+        </Typography>
+        <Typography>
           Breed group:{' '}
-          <span className="span">{breedGroup ? breedGroup : '***'}</span>
-        </TypographyElement>
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.grey[500] }}
+          >
+            {breedGroup ? breedGroup : '***'}
+          </Typography>
+        </Typography>
       </Stack>
     </Stack>
   );

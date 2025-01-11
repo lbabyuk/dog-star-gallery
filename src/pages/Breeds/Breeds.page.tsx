@@ -9,6 +9,7 @@ import { SortBreed } from './components/SortBreed';
 import { useDebounce } from '../../utilities/hooks';
 import { CustomButton } from '../../components/atoms/Button';
 
+
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
   const [searchQuery, setSearchQuery] = useState('');
@@ -66,8 +67,8 @@ export const Breeds = () => {
         <Box
           sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
         >
-          <Typography variant="h4" color="primary">
-            Ups, no breed found :(. Try again!
+          <Typography variant="h2">
+            Ups, no breed found 🙁. Try again!
           </Typography>
         </Box>
       </Container>

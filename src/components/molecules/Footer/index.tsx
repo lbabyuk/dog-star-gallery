@@ -14,7 +14,7 @@ export const Footer = () => {
       <Container>
         <Toolbar disableGutters>
           <Typography
-            variant="caption"
+            variant="semiBold1"
             sx={{
               m: 1,
               whiteSpace: 'nowrap',

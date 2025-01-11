@@ -63,8 +63,8 @@ export const ImagesListItem = ({
         variant="textSecondary"
         sx={{
           position: 'absolute',
-          top: '0px',
-          right: '0px',
+          top: { xs: '10px' },
+          right: '-5px',
           padding: '5px'
         }}
         onClick={onAddFavorite(favoriteImage.id)}

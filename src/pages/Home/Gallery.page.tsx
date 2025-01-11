@@ -57,7 +57,7 @@ export const Gallery = () => {
         <Box
           sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
         >
-          <Typography variant="h4" color="primary">
+          <Typography variant="h2" color="primary">
             No images found for the selected type
           </Typography>
         </Box>

@@ -5,16 +5,26 @@ type Ordered = {
   ordered: (arg: string) => void;
 };
 
-export const ORDERED_TYPE_DATA = [
-  { id: 1, type: 'RANDOM', icon: <SortRandomIcon /> },
-  { id: 2, type: 'ASC', icon: <SortDownIcon /> },
-  { id: 3, type: 'DESC', icon: <SortUpIcon /> }
+const ORDERED_ICON_SIZE = { xs: '40px', lg: '48px' };
+
+const ORDERED_TYPE_DATA = [
+  {
+    id: 1,
+    type: 'RANDOM',
+    icon: <SortRandomIcon sx={{ width: ORDERED_ICON_SIZE }} />
+  },
+  {
+    id: 2,
+    type: 'ASC',
+    icon: <SortDownIcon sx={{ width: ORDERED_ICON_SIZE }} />
+  },
+  {
+    id: 3,
+    type: 'DESC',
+    icon: <SortUpIcon sx={{ width: ORDERED_ICON_SIZE }} />
+  }
 ];
 
-const SortedTypography = styled(Typography)(({ theme: { palette } }) => ({
-  color: palette.text.primary,
-  fontSize: 20
-}));
 const StyledButton = styled(Button)(({ theme: { palette } }) => ({
   '&:focus': {
     outline: 'none'
@@ -43,7 +53,9 @@ export const SortedComponent = ({ ordered }: Ordered) => {
         alignItems="center"
         spacing={0.5}
       >
-        <SortedTypography>Sort by: </SortedTypography>
+        <Typography variant="body1" color="text.primary">
+          Sort by:{' '}
+        </Typography>
       </Stack>
       <ButtonGroup variant="text">
         {ORDERED_TYPE_DATA.map(({ id, type, icon }) => (

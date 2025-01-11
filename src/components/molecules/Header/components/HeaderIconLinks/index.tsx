@@ -7,6 +7,7 @@ import {
   CrossContainedIcon,
   CrossOutlinedIcon
 } from '../../../../atoms/Icons';
+import { ICON_SIZE } from '../../../../../constants/headerMenu';
 
 export const HeaderIconLinks = () => {
   return (
@@ -17,7 +18,7 @@ export const HeaderIconLinks = () => {
         display: 'flex',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        gap: { xs: '5px', sm: '10px', md: '20px' }
+        gap: { xs: '5px', sm: '10px', md: '30px' }
       }}
     >
       <NavLink to={HOME.FAVORITES} end>
@@ -26,8 +27,8 @@ export const HeaderIconLinks = () => {
             <HeartIcon
               sx={{
                 display: 'flex',
-                width: { xs: '35px', md: '40px' },
-                height: { xs: '35px', md: '40px' },
+                width: ICON_SIZE,
+                height: ICON_SIZE,
                 p: 0
               }}
             />
@@ -36,8 +37,8 @@ export const HeaderIconLinks = () => {
               sx={{
                 display: 'flex',
                 color: theme => theme.palette.warning.main,
-                width: { xs: '35px', md: '40px' },
-                height: { xs: '35px', md: '40px' },
+                width: ICON_SIZE,
+                height: ICON_SIZE,
                 p: 0
               }}
             />
@@ -50,8 +51,8 @@ export const HeaderIconLinks = () => {
             <CrossContainedIcon
               sx={{
                 display: 'flex',
-                width: { xs: '35px', md: '45px' },
-                height: { xs: '35px', md: '45px' },
+                width: ICON_SIZE,
+                height: ICON_SIZE,
                 p: 0
               }}
             />
@@ -59,8 +60,8 @@ export const HeaderIconLinks = () => {
             <CrossOutlinedIcon
               sx={{
                 display: 'flex',
-                width: { xs: '35px', md: '40px' },
-                height: { xs: '35px', md: '40px' },
+                width: ICON_SIZE,
+                height: ICON_SIZE,
                 p: 0
               }}
             />

@@ -37,7 +37,7 @@ export const Votes = () => {
         justifyContent="center"
         gap={1}
       >
-        <Typography variant="h5">Your can vote here</Typography>
+        <Typography variant="h2">Your can vote here</Typography>
         <PowIcon
           sx={{
             display: 'flex',

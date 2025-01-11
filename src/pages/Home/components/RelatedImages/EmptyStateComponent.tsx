@@ -10,8 +10,8 @@ export const EmptyStateComponent = () => {
       <Box
         sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
       >
-        <Typography variant="h4" color="primary">
-          No related images found :( Try again
+        <Typography variant="h2" m={4} p={4}>
+          No related images found 🙁 Try again
         </Typography>
         <CustomButton
           onClick={() => navigate('/')}

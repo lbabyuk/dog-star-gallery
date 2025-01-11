@@ -56,10 +56,9 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
       >
         Temperament:{' '}
         <Typography
-          component="span"
+          variant="span"
           sx={{
-            color: theme => theme.palette.grey[700],
-            fontSize: '1.2rem'
+            color: theme => theme.palette.grey[700]
           }}
         >
           {filteredBreed.temperament

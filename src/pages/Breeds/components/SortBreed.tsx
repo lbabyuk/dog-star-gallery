@@ -1,4 +1,4 @@
-import { ButtonGroup, styled, Typography } from '@mui/material';
+import { ButtonGroup, Typography } from '@mui/material';
 import { SortDownIcon, SortUpIcon } from '../../../components/atoms/Icons';
 import { StyledButton } from '../BreedsStyled';
 
@@ -7,14 +7,7 @@ type SortBreedProps = {
   onHandleSortUp: () => void;
 };
 
-const StyledTypography = styled(Typography)(({ theme: { palette } }) => ({
-  color: palette.grey[500],
-  textAlign: 'left',
-  fontSize: 20,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-}));
+const ORDERED_ICON_SIZE = { xs: '40px', lg: '48px' };
 
 export const SortBreed = ({
   onHandleSortDown,
@@ -23,14 +16,25 @@ export const SortBreed = ({
   <ButtonGroup
     variant="text"
     aria-label="text button group"
-    sx={{ marginTop: { xs: '20px', md: 0, lg: 0 } }}
+    sx={{
+      marginTop: { xs: '20px', md: 0, lg: 0 },
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}
   >
-    <StyledTypography variant="caption">Sort by:</StyledTypography>
+    <Typography
+      variant="body1"
+      color="text.primary"
+      sx={{ marginRight: '5px' }}
+    >
+      Sort by:
+    </Typography>
     <StyledButton onClick={onHandleSortDown} variant="textSecondary">
-      <SortDownIcon />
+      <SortDownIcon sx={{ width: ORDERED_ICON_SIZE }} />
     </StyledButton>
     <StyledButton onClick={onHandleSortUp} variant="textSecondary">
-      <SortUpIcon />
+      <SortUpIcon sx={{ width: ORDERED_ICON_SIZE }} />
     </StyledButton>
   </ButtonGroup>
 );

@@ -24,8 +24,8 @@ export const BreedItem = () => {
         <Box
           sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
         >
-          <Typography variant="h4" align="center" m={4} p={4}>
-            The Breed not found :(
+          <Typography variant="h2" align="center" m={4} p={4}>
+            The Breed not found 🙁.
           </Typography>
 
           <CustomButton

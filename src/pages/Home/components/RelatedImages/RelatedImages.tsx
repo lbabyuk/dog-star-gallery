@@ -34,7 +34,7 @@ export const RelatedImages = () => {
           justifyContent="center"
           spacing={1}
         >
-          <Typography variant="h6">
+          <Typography variant="h2">
             {clickedBreed?.name ? clickedBreed?.name : '***'}
           </Typography>
           <LogoIcon />

@@ -18,7 +18,7 @@ export const History = () => {
         <Box
           sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
         >
-          <Typography variant="h4" color="primary">
+          <Typography variant="h2" m={4} p={4}>
             No voted breed yet
           </Typography>
           <CustomButton
