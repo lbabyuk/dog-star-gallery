@@ -10,7 +10,7 @@ export const ErrorPage = () => {
   return (
     <StyledContainer maxWidth="md">
       <img src={errorImage} alt="error" />
-      <CustomButton variant="contained" onClick={handelRefreshPage}>
+      <CustomButton variant="containedPrimary" onClick={handelRefreshPage}>
         Refresh the page
       </CustomButton>
     </StyledContainer>
