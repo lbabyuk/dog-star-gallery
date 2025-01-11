@@ -1,5 +1,5 @@
 import { FC, ChangeEvent } from 'react';
-import { InputBase, Paper, PaperProps, styled } from '@mui/material';
+import { Divider, InputBase, Paper, PaperProps, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 type InputProps = {
@@ -45,12 +45,13 @@ export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
         marginLeft: 1
       }}
     />
+    <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     <InputBase
       type="text"
+      fullWidth
       value={input}
       onChange={onChange}
-      sx={{ ml: 1, flex: 1 }}
-      placeholder="Search dog by breed"
+      placeholder="Search dog by name..."
     />
   </StyledPaper>
 );

@@ -33,45 +33,6 @@ export const Gallery = () => {
 
   if (isLoading) return <LoadingStatus />;
 
-  if (images?.length === 0) {
-    return (
-      <Container>
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: '1fr',
-              md: '1fr 1fr',
-              lg: '1fr 1fr'
-            },
-            justifyItems: { sx: 'stretch', md: 'center' }
-          }}
-        >
-          <SelectComponent
-            imageType={imageType}
-            onHandleImageTypeChange={handleImageTypeChange}
-          />
-          <SortedComponent ordered={setOrder} />
-        </Box>
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h2" color="primary">
-            No images found for the selected type
-          </Typography>
-        </Box>
-        <Box display="flex" justifyContent="flex-end" alignItems="center">
-          <PaginationComponent
-            count={(images ?? []).length || 0}
-            page={page}
-            onChange={handlePagination}
-          />
-        </Box>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <Box
@@ -93,7 +54,17 @@ export const Gallery = () => {
         <SortedComponent ordered={setOrder} />
       </Box>
 
-      <GalleryImages images={images || []} />
+      {images?.length === 0 ? (
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '60vh' }}
+        >
+          <Typography variant="h2" color="primary">
+            No images found for the selected type
+          </Typography>
+        </Box>
+      ) : (
+        <GalleryImages images={images || []} />
+      )}
 
       <PaginationComponent
         count={(images ?? []).length || 0}

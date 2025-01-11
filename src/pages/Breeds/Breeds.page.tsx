@@ -9,7 +9,6 @@ import { SortBreed } from './components/SortBreed';
 import { useDebounce } from '../../utilities/hooks';
 import { CustomButton } from '../../components/atoms/Button';
 
-
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,27 +53,6 @@ export const Breeds = () => {
 
   if (isLoading) return <LoadingStatus />;
 
-  if (filteredBreeds?.length === 0) {
-    return (
-      <Container>
-        <StyledBox>
-          <SearchComponent onChange={handleChange} input={searchQuery} />
-          <SortBreed
-            onHandleSortDown={handleSortedDown}
-            onHandleSortUp={handleSortedUp}
-          />
-        </StyledBox>
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h2">
-            Ups, no breed found 🙁. Try again!
-          </Typography>
-        </Box>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <StyledBox>
@@ -85,7 +63,20 @@ export const Breeds = () => {
         />
       </StyledBox>
 
-      <BreedsList filteredBreeds={filteredBreeds} visibleCount={visibleCount} />
+      {filteredBreeds?.length === 0 ? (
+        <Box
+          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+        >
+          <Typography variant="h2">
+            Ups, no breed found 🙁. Try again!
+          </Typography>
+        </Box>
+      ) : (
+        <BreedsList
+          filteredBreeds={filteredBreeds}
+          visibleCount={visibleCount}
+        />
+      )}
 
       <Box
         sx={{
