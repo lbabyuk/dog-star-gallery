@@ -45,7 +45,15 @@ export const HeaderPopupMenu = () => {
         sx={{ display: { xs: 'block', md: 'none' } }}
       >
         {headerMenu.map(page => (
-          <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+          <MenuItem
+            key={page.title}
+            onClick={handleCloseNavMenu}
+            sx={{
+              '&:hover': {
+                backgroundColor: 'transparent'
+              }
+            }}
+          >
             <NavLink
               to={page.path}
               end
@@ -53,14 +61,23 @@ export const HeaderPopupMenu = () => {
                 textDecoration: 'none'
               }}
             >
-              <Typography
-                variant="body1"
-                sx={{
-                  color: theme => theme.palette.primary.main
-                }}
-              >
-                {page.title}
-              </Typography>
+              {({ isActive }) => (
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: theme =>
+                      isActive
+                        ? theme.palette.action.selected
+                        : theme.palette.text.primary,
+
+                    '&:hover': {
+                      color: theme => theme.palette.action.hover
+                    }
+                  }}
+                >
+                  {page.title}
+                </Typography>
+              )}
             </NavLink>
           </MenuItem>
         ))}

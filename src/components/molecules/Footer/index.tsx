@@ -23,7 +23,7 @@ export const Footer = () => {
               margin: '0 auto'
             }}
           >
-            {`© ${new Date().getFullYear()} Made with love by Olena Babyuk`}
+            {`© ${new Date().getFullYear()} Made by Olena Babyuk`}
           </Typography>
         </Toolbar>
       </Container>
