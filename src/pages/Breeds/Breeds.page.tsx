@@ -89,10 +89,6 @@ export const Breeds = () => {
           variant="textPrimary"
           onClick={loadMore}
           endIcon={<YellowArrowIcon />}
-          sx={{
-            color: (theme: { palette: { primary: { main: string } } }) =>
-              theme.palette.primary.main
-          }}
         >
           Load More
         </CustomButton>

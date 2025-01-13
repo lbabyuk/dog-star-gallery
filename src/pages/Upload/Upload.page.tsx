@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { LoadingStatus } from '../../components/molecules';
 import { GridWrapper } from '../../components/atoms/GridWrapper';
-import { PowIcon } from '../../components/atoms/Icons';
+import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 import { UploadImage } from './components/UploadImage';
 import { UploadedImages } from './components/UploadedImages';
 import {
@@ -10,9 +10,11 @@ import {
   useGetUploadImagesQuery,
   useDeleteUploadedImageMutation
 } from '../../services/upload';
+import { CustomButton } from '../../components/atoms/Button';
 
 export const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [visibleCount, setVisibleCount] = useState(6);
   const { data: uploadedImages, isLoading } = useGetUploadImagesQuery({
     sub_id: 'olena'
   });
@@ -20,6 +22,10 @@ export const Upload = () => {
   const [addUploadedImage, { isLoading: isUploading }] =
     useAddUploadedImageMutation();
   const [deleteImage] = useDeleteUploadedImageMutation();
+
+  const loadMore = () => {
+    setVisibleCount(prevCount => prevCount + 6);
+  };
 
   const handleDelete = (id: string) => {
     deleteImage(id);
@@ -68,7 +74,7 @@ export const Upload = () => {
         />
       </Stack>
       <GridWrapper>
-        {uploadedImages?.map(image => {
+        {(uploadedImages || []).slice(0, visibleCount).map(image => {
           return (
             <UploadedImages
               image={image}
@@ -78,6 +84,21 @@ export const Upload = () => {
           );
         })}
       </GridWrapper>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          width: '100%'
+        }}
+      >
+        <CustomButton
+          variant="textPrimary"
+          onClick={loadMore}
+          endIcon={<YellowArrowIcon />}
+        >
+          Load More
+        </CustomButton>
+      </Box>
     </Container>
   );
 };
