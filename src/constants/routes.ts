@@ -8,5 +8,6 @@ export const HOME = {
   VOTES: '/votes',
   HISTORY: '/history',
   FAVORITES: '/favorites',
-  RELATED: '/related'
+  RELATED: '/related',
+  UPLOAD: '/upload'
 };

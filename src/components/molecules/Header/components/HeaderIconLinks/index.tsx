@@ -8,6 +8,8 @@ import {
   CrossOutlinedIcon
 } from '../../../../atoms/Icons';
 import { ICON_SIZE } from '../../../../../constants/headerMenu';
+import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export const HeaderIconLinks = () => {
   return (
@@ -63,6 +65,33 @@ export const HeaderIconLinks = () => {
                 width: ICON_SIZE,
                 height: ICON_SIZE,
                 p: 0
+              }}
+            />
+          )
+        }
+      </NavLink>
+      <NavLink to={HOME.UPLOAD} end>
+        {({ isActive }) =>
+          isActive ? (
+            <CloudUploadIcon
+              sx={{
+                display: 'flex',
+                width: ICON_SIZE,
+                height: ICON_SIZE,
+                p: 0,
+                color: theme => theme.palette.warning.main,
+                filter: theme =>
+                  `drop-shadow(4px 2px 0 ${theme.palette.grey[900]})`
+              }}
+            />
+          ) : (
+            <CloudUploadOutlinedIcon
+              sx={{
+                display: 'flex',
+                width: ICON_SIZE,
+                height: ICON_SIZE,
+                p: 0,
+                color: theme => theme.palette.warning.main
               }}
             />
           )

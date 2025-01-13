@@ -11,6 +11,11 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       padding: theme.spacing(1, 2),
       '&:hover, &:active': {
         boxShadow: 'none'
+      },
+      '&:focused': { color: theme.palette.secondary.main },
+      '&:disabled': {
+        backgroundColor: theme.palette.grey[300],
+        color: theme.palette.secondary.main
       }
     }),
     containedPrimary: ({ theme: { palette } }) => ({

@@ -8,7 +8,8 @@ import {
   Votes,
   BreedItem,
   ErrorPage,
-  Gallery
+  Gallery,
+  Upload
 } from '../pages';
 import { HomeLayout } from '../layout/HomeLayout';
 import { RelatedImages } from '../pages/Home/components/RelatedImages/RelatedImages';
@@ -37,6 +38,10 @@ export const routes = [
           {
             path: HOME.VOTES,
             element: <Votes />
+          },
+          {
+            path: HOME.UPLOAD,
+            element: <Upload />
           },
           {
             path: HOME.RELATED,

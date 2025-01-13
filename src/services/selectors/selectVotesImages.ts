@@ -24,7 +24,7 @@ export const selectVotesImages = ({ getVotesProps, sub_id }: GetImageProps) =>
       const votesIds = new Set(votes.map(vote => vote.image_id));
       return images.map(image => ({
         ...image,
-        isFavorite: votesIds.has(image.id)
+        isVote: votesIds.has(image.id)
       }));
     }
   );
