@@ -2,17 +2,18 @@ import { Box } from '@mui/material';
 import { ImagesListItem } from './ImagesListItem';
 
 type ImagesListProps = {
-  favoriteImages: Array<{
+  images: Array<{
     id: string;
     url: string;
-    isFavorite: boolean;
   }>;
+  favoriteIds: Set<string>;
   onAddFavorite: (id: string) => () => void;
 };
 
 export const ImagesList = ({
-  favoriteImages,
-  onAddFavorite
+  images,
+  onAddFavorite,
+  favoriteIds
 }: ImagesListProps) => (
   <Box
     sx={{
@@ -31,17 +32,17 @@ export const ImagesList = ({
       gap: '1.5rem'
     }}
   >
-    {(favoriteImages || []).map((favoriteImage, index) => {
+    {(images || []).map((image, index) => {
+      const isFavorite = favoriteIds.has(image.id);
       return (
         <ImagesListItem
-          key={favoriteImage.id}
+          key={image.id}
           index={index}
-          favoriteImage={favoriteImage}
+          image={image}
+          isFavorite={isFavorite}
           onAddFavorite={onAddFavorite}
         />
       );
     })}
   </Box>
 );
-{
-}

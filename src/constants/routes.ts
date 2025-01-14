@@ -9,5 +9,6 @@ export const HOME = {
   HISTORY: '/history',
   FAVORITES: '/favorites',
   RELATED: '/related',
-  UPLOAD: '/upload'
+  UPLOAD: '/upload',
+  EXAMPLE: '/example'
 };

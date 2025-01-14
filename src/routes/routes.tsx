@@ -13,6 +13,7 @@ import {
 } from '../pages';
 import { HomeLayout } from '../layout/HomeLayout';
 import { RelatedImages } from '../pages/Home/components/RelatedImages/RelatedImages';
+import { Example } from '../pages/Favorites/Example/Example.page';
 
 export const routes = [
   {
@@ -46,6 +47,10 @@ export const routes = [
           {
             path: HOME.RELATED,
             element: <RelatedImages />
+          },
+          {
+            path: HOME.EXAMPLE,
+            element: <Example />
           }
         ]
       },

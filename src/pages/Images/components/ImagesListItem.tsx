@@ -8,19 +8,20 @@ import {
 } from '../../../constants/imagesStyleData';
 
 type ImagesListItemProps = {
-  favoriteImage: {
+  image: {
     id: string;
     url: string;
-    isFavorite: boolean;
   };
   onAddFavorite: (id: string) => () => void;
   index: number;
+  isFavorite: boolean;
 };
 
 export const ImagesListItem = ({
-  favoriteImage,
+  image,
   onAddFavorite,
-  index
+  index,
+  isFavorite
 }: ImagesListItemProps) => {
   return (
     <Box
@@ -34,8 +35,8 @@ export const ImagesListItem = ({
     >
       <CustomImage
         component="img"
-        src={favoriteImage.url}
-        alt={favoriteImage.id}
+        src={image.url}
+        alt={image.id}
         loading="lazy"
         sx={(theme: {
           palette: {
@@ -50,7 +51,7 @@ export const ImagesListItem = ({
           objectFit: 'cover',
           borderRadius: '20px',
           marginBottom: '16px',
-          boxShadow: favoriteImage.isFavorite
+          boxShadow: isFavorite
             ? `6px 6px 8px 0 ${theme.palette.action.selected}`
             : `6px 6px 0 0 ${theme.palette.grey[900]}`,
           '&:hover': {
@@ -67,11 +68,11 @@ export const ImagesListItem = ({
           right: '-5px',
           padding: '5px'
         }}
-        onClick={onAddFavorite(favoriteImage.id)}
+        onClick={onAddFavorite(image.id)}
         startIcon={
           <BorderHeartIcon
             sx={theme => ({
-              color: favoriteImage.isFavorite
+              color: isFavorite
                 ? theme.palette.warning.main
                 : theme.palette.primary.main,
               width: ICON_SIZE,
