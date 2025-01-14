@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Container, Stack, Typography } from '@mui/material';
 import { useGetFavoritesQuery } from '../../services/favorites';
@@ -8,11 +9,15 @@ import { CustomButton } from '../../components/atoms/Button';
 import { HOME } from '../../constants/routes';
 
 export const Favorites = () => {
+  const [visibleCount, setVisibleCount] = useState(6);
   const { data: favoriteImages, isLoading } = useGetFavoritesQuery({
     sub_id: 'olena'
   });
-
   const navigate = useNavigate();
+
+  const loadMore = () => {
+    setVisibleCount(prevCount => prevCount + 6);
+  };
 
   if (isLoading) return <LoadingStatus />;
   if (favoriteImages?.length === 0) {
@@ -60,7 +65,25 @@ export const Favorites = () => {
             }}
           />
         </Stack>
-        <FavoriteImageList favoriteImages={favoriteImages ?? []} />
+        <FavoriteImageList
+          favoriteImages={favoriteImages ?? []}
+          visibleCount={visibleCount}
+        />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            width: '100%'
+          }}
+        >
+          <CustomButton
+            variant="textPrimary"
+            onClick={loadMore}
+            endIcon={<YellowArrowIcon />}
+          >
+            Load More
+          </CustomButton>
+        </Box>
       </Box>
     </Container>
   );

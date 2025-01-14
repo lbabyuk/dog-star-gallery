@@ -10,3 +10,5 @@ export const PAGINATION_STYLE = {
   minWidth: { xs: '24px', md: '32px' },
   borderRadius: { xs: '8px', md: '10px' }
 };
+export const TOTAL_COUNT = 100;
+export const LIMIT = 6;

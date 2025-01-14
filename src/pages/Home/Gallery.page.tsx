@@ -8,17 +8,20 @@ import {
   SortedComponent
 } from '../../components/molecules';
 import { SelectComponent } from '../../components/molecules/SelectComponent';
+import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 
 export const Gallery = () => {
   const [order, setOrder] = useState('RANDOM');
   const [imageType, setImageType] = useState('jpg');
   const [page, setPage] = useState(1);
 
+  const limit = LIMIT;
+
   const { data: images, isLoading } = useGetImagesQuery({
     has_breeds: true,
     order,
     page,
-    limit: 25,
+    limit,
     mime_types: imageType
   });
 
@@ -67,7 +70,7 @@ export const Gallery = () => {
       )}
 
       <PaginationComponent
-        count={(images ?? []).length || 0}
+        count={Math.ceil(TOTAL_COUNT / limit)}
         page={page}
         onChange={handlePagination}
       />

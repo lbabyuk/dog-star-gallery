@@ -11,13 +11,15 @@ import {
 } from '../../components/molecules';
 import { ImagesList } from './components/ImagesList';
 import { useGetImagesQuery } from '../../services/images';
+import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 
 export const Images = () => {
   const [page, setPage] = useState(1);
   const [order, setOrder] = useState('RANDOM');
+  const limit = LIMIT;
 
   const { data: images, isLoading } = useGetImagesQuery({
-    limit: 6,
+    limit,
     page,
     order
   });
@@ -50,7 +52,7 @@ export const Images = () => {
       />
 
       <PaginationComponent
-        count={(images || []).length}
+        count={Math.ceil(TOTAL_COUNT / limit)}
         page={page}
         onChange={handlePagination}
       />

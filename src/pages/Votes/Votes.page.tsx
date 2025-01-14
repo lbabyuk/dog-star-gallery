@@ -11,11 +11,15 @@ import { useAddVotesMutation } from '../../services/votes';
 import { useGetImagesQuery } from '../../services/images';
 import { VotesSlider } from './components/VotesSlider';
 import { PowIcon } from '../../components/atoms/Icons';
+import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 
 export const Votes = () => {
   const [page, setPage] = useState(1);
+
+  const limit = LIMIT;
   const { data: votesImages, isLoading } = useGetImagesQuery({
-    page
+    page,
+    limit
   });
 
   const [addVotedImage] = useAddVotesMutation();
@@ -57,7 +61,7 @@ export const Votes = () => {
       />
 
       <PaginationComponent
-        count={(votesImages || []).length}
+        count={Math.ceil(TOTAL_COUNT / limit)}
         page={page}
         onChange={handlePagination}
       />

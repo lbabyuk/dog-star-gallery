@@ -11,10 +11,12 @@ type FavoriteImageListProps = {
     sub_id: string | null;
     created_at: string;
   }>;
+  visibleCount: number;
 };
 
 export const FavoriteImageList = ({
-  favoriteImages = []
+  favoriteImages = [],
+  visibleCount
 }: FavoriteImageListProps) => {
   const [deleteFavorite] = useDeleteFavoritesMutation();
 
@@ -24,7 +26,7 @@ export const FavoriteImageList = ({
 
   return (
     <GridWrapper>
-      {(favoriteImages || []).map(favoriteImage => (
+      {(favoriteImages || []).slice(0, visibleCount).map(favoriteImage => (
         <FavoriteImageListItem
           key={favoriteImage.id}
           favoriteImage={favoriteImage}
