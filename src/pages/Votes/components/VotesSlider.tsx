@@ -38,33 +38,37 @@ export const VotesSlider = ({
         }}
         className="mySwiper"
       >
-        {(votesImages || []).map(votesImage => (
-          <SwiperSlide key={votesImage.id} className="slide-inner">
-            {({ isActive }) =>
-              isActive ? (
-                <>
-                  <VotesImage
-                    src={votesImage.url}
-                    alt={votesImage.id}
-                    isActive
-                  />
-
-                  {votesButtonData(votesImage.id, handleLikeClick).map(item => (
-                    <CustomButton
-                      variant="textSecondary"
-                      key={item.key}
-                      onClick={item.onclick}
-                      startIcon={item.icon}
-                      sx={item.sx}
+        {(votesImages || []).map(votesImage => {
+          return (
+            <SwiperSlide key={votesImage.id} className="slide-inner">
+              {({ isActive }) =>
+                isActive ? (
+                  <>
+                    <VotesImage
+                      src={votesImage.url}
+                      alt={votesImage.id}
+                      isActive
                     />
-                  ))}
-                </>
-              ) : (
-                <VotesImage src={votesImage.url} alt={votesImage.id} />
-              )
-            }
-          </SwiperSlide>
-        ))}
+
+                    {votesButtonData(votesImage.id, handleLikeClick).map(
+                      item => (
+                        <CustomButton
+                          variant="textSecondary"
+                          key={item.key}
+                          onClick={item.onclick}
+                          startIcon={item.icon}
+                          sx={item.sx}
+                        />
+                      )
+                    )}
+                  </>
+                ) : (
+                  <VotesImage src={votesImage.url} alt={votesImage.id} />
+                )
+              }
+            </SwiperSlide>
+          );
+        })}
         <div className="button-prev">
           <CustomImage
             component="img"

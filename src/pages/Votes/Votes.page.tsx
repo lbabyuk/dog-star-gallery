@@ -4,19 +4,21 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import './Votes.css';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { PaginationComponent } from '../../components/molecules/Pagination';
-import { useGetVotesImages } from '../../utilities';
-import './Votes.css';
 import { useAddVotesMutation } from '../../services/votes';
+import { useGetImagesQuery } from '../../services/images';
 import { VotesSlider } from './components/VotesSlider';
 import { PowIcon } from '../../components/atoms/Icons';
 
 export const Votes = () => {
   const [page, setPage] = useState(1);
-  const { data: votesImages, isLoading } = useGetVotesImages({ page });
+  const { data: votesImages, isLoading } = useGetImagesQuery({
+    page
+  });
 
-  const [addVoted] = useAddVotesMutation();
+  const [addVotedImage] = useAddVotesMutation();
 
   const handlePagination = (event: ChangeEvent<unknown>, value: number) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ export const Votes = () => {
   };
 
   const handleLikeClick = (id: string, value: number) => () => {
-    addVoted({ image_id: id, sub_id: 'olena', value });
+    addVotedImage({ image_id: id, sub_id: 'olena', value });
   };
 
   if (isLoading) return <LoadingStatus />;
@@ -50,12 +52,12 @@ export const Votes = () => {
       </Stack>
 
       <VotesSlider
-        votesImages={votesImages}
+        votesImages={votesImages || []}
         handleLikeClick={handleLikeClick}
       />
 
       <PaginationComponent
-        count={votesImages.length}
+        count={(votesImages || []).length}
         page={page}
         onChange={handlePagination}
       />

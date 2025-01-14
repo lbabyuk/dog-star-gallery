@@ -19,28 +19,14 @@ export const RelatedImagesContent = ({
       sx={{
         width: '100%',
         display: 'grid',
-        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr' },
-        gap: '60px',
-        flexGrow: 1,
+        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+        gap: '20px',
+        justifyItems: 'center',
+        justifyContent: 'center',
         overflowX: 'hidden',
         padding: '10px'
       }}
     >
-      <CustomImage
-        component="img"
-        loading="lazy"
-        src={url}
-        alt={name || 'Clicked Dog'}
-        sx={(theme: { palette: { grey: number[] } }) => ({
-          width: '100%',
-          height: '100%',
-          aspectRatio: 1,
-          objectFit: 'cover',
-          borderRadius: '20px',
-          marginBottom: '16px',
-          boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
-        })}
-      />
       <Box
         sx={{
           display: 'flex',
@@ -59,6 +45,20 @@ export const RelatedImagesContent = ({
           </CustomButton>
         </Box>
       </Box>
+      <CustomImage
+        component="img"
+        loading="lazy"
+        src={url}
+        alt={name || 'Clicked Dog'}
+        sx={(theme: { palette: { grey: number[] } }) => ({
+          width: '100%',
+          height: '100%',
+          aspectRatio: 1,
+          objectFit: 'cover',
+          borderRadius: '20px',
+          boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
+        })}
+      />
     </Box>
   );
 };

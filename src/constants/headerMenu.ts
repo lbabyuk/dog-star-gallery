@@ -17,11 +17,7 @@ export const headerMenu = [
   {
     title: 'History',
     path: HOME.HISTORY
-  },
-  {
-    title: 'Example',
-    path: HOME.EXAMPLE
-  },
+  }
 ];
 
 export const ICON_SIZE = {
