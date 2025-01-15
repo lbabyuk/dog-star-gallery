@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useGetFavoritesQuery } from '../../services/favorites';
-import { LoadingStatus } from '../../components/molecules/LoadingStatus';
+import { LoadingStatus, TitleComponent } from '../../components/molecules';
 import { FavoriteImageList } from './components/FavoriteImageList';
-import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
-import { CustomButton } from '../../components/atoms/Button';
+import { YellowArrowIcon } from '../../components/atoms/Icons';
+import { CustomButton } from '../../components/atoms';
 import { HOME } from '../../constants/routes';
+import { TITLES_DATA } from '../../constants/titlesData';
 
 export const Favorites = () => {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -48,24 +49,7 @@ export const Favorites = () => {
   return (
     <Container>
       <Box>
-        <Stack
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="center"
-          gap={1}
-          mb='10px'
-        >
-          <Typography variant="h2">Your favorite images</Typography>
-          <PowIcon
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '60px',
-              height: '60px'
-            }}
-          />
-        </Stack>
+        <TitleComponent title={TITLES_DATA.favoritesPageTitle} />
         <FavoriteImageList
           favoriteImages={favoriteImages ?? []}
           visibleCount={visibleCount}

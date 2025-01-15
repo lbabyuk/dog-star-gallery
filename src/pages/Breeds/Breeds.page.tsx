@@ -11,7 +11,8 @@ import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
 import { SortBreed } from './components/SortBreed';
 import { useDebounce } from '../../utilities/hooks';
-import { CustomButton } from '../../components/atoms/Button';
+import { CustomButton } from '../../components/atoms';
+import { TITLES_DATA } from '../../constants/titlesData';
 
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
@@ -59,7 +60,7 @@ export const Breeds = () => {
 
   return (
     <Container>
-      <TitleComponent title="Search and Learn" />
+      <TitleComponent title={TITLES_DATA.breedsPageTitle} />
       <StyledBox>
         <SearchComponent onChange={handleChange} input={searchQuery} />
         <SortBreed

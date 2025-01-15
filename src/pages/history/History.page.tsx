@@ -3,9 +3,10 @@ import { List, Box, Container, Typography } from '@mui/material';
 import { LoadingStatus, TitleComponent } from '../../components/molecules';
 import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
-import { CustomButton } from '../../components/atoms/Button';
+import { CustomButton } from '../../components/atoms';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
+import { TITLES_DATA } from '../../constants/titlesData';
 
 export const History = () => {
   const { data: breeds, isLoading } = useGetVotesQuery({ sub_id: 'olena' });
@@ -35,7 +36,7 @@ export const History = () => {
 
   return (
     <Container>
-      <TitleComponent title="History of your choices" />
+      <TitleComponent title={TITLES_DATA.historyPageTitle} />
       <Box
         sx={{
           width: '100%',

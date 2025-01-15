@@ -5,7 +5,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Votes.css';
-
 import {
   PaginationComponent,
   TitleComponent,
@@ -14,8 +13,8 @@ import {
 import { useAddVotesMutation } from '../../services/votes';
 import { useGetImagesQuery } from '../../services/images';
 import { VotesSlider } from './components/VotesSlider';
-
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
+import { TITLES_DATA } from '../../constants/titlesData';
 
 export const Votes = () => {
   const [page, setPage] = useState(1);
@@ -41,7 +40,7 @@ export const Votes = () => {
 
   return (
     <Container>
-      <TitleComponent title="Your can vote here" />
+      <TitleComponent title={TITLES_DATA.votesPageTitle} />
       <VotesSlider
         votesImages={votesImages || []}
         handleLikeClick={handleLikeClick}

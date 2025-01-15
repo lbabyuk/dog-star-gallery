@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Box, Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack } from '@mui/material';
 import { LoadingStatus, TitleComponent } from '../../components/molecules';
-import { GridWrapper } from '../../components/atoms/GridWrapper';
-import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
+import { GridWrapper, CustomButton } from '../../components/atoms';
+import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { UploadImage } from './components/UploadImage';
 import { UploadedImages } from './components/UploadedImages';
 import {
@@ -10,7 +10,7 @@ import {
   useGetUploadImagesQuery,
   useDeleteUploadedImageMutation
 } from '../../services/upload';
-import { CustomButton } from '../../components/atoms/Button';
+import { TITLES_DATA } from '../../constants/titlesData';
 
 export const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -48,7 +48,7 @@ export const Upload = () => {
 
   return (
     <Container>
-      <TitleComponent title="Your uploads" />
+      <TitleComponent title={TITLES_DATA.uploadPageTitle} />
       <Stack alignItems="center" gap={2}>
         <UploadImage
           handleUploadImage={handleUploadImage}
