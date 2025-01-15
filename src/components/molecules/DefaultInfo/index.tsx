@@ -18,7 +18,16 @@ export const DefaultInfo = ({
   return (
     <Container>
       <Box
-        sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
+        sx={{
+          textAlign: 'center',
+          mt: 4,
+          height: 'auto',
+          minHeight: '50vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
       >
         <Typography variant="h2" align="center" m={1} p={1}>
           {title}
