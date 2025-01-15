@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useGetBreedsQuery, Breed } from '../../services/breeds';
 import {
+  DefaultInfo,
   LoadingStatus,
   SearchComponent,
   TitleComponent
@@ -70,13 +71,7 @@ export const Breeds = () => {
       </StyledBox>
 
       {filteredBreeds?.length === 0 ? (
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h2">
-            Ups, no breed found 🙁. Try again!
-          </Typography>
-        </Box>
+        <DefaultInfo title=" Ups, no breed found 🙁. Try again!" />
       ) : (
         <BreedsList
           filteredBreeds={filteredBreeds}

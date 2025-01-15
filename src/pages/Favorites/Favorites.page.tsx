@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useGetFavoritesQuery } from '../../services/favorites';
-import { LoadingStatus, TitleComponent } from '../../components/molecules';
+import {
+  DefaultInfo,
+  LoadingStatus,
+  TitleComponent
+} from '../../components/molecules';
 import { FavoriteImageList } from './components/FavoriteImageList';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { CustomButton } from '../../components/atoms';
@@ -21,28 +25,15 @@ export const Favorites = () => {
   };
 
   if (isLoading) return <LoadingStatus />;
+
   if (favoriteImages?.length === 0) {
     return (
-      <Container>
-        <Box
-          sx={{
-            textAlign: 'center',
-            mt: 4,
-            height: 'auto'
-          }}
-        >
-          <Typography variant="h2" m={4} p={4}>
-            No favorite dogs yet 🙁 Try again
-          </Typography>
-          <CustomButton
-            onClick={() => navigate(HOME.IMAGES)}
-            variant="textPrimary"
-            endIcon={<YellowArrowIcon />}
-          >
-            Add Favorite Breed Here
-          </CustomButton>
-        </Box>
-      </Container>
+      <DefaultInfo
+        icon
+        title=" No favorite dogs yet 🙁 Try again"
+        btnText="Add Favorite Breed Here"
+        onClick={() => navigate(HOME.IMAGES)}
+      />
     );
   }
 

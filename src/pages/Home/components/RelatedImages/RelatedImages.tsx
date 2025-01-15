@@ -1,18 +1,25 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Stack } from '@mui/material';
 import { GalleryItemProps } from '../GalleryImagesContent';
-import { EmptyStateComponent } from './EmptyStateComponent';
 import { RelatedImagesContent } from './RelatedImagesContent';
-import { CustomImage } from '../../../../components/atoms/CustomImage';
-import { TitleComponent } from '../../../../components/molecules';
+import { CustomImage } from '../../../../components/atoms';
+import { TitleComponent, DefaultInfo } from '../../../../components/molecules';
 
 export const RelatedImages = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { clickedImage, images } = location.state || {};
 
   if (!clickedImage || !images) {
-    return <EmptyStateComponent />;
+    return (
+      <DefaultInfo
+        icon
+        title=" No related images found 🙁 Try again"
+        btnText=" Back to Gallery"
+        onClick={() => navigate('/')}
+      />
+    );
   }
 
   const { breeds, url } = clickedImage;

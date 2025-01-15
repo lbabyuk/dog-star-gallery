@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import { List, Box, Container, Typography } from '@mui/material';
-import { LoadingStatus, TitleComponent } from '../../components/molecules';
+import { List, Box, Container } from '@mui/material';
+import {
+  DefaultInfo,
+  LoadingStatus,
+  TitleComponent
+} from '../../components/molecules';
 import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
-import { CustomButton } from '../../components/atoms';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
 
@@ -15,22 +17,12 @@ export const History = () => {
 
   if (breeds?.length === 0) {
     return (
-      <Container>
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h2" m={4} p={4}>
-            No voted breed yet
-          </Typography>
-          <CustomButton
-            onClick={() => navigate(HOME.VOTES)}
-            variant="textPrimary"
-            endIcon={<YellowArrowIcon />}
-          >
-            Vote Breed Here
-          </CustomButton>
-        </Box>
-      </Container>
+      <DefaultInfo
+        title="No voted breed yet"
+        btnText="Vote Breed Here"
+        onClick={() => navigate(HOME.VOTES)}
+        icon
+      />
     );
   }
 

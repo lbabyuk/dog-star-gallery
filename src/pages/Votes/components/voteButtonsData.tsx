@@ -9,7 +9,7 @@ import {
   ICON_STYLE
 } from '../../../constants/votesData';
 
-export const votesButtonData = (
+export const VOTES_BUTTONS_DATA = (
   votesImageId: string,
   handleLikeClick: (id: string, value: number) => () => void
 ) => {

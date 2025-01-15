@@ -1,12 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
-import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
 import { BreedItemContent } from './components/BreedItemContent';
-import { CustomButton } from '../../components/atoms/Button';
-import { CustomImage } from '../../components/atoms/CustomImage';
+import { CustomButton, CustomImage } from '../../components/atoms';
+import { DefaultInfo, LoadingStatus } from '../../components/molecules';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -20,23 +19,12 @@ export const BreedItem = () => {
 
   if (!breed) {
     return (
-      <Container>
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '70vh' }}
-        >
-          <Typography variant="h2" align="center" m={4} p={4}>
-            The Breed not found 🙁.
-          </Typography>
-
-          <CustomButton
-            onClick={() => navigate(HOME.BREEDS)}
-            variant="textPrimary"
-            endIcon={<YellowArrowIcon />}
-          >
-            Back to Breeds
-          </CustomButton>
-        </Box>
-      </Container>
+      <DefaultInfo
+        title="The Breed not found 🙁."
+        btnText=" Back to Breeds"
+        onClick={() => navigate(HOME.BREEDS)}
+        icon
+      />
     );
   }
 

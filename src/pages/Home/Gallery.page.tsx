@@ -1,14 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
-import { Container, Box, SelectChangeEvent, Typography } from '@mui/material';
+import { Container, Box, SelectChangeEvent } from '@mui/material';
 import {
+  DefaultInfo,
   LoadingStatus,
   PaginationComponent,
   SortedComponent,
-  TitleComponent
+  TitleComponent,
+  SelectComponent
 } from '../../components/molecules';
-import { SelectComponent } from '../../components/molecules/SelectComponent';
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 
 export const Gallery = () => {
@@ -60,13 +61,7 @@ export const Gallery = () => {
       </Box>
 
       {images?.length === 0 ? (
-        <Box
-          sx={{ textAlign: 'center', mt: 4, height: 'auto', minHeight: '60vh' }}
-        >
-          <Typography variant="h2" color="primary">
-            No images found for the selected type
-          </Typography>
-        </Box>
+        <DefaultInfo title=" No images found for the selected type" />
       ) : (
         <GalleryImages images={images || []} />
       )}

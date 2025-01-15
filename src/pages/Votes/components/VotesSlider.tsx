@@ -4,8 +4,8 @@ import { EffectCoverflow, Navigation } from 'swiper/modules';
 import arrowLeft from '../../../assets/arrow-left.svg';
 import arrowRight from '../../../assets/arrow-right.svg';
 import { VotesImage } from './VotesImage';
-import { votesButtonData } from './voteButtonData';
-import { CustomButton } from '../../../components/atoms/Button';
+import { VOTES_BUTTONS_DATA } from './voteButtonsData';
+import { CustomButton } from '../../../components/atoms';
 
 type VotesImagesProps = {
   handleLikeClick: (id: string, value: number) => () => void;
@@ -49,7 +49,7 @@ export const VotesSlider = ({
                       isActive
                     />
 
-                    {votesButtonData(votesImage.id, handleLikeClick).map(
+                    {VOTES_BUTTONS_DATA(votesImage.id, handleLikeClick).map(
                       item => (
                         <CustomButton
                           variant="textSecondary"
