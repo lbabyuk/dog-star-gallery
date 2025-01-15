@@ -1,10 +1,18 @@
 import { Box, ImageListItem, styled } from '@mui/material';
 
-export const StyledBox = styled(Box)(() => ({
-  margin: 40,
+export const StyledBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-around',
-  alignItems: 'center'
+  alignItems: 'center',
+  padding: theme.spacing(0, 2),
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
 }));
 
 export const StyledImageListItem = styled(ImageListItem)(({ theme }) => ({

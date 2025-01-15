@@ -16,8 +16,8 @@ import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 export const Images = () => {
   const [page, setPage] = useState(1);
   const [order, setOrder] = useState('RANDOM');
-  const limit = LIMIT;
 
+  const limit = LIMIT;
   const { data: images, isLoading } = useGetImagesQuery({
     limit,
     page,
@@ -44,13 +44,11 @@ export const Images = () => {
   return (
     <Container>
       <SortedComponent ordered={setOrder} />
-
       <ImagesList
         images={images || []}
         onAddFavorite={handleAddClick}
         favoriteIds={favoriteIds}
       />
-
       <PaginationComponent
         count={Math.ceil(TOTAL_COUNT / limit)}
         page={page}

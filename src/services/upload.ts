@@ -7,10 +7,12 @@ export const uploadImageApi = api.injectEndpoints({
       ImagesResponse,
       {
         sub_id?: string;
+        limit?: number;
+        order?: string;
       }
     >({
-      query: () => ({
-        url: `images/?limit=25&page=0&order=ASC`
+      query: ({ limit = 100, order = 'ASC' }) => ({
+        url: `images/?limit=${limit}&order=${order}`
       }),
       providesTags: (result = []) =>
         result
