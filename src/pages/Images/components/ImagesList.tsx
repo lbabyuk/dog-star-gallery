@@ -33,13 +33,12 @@ export const ImagesList = ({
     }}
   >
     {(images || []).map((image, index) => {
-      const isFavorite = favoriteIds.has(image.id);
       return (
         <ImagesListItem
           key={image.id}
           index={index}
           image={image}
-          isFavorite={isFavorite}
+          isFavorite={favoriteIds.has(image.id)}
           onAddFavorite={onAddFavorite}
         />
       );

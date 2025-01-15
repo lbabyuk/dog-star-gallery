@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { CustomImage } from '../../../components/atoms/Image';
+import { CustomImage } from '../../../components/atoms/CustomImage';
 import { CustomButton } from '../../../components/atoms/Button';
 
 type FavoriteImageListItemProps = {
@@ -23,24 +23,11 @@ export const FavoriteImageListItem = ({
       }}
     >
       <CustomImage
-        component="img"
         src={favoriteImage.image.url}
         alt={favoriteImage.image_id}
-        loading="lazy"
-        sx={(theme: {
-          palette: { grey: number[]; action: { hover: string } };
-        }) => ({
-          width: '100%',
-          height: '100%',
-          aspectRatio: 1,
-          objectFit: 'cover',
-          borderRadius: '20px',
-          marginBottom: '16px',
-          boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
-          '&:hover': {
-            boxShadow: `6px 6px 8px 0 ${theme.palette.action.hover}`
-          }
-        })}
+        sx={{
+          marginBottom: '16px'
+        }}
       />
       <CustomButton
         variant="textSecondary"

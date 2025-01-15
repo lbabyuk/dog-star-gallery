@@ -58,6 +58,14 @@ export const mainTheme = createTheme({
     },
     background: {
       paper: '#FBFAFC'
+    },
+    error: {
+      main: '#FF004D',
+      100: '#F6D0D9'
+    },
+    success: {
+      main: '#17C614',
+      100: '#D9F5D9'
     }
   },
   typography: {

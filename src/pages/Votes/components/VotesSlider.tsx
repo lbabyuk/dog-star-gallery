@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation } from 'swiper/modules';
-import { CustomImage } from '../../../components/atoms/Image';
 import arrowLeft from '../../../assets/arrow-left.svg';
 import arrowRight from '../../../assets/arrow-right.svg';
 import { VotesImage } from './VotesImage';
@@ -70,20 +69,10 @@ export const VotesSlider = ({
           );
         })}
         <div className="button-prev">
-          <CustomImage
-            component="img"
-            src={arrowLeft}
-            alt="Left"
-            loading="lazy"
-          />
+          <img src={arrowLeft} alt="Left" />
         </div>
         <div className="button-next">
-          <CustomImage
-            component="img"
-            src={arrowRight}
-            alt="Right"
-            loading="lazy"
-          />
+          <img src={arrowRight} alt="Right" />
         </div>
       </Swiper>
     </Box>

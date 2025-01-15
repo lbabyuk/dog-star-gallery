@@ -50,7 +50,14 @@ export const UploadImage = ({
     >
       <Box>
         <Typography variant="body1" gutterBottom>
-          Upload a Dog Image
+          Upload a{' '}
+          <Typography
+            variant="span"
+            sx={{ color: theme => theme.palette.error.main }}
+          >
+            Dog!!!{' '}
+          </Typography>
+          Image
         </Typography>
       </Box>
       <Stack alignItems="center" direction="row">

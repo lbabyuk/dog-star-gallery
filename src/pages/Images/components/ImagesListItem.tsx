@@ -1,11 +1,11 @@
-import { Box } from '@mui/material';
+import { Box, Theme } from '@mui/material';
 import { BorderHeartIcon } from '../../../components/atoms/Icons';
-import { CustomImage } from '../../../components/atoms/Image';
 import { CustomButton } from '../../../components/atoms/Button';
 import {
   ICON_SIZE,
   IMAGES_LAYOUT_DATA
 } from '../../../constants/imagesStyleData';
+import { CustomImage } from '../../../components/atoms/CustomImage';
 
 type ImagesListItemProps = {
   image: {
@@ -34,30 +34,13 @@ export const ImagesListItem = ({
       }}
     >
       <CustomImage
-        component="img"
         src={image.url}
         alt={image.id}
-        loading="lazy"
-        sx={(theme: {
-          palette: {
-            action: { selected: string; hover: string };
-            grey: number[];
-          };
-        }) => ({
-          display: 'block',
-          width: '100%',
-          height: '100%',
-          aspectRatio: 1,
-          objectFit: 'cover',
-          borderRadius: '20px',
-          marginBottom: '16px',
+        sx={{
           boxShadow: isFavorite
-            ? `6px 6px 8px 0 ${theme.palette.action.selected}`
-            : `6px 6px 0 0 ${theme.palette.grey[900]}`,
-          '&:hover': {
-            boxShadow: `6px 6px 8px 0 ${theme.palette.action.hover}`
-          }
-        })}
+            ? (theme: Theme) => `6px 6px 8px 0 ${theme.palette.action.selected}`
+            : (theme: Theme) => `6px 6px 0 0 ${theme.palette.grey[900]}`
+        }}
       />
 
       <CustomButton

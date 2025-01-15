@@ -4,7 +4,7 @@ import { GalleryItemProps } from '../GalleryImagesContent';
 import { LogoIcon } from '../../../../components/atoms/Icons';
 import { EmptyStateComponent } from './EmptyStateComponent';
 import { RelatedImagesContent } from './RelatedImagesContent';
-import { CustomImage } from '../../../../components/atoms/Image';
+import { CustomImage } from '../../../../components/atoms/CustomImage';
 
 export const RelatedImages = () => {
   const location = useLocation();
@@ -48,18 +48,14 @@ export const RelatedImages = () => {
         >
           {relatedImages.map((item: GalleryItemProps) => (
             <CustomImage
-              component="img"
               key={item.id}
               src={item.url}
               alt={'Related Dog'}
-              sx={(theme: { palette: { grey: number[] } }) => ({
-                width: '250px',
-                height: '250px',
-                objectFit: 'cover',
-                borderRadius: '20px',
+              sx={{
                 margin: '5px',
-                boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
-              })}
+                width: '250px',
+                height: '250px'
+              }}
             />
           ))}
         </Stack>

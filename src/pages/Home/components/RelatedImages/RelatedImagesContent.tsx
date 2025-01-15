@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { YellowArrowIcon } from '../../../../components/atoms/Icons';
 import { useNavigate } from 'react-router-dom';
-import { CustomImage } from '../../../../components/atoms/Image';
+import { CustomImage } from '../../../../components/atoms/CustomImage';
 import { CustomButton } from '../../../../components/atoms/Button';
 
 type RelatedImagesContentProps = {
@@ -50,14 +50,6 @@ export const RelatedImagesContent = ({
         loading="lazy"
         src={url}
         alt={name || 'Clicked Dog'}
-        sx={(theme: { palette: { grey: number[] } }) => ({
-          width: '100%',
-          height: '100%',
-          aspectRatio: 1,
-          objectFit: 'cover',
-          borderRadius: '20px',
-          boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
-        })}
       />
     </Box>
   );

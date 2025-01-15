@@ -2,7 +2,7 @@ import { Divider, ListItem, Typography } from '@mui/material';
 import moment from 'moment';
 import { useDeleteVotesMutation } from '../../../services/votes';
 import { getVoteFeedback } from './historyData';
-import { CustomImage } from '../../../components/atoms/Image';
+import { CustomImage } from '../../../components/atoms/CustomImage';
 import { CustomButton } from '../../../components/atoms/Button';
 
 type BreedProps = {
@@ -42,17 +42,13 @@ export const HistoryList = ({ breed }: BreedProps) => {
         </Typography>
 
         <CustomImage
-          component="img"
           src={breed.image.url}
           alt={breed.image_id}
-          sx={(theme: { palette: { grey: number[] } }) => ({
-            borderRadius: '10%',
+          sx={{
+            borderRadius: '50%',
             width: '50px',
-            height: '40px',
-            objectFit: 'cover',
-            aspectRatio: 1,
-            boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`
-          })}
+            height: '50px'
+          }}
         />
         <Typography variant="semiBold1" width="200px" align="center">
           {moment(breed.created_at).format('MMMM Do YYYY')}

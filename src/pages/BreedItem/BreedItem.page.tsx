@@ -6,7 +6,7 @@ import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
 import { BreedItemContent } from './components/BreedItemContent';
 import { CustomButton } from '../../components/atoms/Button';
-import { CustomImage } from '../../components/atoms/Image';
+import { CustomImage } from '../../components/atoms/CustomImage';
 
 export const BreedItem = () => {
   const { breedId } = useParams();
@@ -54,19 +54,11 @@ export const BreedItem = () => {
         }}
       >
         <CustomImage
-          component="img"
-          sx={(theme: { palette: { grey: number[] } }) => ({
-            width: '100%',
-            height: '100%',
-            aspectRatio: 1,
-            objectFit: 'cover',
-            borderRadius: '20px',
-            marginBottom: '16px',
-            boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`
-          })}
+          sx={{
+            marginBottom: '16px'
+          }}
           src={breed?.image.url || ''}
           alt={breed?.name}
-          loading="lazy"
         />
 
         <Box

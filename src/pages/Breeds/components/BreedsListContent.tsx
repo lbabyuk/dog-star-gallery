@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
 import { YellowArrowIcon } from '../../../components/atoms/Icons';
-import { CustomImage } from '../../../components/atoms/Image';
+import { CustomImage } from '../../../components/atoms/CustomImage';
 import { CustomButton } from '../../../components/atoms/Button';
+import { CardWrapper } from '../../../components/atoms/CardWrapper';
 
 export type BreedListContentProps = {
   filteredBreed: {
@@ -16,34 +17,19 @@ export type BreedListContentProps = {
 export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
   const navigate = useNavigate();
   return (
-    <Box
-      onClick={() => navigate(`/breeds/${filteredBreed.id}`)}
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        border: theme => `1px solid ${theme.palette.grey[800]}`,
-        padding: '16px',
-        borderRadius: '8px',
-        boxShadow: theme => `6px 6px 0 0  ${theme.palette.grey[900]}`,
-        cursor: 'pointer',
-        '&:hover': {
-          boxShadow: theme => `6px 6px 8px 0 ${theme.palette.action.hover}`
-        }
-      }}
-    >
+    <CardWrapper onClick={() => navigate(`/breeds/${filteredBreed.id}`)}>
       <CustomImage
-        component="img"
         sx={{
-          width: '100%',
-          aspectRatio: 1,
-          objectFit: 'cover',
+          height: 'auto',
           borderRadius: '8px',
-          marginBottom: '16px'
+          marginBottom: '16px',
+          boxShadow: 'none',
+          '&:hover': {
+            boxShadow: 'none'
+          }
         }}
         src={filteredBreed.image.url}
         alt={filteredBreed.name}
-        loading="lazy"
       />
       <Typography variant="h6">{filteredBreed.name}</Typography>
 
@@ -76,6 +62,6 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
           Learn More
         </CustomButton>
       </Box>
-    </Box>
+    </CardWrapper>
   );
 };
