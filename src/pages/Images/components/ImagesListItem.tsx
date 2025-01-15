@@ -48,7 +48,7 @@ export const ImagesListItem = ({
         sx={{
           position: 'absolute',
           top: { xs: '10px' },
-          right: '-5px',
+          right: '-15px',
           padding: '5px'
         }}
         onClick={onAddFavorite(image.id)}

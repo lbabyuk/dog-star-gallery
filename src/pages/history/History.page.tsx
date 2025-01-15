@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { List, Box, Container, Typography } from '@mui/material';
+import { List, Box, Container, Typography, Stack } from '@mui/material';
 import { LoadingStatus } from '../../components/molecules/LoadingStatus';
 import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
 import { CustomButton } from '../../components/atoms/Button';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
+import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
 
 export const History = () => {
@@ -35,6 +35,24 @@ export const History = () => {
 
   return (
     <Container>
+       <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={1}
+        mb='10px'
+      >
+        <Typography variant="h2">History of your choices</Typography>
+        <PowIcon
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '60px',
+            height: '60px'
+          }}
+        />
+      </Stack>
       <Box
         sx={{
           width: '100%',

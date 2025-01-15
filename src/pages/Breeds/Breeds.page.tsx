@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { useGetBreedsQuery, Breed } from '../../services/breeds';
 import { LoadingStatus, SearchComponent } from '../../components/molecules';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
+import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
 import { SortBreed } from './components/SortBreed';
@@ -55,6 +55,24 @@ export const Breeds = () => {
 
   return (
     <Container>
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={1}
+        mb="20px"
+      >
+        <Typography variant="h2">Search and Learn</Typography>
+        <PowIcon
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '60px',
+            height: '60px'
+          }}
+        />
+      </Stack>
       <StyledBox>
         <SearchComponent onChange={handleChange} input={searchQuery} />
         <SortBreed

@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { Container } from '@mui/material';
+import { Container, Stack, Typography } from '@mui/material';
 import {
   useAddFavoritesMutation,
   useGetFavoritesQuery
@@ -11,13 +11,14 @@ import {
 } from '../../components/molecules';
 import { ImagesList } from './components/ImagesList';
 import { useGetImagesQuery } from '../../services/images';
-import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
+import { TOTAL_COUNT } from '../../constants/paginationStyleData';
+import { PowIcon } from '../../components/atoms/Icons';
 
 export const Images = () => {
   const [page, setPage] = useState(1);
   const [order, setOrder] = useState('RANDOM');
 
-  const limit = LIMIT;
+  const limit = 12;
   const { data: images, isLoading } = useGetImagesQuery({
     limit,
     page,
@@ -43,6 +44,26 @@ export const Images = () => {
 
   return (
     <Container>
+      <Stack
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="center"
+        gap={1}
+         mb="20px"
+      >
+        <Typography variant="h2">
+          Choose your favorite image
+        </Typography>
+        <PowIcon
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '60px',
+            height: '60px'
+          }}
+        />
+      </Stack>
       <SortedComponent ordered={setOrder} />
       <ImagesList
         images={images || []}

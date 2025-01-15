@@ -53,8 +53,9 @@ export const Favorites = () => {
           alignItems="center"
           justifyContent="center"
           gap={1}
+          mb='10px'
         >
-          <Typography variant="h5">Your favorite images</Typography>
+          <Typography variant="h2">Your favorite images</Typography>
           <PowIcon
             sx={{
               display: 'flex',

@@ -54,8 +54,9 @@ export const Upload = () => {
           alignItems="center"
           justifyContent="center"
           gap={1}
+          mb='10px'
         >
-          <Typography variant="h5">Your uploads</Typography>
+          <Typography variant="h2">Your uploads</Typography>
           <PowIcon
             sx={{
               display: 'flex',
