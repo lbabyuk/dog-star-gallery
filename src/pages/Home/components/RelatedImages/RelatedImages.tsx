@@ -1,10 +1,10 @@
 import { useLocation } from 'react-router-dom';
-import { Container, Typography, Stack } from '@mui/material';
+import { Container, Stack } from '@mui/material';
 import { GalleryItemProps } from '../GalleryImagesContent';
-import { LogoIcon } from '../../../../components/atoms/Icons';
 import { EmptyStateComponent } from './EmptyStateComponent';
 import { RelatedImagesContent } from './RelatedImagesContent';
 import { CustomImage } from '../../../../components/atoms/CustomImage';
+import { TitleComponent } from '../../../../components/molecules';
 
 export const RelatedImages = () => {
   const location = useLocation();
@@ -28,17 +28,9 @@ export const RelatedImages = () => {
   return (
     <Container>
       <Stack justifyContent="space-between" gap={3}>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          spacing={1}
-        >
-          <Typography variant="h2">
-            {clickedBreed?.name ? clickedBreed?.name : '***'}
-          </Typography>
-          <LogoIcon />
-        </Stack>
+        <TitleComponent
+          title={clickedBreed?.name ? clickedBreed?.name : '***'}
+        />
         <RelatedImagesContent name={clickedBreed?.name} url={url} />
         <Stack
           flexDirection="row"

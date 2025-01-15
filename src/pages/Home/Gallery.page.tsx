@@ -1,21 +1,15 @@
 import { ChangeEvent, useState } from 'react';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
-import {
-  Container,
-  Box,
-  SelectChangeEvent,
-  Typography,
-  Stack
-} from '@mui/material';
+import { Container, Box, SelectChangeEvent, Typography } from '@mui/material';
 import {
   LoadingStatus,
   PaginationComponent,
-  SortedComponent
+  SortedComponent,
+  TitleComponent
 } from '../../components/molecules';
 import { SelectComponent } from '../../components/molecules/SelectComponent';
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
-import { PowIcon } from '../../components/atoms/Icons';
 
 export const Gallery = () => {
   const [order, setOrder] = useState('RANDOM');
@@ -45,24 +39,7 @@ export const Gallery = () => {
 
   return (
     <Container>
-      <Stack
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
-        gap={1}
-        mb="20px"
-      >
-        <Typography variant="h2">Breed Gallery</Typography>
-        <PowIcon
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '60px',
-            height: '60px'
-          }}
-        />
-      </Stack>
+      <TitleComponent title="Breed Gallery" />
       <Box
         sx={{
           display: 'grid',

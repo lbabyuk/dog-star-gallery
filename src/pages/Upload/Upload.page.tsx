@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Container, Stack, Typography } from '@mui/material';
-import { LoadingStatus } from '../../components/molecules';
+import { LoadingStatus, TitleComponent } from '../../components/molecules';
 import { GridWrapper } from '../../components/atoms/GridWrapper';
 import { PowIcon, YellowArrowIcon } from '../../components/atoms/Icons';
 import { UploadImage } from './components/UploadImage';
@@ -48,25 +48,8 @@ export const Upload = () => {
 
   return (
     <Container>
+      <TitleComponent title="Your uploads" />
       <Stack alignItems="center" gap={2}>
-        <Stack
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="center"
-          gap={1}
-          mb='10px'
-        >
-          <Typography variant="h2">Your uploads</Typography>
-          <PowIcon
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '60px',
-              height: '60px'
-            }}
-          />
-        </Stack>
         <UploadImage
           handleUploadImage={handleUploadImage}
           handleFileChange={handleFileChange}

@@ -8,3 +8,4 @@ export * from './SortedComponent';
 export * from './ModalComponent';
 export * from './Footer';
 export * from './ScrollToTopButton';
+export * from './TitleComponent';

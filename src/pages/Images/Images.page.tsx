@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { Container, Stack, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import {
   useAddFavoritesMutation,
   useGetFavoritesQuery
@@ -7,12 +7,12 @@ import {
 import {
   SortedComponent,
   LoadingStatus,
-  PaginationComponent
+  PaginationComponent,
+  TitleComponent
 } from '../../components/molecules';
 import { ImagesList } from './components/ImagesList';
 import { useGetImagesQuery } from '../../services/images';
 import { TOTAL_COUNT } from '../../constants/paginationStyleData';
-import { PowIcon } from '../../components/atoms/Icons';
 
 export const Images = () => {
   const [page, setPage] = useState(1);
@@ -44,26 +44,7 @@ export const Images = () => {
 
   return (
     <Container>
-      <Stack
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="center"
-        gap={1}
-         mb="20px"
-      >
-        <Typography variant="h2">
-          Choose your favorite image
-        </Typography>
-        <PowIcon
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '60px',
-            height: '60px'
-          }}
-        />
-      </Stack>
+      <TitleComponent title="Choose your favorite image" />
       <SortedComponent ordered={setOrder} />
       <ImagesList
         images={images || []}
