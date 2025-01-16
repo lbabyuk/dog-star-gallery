@@ -5,5 +5,7 @@ export const TITLES_DATA = {
   votesPageTitle: 'Your can vote here',
   historyPageTitle: 'History of your votes',
   favoritesPageTitle: 'Your favorite images',
-  uploadPageTitle: 'Your uploads'
+  uploadPageTitle: 'Your uploads',
+  noImagesFound: 'No images found for the selected type',
+  noBreedsFound: 'Ups, no breed found 🙁. Try again!'
 };

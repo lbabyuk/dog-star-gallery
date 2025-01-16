@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
-import { Container, Box, SelectChangeEvent } from '@mui/material';
+import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
 import {
   DefaultInfo,
   LoadingStatus,
@@ -11,10 +11,26 @@ import {
   SelectComponent
 } from '../../components/molecules';
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
+import { TITLES_DATA } from '../../constants/titlesData';
+import {
+  DEFAULT_IMAGE_TYPE,
+  DEFAULT_ORDER_TYPE
+} from '../../constants/imageTypeData';
+
+export const StyledBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  padding: theme.spacing(0, 2),
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column',
+    alignItems: 'center'
+  }
+}));
 
 export const Gallery = () => {
-  const [order, setOrder] = useState('RANDOM');
-  const [imageType, setImageType] = useState('jpg');
+  const [order, setOrder] = useState(DEFAULT_ORDER_TYPE);
+  const [imageType, setImageType] = useState(DEFAULT_IMAGE_TYPE);
   const [page, setPage] = useState(1);
 
   const limit = LIMIT;
@@ -41,27 +57,16 @@ export const Gallery = () => {
   return (
     <Container>
       <TitleComponent title="Breed Gallery" />
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: {
-            xs: '1fr',
-            sm: '1fr',
-            md: '1fr 1fr',
-            lg: '1fr 1fr'
-          },
-          justifyItems: { sx: 'stretch', md: 'center' }
-        }}
-      >
+      <StyledBox>
         <SelectComponent
           imageType={imageType}
           onHandleImageTypeChange={handleImageTypeChange}
         />
         <SortedComponent ordered={setOrder} />
-      </Box>
+      </StyledBox>
 
       {images?.length === 0 ? (
-        <DefaultInfo title=" No images found for the selected type" />
+        <DefaultInfo title={TITLES_DATA.noImagesFound} />
       ) : (
         <GalleryImages images={images || []} />
       )}

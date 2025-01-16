@@ -22,7 +22,7 @@ export const SelectComponent = ({
       alignItems="center"
       sx={{
         minWidth: '250px',
-        marginBottom: { xs: '20px', sm: '20px', md: '0' }
+        marginBottom: { xs: '20px', md: '0' }
       }}
     >
       <FormControl sx={{ width: '100%' }}>
@@ -42,7 +42,7 @@ export const SelectComponent = ({
           sx={{
             borderRadius: '10px',
             height: '60px',
-            width: { sx: '100%', md: '400px', lg: '400px' },
+            width: { sx: '100%', md: '400px' },
             boxShadow: theme => `4px 4px 0 0 ${theme.palette.grey[900]}`
           }}
         >

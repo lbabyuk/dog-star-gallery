@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import './Votes.css';
+import './Slider.css';
 import {
   PaginationComponent,
   TitleComponent,

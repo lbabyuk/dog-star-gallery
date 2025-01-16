@@ -71,29 +71,30 @@ export const Breeds = () => {
       </StyledBox>
 
       {filteredBreeds?.length === 0 ? (
-        <DefaultInfo title=" Ups, no breed found 🙁. Try again!" />
+        <DefaultInfo title={TITLES_DATA.noBreedsFound} />
       ) : (
-        <BreedsList
-          filteredBreeds={filteredBreeds}
-          visibleCount={visibleCount}
-        />
+        <>
+          <BreedsList
+            filteredBreeds={filteredBreeds}
+            visibleCount={visibleCount}
+          />
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              width: '100%'
+            }}
+          >
+            <CustomButton
+              variant="textPrimary"
+              onClick={loadMore}
+              endIcon={<YellowArrowIcon />}
+            >
+              Load More
+            </CustomButton>
+          </Box>
+        </>
       )}
-
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%'
-        }}
-      >
-        <CustomButton
-          variant="textPrimary"
-          onClick={loadMore}
-          endIcon={<YellowArrowIcon />}
-        >
-          Load More
-        </CustomButton>
-      </Box>
     </Container>
   );
 };
