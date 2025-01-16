@@ -1,0 +1,1024 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should match snapshot Component 1`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  background-color: #921FED;
+  font-weight: 400;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0 .MuiButton-startIcon>*:nth-of-type(1) {
+  font-size: 30px;
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: 2px 2px 0 0 #212121;
+  color: #FCFAFA;
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
+}
+
+.emotion-1 {
+  display: inherit;
+  margin-right: -4px;
+  margin-left: 8px;
+}
+
+.emotion-1>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 2.142857142857143rem;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-containedPrimary MuiButton-containedPrimaryPrimary MuiButton-sizeMedium MuiButton-containedPrimarySizeMedium MuiButton-root MuiButton-containedPrimary MuiButton-containedPrimaryPrimary MuiButton-sizeMedium MuiButton-containedPrimarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    Learn more
+    <span
+      class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-1"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+        fill="none"
+        focusable="false"
+        height="16"
+        viewBox="0 0 27 16"
+        width="27"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.75L26 8.25M26 8.25L16 14.25M26 8.25H1"
+          stroke="#FFCF32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should match snapshot Component 2`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  background-color: #921FED;
+  font-weight: 400;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0 .MuiButton-startIcon>*:nth-of-type(1) {
+  font-size: 30px;
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: 2px 2px 0 0 #212121;
+  color: #FCFAFA;
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
+}
+
+.emotion-1 {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.emotion-1>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 2.142857142857143rem;
+}
+
+.emotion-3 {
+  display: inherit;
+  margin-right: -4px;
+  margin-left: 8px;
+}
+
+.emotion-3>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-containedPrimary MuiButton-containedPrimaryPrimary MuiButton-sizeMedium MuiButton-containedPrimarySizeMedium MuiButton-root MuiButton-containedPrimary MuiButton-containedPrimaryPrimary MuiButton-sizeMedium MuiButton-containedPrimarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    <span
+      class="MuiButton-startIcon MuiButton-iconSizeMedium emotion-1"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+        fill="none"
+        focusable="false"
+        height="28"
+        viewBox="0 0 30 28"
+        width="30"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M11.3825 5.07637C9.36335 6.05126 8.93798 9.0348 10.524 11.0965C11.0566 11.7888 11.2614 11.9134 11.9577 11.9682C13.3776 12.0801 14.1576 11.1748 14.5787 8.92713C14.864 7.40439 14.5612 6.17438 13.7011 5.36192C13.023 4.72155 12.3015 4.63266 11.3825 5.07637ZM17.5126 5.56524C16.9629 5.7909 16.573 6.16429 16.124 6.89507C15.5659 7.80317 15.504 8.04351 15.5405 9.15716C15.6459 12.3704 17.628 13.8632 19.562 12.1859C20.9532 10.9797 21.5073 8.20439 20.6681 6.64791C19.9927 5.3953 18.8667 5.00907 17.5126 5.56524ZM6.08786 11.307C4.42355 12.7273 4.1558 14.9283 5.45503 16.5069C5.84701 16.9831 6.28719 17.2774 6.77921 17.3925C7.43041 17.5447 7.60274 17.4944 8.25553 16.961C9.02039 16.336 9.75723 14.8533 9.8428 13.767C9.9099 12.9152 9.24962 11.4883 8.56998 11.0161C7.63874 10.3693 7.11467 10.4308 6.08786 11.307ZM22.2927 11.8643C21.1815 12.1534 19.4128 14.2312 19.055 15.6676C18.5139 17.8403 20.6971 19.3117 22.5663 18.034C23.3388 17.506 24.3296 16.0433 24.5708 15.0753C25.0554 13.1288 23.8676 11.4545 22.2927 11.8643ZM13.4133 14.7165C13.1381 14.7975 11.6931 15.863 10.2021 17.0842C9.17822 17.9049 8.53587 18.2748 7.65641 19.2862C7.31323 20.0546 7.29884 21.1597 7.94069 21.8025C8.81253 22.676 9.61789 22.8166 11.8896 22.4916C13.82 22.2157 13.857 22.2176 15.96 22.7132C19.0571 23.4432 20.3998 23.1234 20.8384 21.5516C21.0955 20.63 20.6512 19.9586 19.2722 19.1852C18.1863 18.5762 17.5816 17.9179 16.5511 16.2229C15.7455 14.8979 14.6238 14.3593 13.4133 14.7165Z"
+          fill="#FFCF32"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    Show Related
+    <span
+      class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-3"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+        fill="none"
+        focusable="false"
+        height="16"
+        viewBox="0 0 27 16"
+        width="27"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.75L26 8.25M26 8.25L16 14.25M26 8.25H1"
+          stroke="#FFCF32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should match snapshot Component 3`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  color: #921FED;
+  border: 1px solid #ccc;
+  background-color: #FBFAFC;
+  box-shadow: 4px 4px 0 0 #212121;
+  font-weight: 400;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+  color: #FCFAFA;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
+  color: #FCFAFA;
+}
+
+.emotion-1 {
+  display: inherit;
+  margin-right: -4px;
+  margin-left: 8px;
+}
+
+.emotion-1>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 2.142857142857143rem;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlinedPrimary MuiButton-outlinedPrimaryPrimary MuiButton-sizeMedium MuiButton-outlinedPrimarySizeMedium MuiButton-root MuiButton-outlinedPrimary MuiButton-outlinedPrimaryPrimary MuiButton-sizeMedium MuiButton-outlinedPrimarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    Back to Breeds
+    <span
+      class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-1"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+        fill="none"
+        focusable="false"
+        height="16"
+        viewBox="0 0 27 16"
+        width="27"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.75L26 8.25M26 8.25L16 14.25M26 8.25H1"
+          stroke="#FFCF32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should match snapshot Component 4`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 6px 16px;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+  color: #921FED;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: 2px 2px 0 0 #212121;
+  color: #FCFAFA;
+  border-radius: 10px;
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
+}
+
+.emotion-1 {
+  display: inherit;
+  margin-right: -4px;
+  margin-left: 8px;
+}
+
+.emotion-1>*:nth-of-type(1) {
+  font-size: 20px;
+}
+
+.emotion-2 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 2.142857142857143rem;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-textPrimary MuiButton-textPrimaryPrimary MuiButton-sizeMedium MuiButton-textPrimarySizeMedium MuiButton-root MuiButton-textPrimary MuiButton-textPrimaryPrimary MuiButton-sizeMedium MuiButton-textPrimarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    Load More
+    <span
+      class="MuiButton-endIcon MuiButton-iconSizeMedium emotion-1"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-2"
+        fill="none"
+        focusable="false"
+        height="16"
+        viewBox="0 0 27 16"
+        width="27"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 1.75L26 8.25M26 8.25L16 14.25M26 8.25H1"
+          stroke="#FFCF32"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Button should match snapshot Component 5`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 5px;
+  font-weight: bold;
+  color: #921FED;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0:hover {
+  color: #A239F4;
+}
+
+.emotion-0:focus,
+.emotion-0:active {
+  outline: none;
+  color: #B568F2;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-textSecondary MuiButton-textSecondaryPrimary MuiButton-sizeMedium MuiButton-textSecondarySizeMedium MuiButton-root MuiButton-textSecondary MuiButton-textSecondaryPrimary MuiButton-sizeMedium MuiButton-textSecondarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    Delete
+  </button>
+</div>
+`;
+
+exports[`Button should match snapshot Component 6`] = `
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Dosis',sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 10px;
+  box-shadow: none;
+  text-transform: none;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 8px 16px;
+  padding: 5px;
+  font-weight: bold;
+  color: #921FED;
+}
+
+.emotion-0::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-0.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-0 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-0:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: rgba(95, 85, 109, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-0:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-0.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-0:hover,
+.emotion-0:active {
+  box-shadow: none;
+}
+
+.emotion-0:focused {
+  color: #FFFFFF;
+}
+
+.emotion-0:disabled {
+  background-color: #E6E6E6;
+  color: #FFFFFF;
+}
+
+.emotion-0:hover {
+  color: #A239F4;
+}
+
+.emotion-0:focus,
+.emotion-0:active {
+  outline: none;
+  color: #B568F2;
+}
+
+.emotion-1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 2.142857142857143rem;
+  color: #921FED;
+}
+
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-textSecondary MuiButton-textSecondaryPrimary MuiButton-sizeMedium MuiButton-textSecondarySizeMedium MuiButton-root MuiButton-textSecondary MuiButton-textSecondaryPrimary MuiButton-sizeMedium MuiButton-textSecondarySizeMedium emotion-0"
+    tabindex="0"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium emotion-1"
+      data-testid="ArrowCircleUpOutlinedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12 20c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0 2c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zm-1-10v4h2v-4h3l-4-4-4 4h3z"
+      />
+    </svg>
+  </button>
+</div>
+`;

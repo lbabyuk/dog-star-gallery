@@ -15,7 +15,7 @@ module.exports = {
       files: ['**/*.stories.ts', '**/*.stories.tsx', '**/*.test.tsx'],
       rules: {
         'import/no-extraneous-dependencies': 0,
-        'react/no-props-spreading': false
+        'react/no-props-spreading': 'off'
       }
     }
   ],

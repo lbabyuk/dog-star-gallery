@@ -30,7 +30,6 @@ export const ScrollToTopButton = () => {
     <IconButton
       onClick={scrollToTop}
       sx={{
-       
         display: visible ? 'flex' : 'none',
         position: 'fixed',
         bottom: '70px',
