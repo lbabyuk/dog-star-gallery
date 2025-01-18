@@ -9,12 +9,12 @@ const StyledBox = styled(Box)(() => ({
   mt: 4
 }));
 
-type ModalComponent = {
+type ModalComponentProps = {
   onClose: () => void;
   open: boolean;
 };
 
-export const ModalComponent = ({ open, onClose }: ModalComponent) => {
+export const ModalComponent = ({ open, onClose }: ModalComponentProps) => {
   if (!open) return null;
 
   // const [open, setOpen] = useState(false);
@@ -107,7 +107,6 @@ export const ModalComponent = ({ open, onClose }: ModalComponent) => {
             Cancel
           </Button>
           <Button
-            onClick={() => console.log('favoriteImageId')}
             variant="contained"
             sx={theme => ({ width: '45%', color: theme.palette.grey[100] })}
           >

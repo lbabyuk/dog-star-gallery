@@ -1,11 +1,10 @@
 import { Box, Theme } from '@mui/material';
 import { BorderHeartIcon } from '../../../components/atoms/Icons';
-import { CustomButton } from '../../../components/atoms/Button';
+import { CustomButton, CustomImage } from '../../../components/atoms';
 import {
   ICON_SIZE,
   IMAGES_LAYOUT_DATA
 } from '../../../constants/imagesStyleData';
-import { CustomImage } from '../../../components/atoms/CustomImage';
 
 type ImagesListItemProps = {
   image: {
@@ -22,48 +21,46 @@ export const ImagesListItem = ({
   onAddFavorite,
   index,
   isFavorite
-}: ImagesListItemProps) => {
-  return (
-    <Box
+}: ImagesListItemProps) => (
+  <Box
+    sx={{
+      position: 'relative',
+      ...(IMAGES_LAYOUT_DATA[index] || {
+        gridColumn: 'span 1',
+        gridRow: 'auto'
+      })
+    }}
+  >
+    <CustomImage
+      src={image.url}
+      alt={image.id}
       sx={{
-        position: 'relative',
-        ...(IMAGES_LAYOUT_DATA[index] || {
-          gridColumn: 'span 1',
-          gridRow: 'auto'
-        })
+        boxShadow: isFavorite
+          ? (theme: Theme) => `3px 3px 0 0 ${theme.palette.action.selected}`
+          : (theme: Theme) => `3px 3px 0 0 ${theme.palette.grey[900]}`
       }}
-    >
-      <CustomImage
-        src={image.url}
-        alt={image.id}
-        sx={{
-          boxShadow: isFavorite
-            ? (theme: Theme) => `6px 6px 8px 0 ${theme.palette.action.selected}`
-            : (theme: Theme) => `6px 6px 0 0 ${theme.palette.grey[900]}`
-        }}
-      />
+    />
 
-      <CustomButton
-        variant="textSecondary"
-        sx={{
-          position: 'absolute',
-          top: { xs: '10px' },
-          right: '-15px',
-          padding: '5px'
-        }}
-        onClick={onAddFavorite(image.id)}
-        startIcon={
-          <BorderHeartIcon
-            sx={theme => ({
-              color: isFavorite
-                ? theme.palette.warning.main
-                : theme.palette.primary.main,
-              width: ICON_SIZE,
-              height: ICON_SIZE
-            })}
-          />
-        }
-      />
-    </Box>
-  );
-};
+    <CustomButton
+      variant="textSecondary"
+      sx={{
+        position: 'absolute',
+        top: { xs: '10px' },
+        right: '-15px',
+        padding: '5px'
+      }}
+      onClick={onAddFavorite(image.id)}
+      startIcon={
+        <BorderHeartIcon
+          sx={theme => ({
+            color: isFavorite
+              ? theme.palette.warning.main
+              : theme.palette.primary.main,
+            width: ICON_SIZE,
+            height: ICON_SIZE
+          })}
+        />
+      }
+    />
+  </Box>
+);

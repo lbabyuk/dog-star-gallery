@@ -32,16 +32,14 @@ export const ImagesList = ({
       gap: '1.5rem'
     }}
   >
-    {(images || []).map((image, index) => {
-      return (
-        <ImagesListItem
-          key={image.id}
-          index={index}
-          image={image}
-          isFavorite={favoriteIds.has(image.id)}
-          onAddFavorite={onAddFavorite}
-        />
-      );
-    })}
+    {(images || []).map((image, index) => (
+      <ImagesListItem
+        key={image.id}
+        index={index}
+        image={image}
+        isFavorite={favoriteIds.has(image.id)}
+        onAddFavorite={onAddFavorite}
+      />
+    ))}
   </Box>
 );

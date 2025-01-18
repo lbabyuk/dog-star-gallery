@@ -16,42 +16,40 @@ export const FavoriteImageListItem = ({
   favoriteImage,
   onDeleteFavorite
 }: FavoriteImageListItemProps) => (
-  <>
-    <Box
+  <Box
+    sx={{
+      position: 'relative'
+    }}
+  >
+    <CustomImage
+      src={favoriteImage.image.url}
+      alt={favoriteImage.image_id}
       sx={{
-        position: 'relative'
+        marginBottom: '16px'
+      }}
+    />
+    <CustomButton
+      variant="textSecondary"
+      size="large"
+      color="warning"
+      onClick={() => onDeleteFavorite(favoriteImage.id)}
+      endIcon={
+        <FavoriteIcon
+          sx={theme => ({
+            color: theme.palette.warning.main,
+            width: '40px',
+            height: '40px'
+          })}
+        />
+      }
+      sx={{
+        position: 'absolute',
+        top: '10px',
+        right: '10px',
+        padding: '5px'
       }}
     >
-      <CustomImage
-        src={favoriteImage.image.url}
-        alt={favoriteImage.image_id}
-        sx={{
-          marginBottom: '16px'
-        }}
-      />
-      <CustomButton
-        variant="textSecondary"
-        size="large"
-        color="warning"
-        onClick={() => onDeleteFavorite(favoriteImage.id)}
-        endIcon={
-          <FavoriteIcon
-            sx={theme => ({
-              color: theme.palette.warning.main,
-              width: '40px',
-              height: '40px'
-            })}
-          />
-        }
-        sx={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          padding: '5px'
-        }}
-      >
-        Delete
-      </CustomButton>
-    </Box>
-  </>
+      Delete
+    </CustomButton>
+  </Box>
 );

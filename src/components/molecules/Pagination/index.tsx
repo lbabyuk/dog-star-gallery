@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { Icon, Pagination, PaginationItem, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -60,7 +61,7 @@ export const PaginationComponent = ({
           '&.Mui-selected': {
             color: theme.palette.background.paper,
             backgroundColor: theme.palette.action.selected,
-            boxShadow: theme => `2px 2px 0 0 ${theme.palette.grey[900]}`,
+            boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
             '&:hover': {
               color: theme.palette.background.paper,
               backgroundColor: theme.palette.action.hover

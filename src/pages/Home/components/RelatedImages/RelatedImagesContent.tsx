@@ -1,8 +1,7 @@
 import { Box } from '@mui/material';
-import { YellowArrowIcon } from '../../../../components/atoms/Icons';
 import { useNavigate } from 'react-router-dom';
-import { CustomImage } from '../../../../components/atoms/CustomImage';
-import { CustomButton } from '../../../../components/atoms/Button';
+import { YellowArrowIcon } from '../../../../components/atoms/Icons';
+import { CustomImage, CustomButton } from '../../../../components/atoms';
 
 type RelatedImagesContentProps = {
   name: string;
@@ -18,15 +17,18 @@ export const RelatedImagesContent = ({
     <Box
       sx={{
         width: '100%',
+
         display: 'grid',
-        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+        gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' },
         gap: '20px',
         justifyItems: 'center',
         justifyContent: 'center',
+        alignItems: 'center',
         overflowX: 'hidden',
         padding: '10px'
       }}
     >
+      <CustomImage src={url} alt={name || 'Clicked Dog'} />
       <Box
         sx={{
           display: 'flex',
@@ -45,12 +47,6 @@ export const RelatedImagesContent = ({
           </CustomButton>
         </Box>
       </Box>
-      <CustomImage
-        component="img"
-        loading="lazy"
-        src={url}
-        alt={name || 'Clicked Dog'}
-      />
     </Box>
   );
 };

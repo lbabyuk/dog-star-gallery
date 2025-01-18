@@ -11,7 +11,7 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: theme.palette.grey[500],
-  boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
+  boxShadow: `3px 3px 6px 0 ${theme.palette.grey[900]}`,
   borderRadius: '0 0 20px 20px',
   height: '82px'
 }));

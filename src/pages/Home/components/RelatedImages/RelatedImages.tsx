@@ -49,7 +49,7 @@ export const RelatedImages = () => {
             <CustomImage
               key={item.id}
               src={item.url}
-              alt={'Related Dog'}
+              alt="Related Dog"
               sx={{
                 margin: '5px',
                 width: '250px',

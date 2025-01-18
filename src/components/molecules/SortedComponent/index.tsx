@@ -39,35 +39,33 @@ const StyledButton = styled(Button)(({ theme: { palette } }) => ({
   }
 }));
 
-export const SortedComponent = ({ ordered }: Ordered) => {
-  return (
+export const SortedComponent = ({ ordered }: Ordered) => (
+  <Stack
+    alignItems="center"
+    direction="row"
+    justifyContent="center"
+    spacing={1}
+  >
     <Stack
-      alignItems="center"
       direction="row"
       justifyContent="center"
-      spacing={1}
+      alignItems="center"
+      spacing={0.5}
     >
-      <Stack
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        spacing={0.5}
-      >
-        <Typography variant="body1" color="text.primary">
-          Sort by:{' '}
-        </Typography>
-      </Stack>
-      <ButtonGroup variant="text">
-        {ORDERED_TYPE_DATA.map(({ id, type, icon }) => (
-          <StyledButton
-            onClick={() => ordered(type)}
-            key={id}
-            variant="textSecondary"
-          >
-            {icon}
-          </StyledButton>
-        ))}
-      </ButtonGroup>
+      <Typography variant="body1" color="text.primary">
+        Sort by:{' '}
+      </Typography>
     </Stack>
-  );
-};
+    <ButtonGroup variant="text">
+      {ORDERED_TYPE_DATA.map(({ id, type, icon }) => (
+        <StyledButton
+          onClick={() => ordered(type)}
+          key={id}
+          variant="textSecondary"
+        >
+          {icon}
+        </StyledButton>
+      ))}
+    </ButtonGroup>
+  </Stack>
+);

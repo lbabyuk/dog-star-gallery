@@ -26,7 +26,7 @@ export const uploadImageApi = api.injectEndpoints({
       query: body => ({
         url: `images/upload`,
         method: 'POST',
-        body: body
+        body
       }),
       invalidatesTags: [{ type: 'Images' as const, id: 'LIST' }]
     }),

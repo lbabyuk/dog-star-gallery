@@ -6,7 +6,13 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       borderRadius: 10,
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 20,
+      fontSize: '16px',
+      [theme.breakpoints.up('sm')]: {
+        fontSize: '18px'
+      },
+      [theme.breakpoints.up('md')]: {
+        fontSize: '20px'
+      },
       lineHeight: 1.6,
       padding: theme.spacing(1, 2),
       '&:hover, &:active': {
@@ -73,7 +79,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       color: palette.primary.main,
       border: `1px solid ${palette.grey[800]}`,
       backgroundColor: palette.background.paper,
-      boxShadow: `4px 4px 0 0 ${palette.grey[900]}`,
+      boxShadow: `2px 2px 0 0 ${palette.grey[900]}`,
       fontWeight: 400,
       '&:hover': {
         backgroundColor: palette.action.hover,

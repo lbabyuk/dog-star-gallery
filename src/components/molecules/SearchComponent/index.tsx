@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import { FC, ChangeEvent } from 'react';
 import { Divider, InputBase, Paper, PaperProps, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
@@ -27,12 +28,12 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
   borderRadius: 4,
   borderColor: theme.palette.grey[500],
   border: `1px solid ${theme.palette.grey[800]}`,
-  boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`,
+  boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
   '&:hover': {
-    boxShadow: `6px 6px 8px 0 ${theme.palette.primary.main}`
+    boxShadow: `3px 3px 0px 0 ${theme.palette.action.hover}`
   },
   '&:focused': {
-    boxShadow: `6px 6px 8px 0 ${theme.palette.primary.main}`
+    boxShadow: `3px 3px 0px 0 ${theme.palette.action.selected}`
   }
 }));
 

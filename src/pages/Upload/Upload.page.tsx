@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Box, Container, Stack } from '@mui/material';
-import { LoadingStatus, TitleComponent } from '../../components/molecules';
+import {
+  DefaultInfo,
+  LoadingStatus,
+  TitleComponent
+} from '../../components/molecules';
 import { GridWrapper, CustomButton } from '../../components/atoms';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { UploadImage } from './components/UploadImage';
@@ -57,32 +61,37 @@ export const Upload = () => {
           isUploading={isUploading}
         />
       </Stack>
-      <GridWrapper>
-        {(uploadedImages || []).slice(0, visibleCount).map(image => {
-          return (
-            <UploadedImages
-              image={image}
-              key={image.id}
-              handleDelete={handleDelete}
-            />
-          );
-        })}
-      </GridWrapper>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          width: '100%'
-        }}
-      >
-        <CustomButton
-          variant="textPrimary"
-          onClick={loadMore}
-          endIcon={<YellowArrowIcon />}
-        >
-          Load More
-        </CustomButton>
-      </Box>
+
+      {uploadedImages?.length === 0 ? (
+        <DefaultInfo title="" />
+      ) : (
+        <>
+          <GridWrapper>
+            {(uploadedImages || []).slice(0, visibleCount).map(image => (
+              <UploadedImages
+                image={image}
+                key={image.id}
+                handleDelete={handleDelete}
+              />
+            ))}
+          </GridWrapper>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              width: '100%'
+            }}
+          >
+            <CustomButton
+              variant="textPrimary"
+              onClick={loadMore}
+              endIcon={<YellowArrowIcon />}
+            >
+              Load More
+            </CustomButton>
+          </Box>
+        </>
+      )}
     </Container>
   );
 };

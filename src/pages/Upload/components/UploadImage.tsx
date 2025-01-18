@@ -15,41 +15,39 @@ export const UploadImage = ({
   handleFileChange,
   handleUploadImage,
   file
-}: UploadImageProps) => {
-  return (
-    <StyledStack>
-      <Box>
-        <Typography variant="body1" gutterBottom>
-          Upload a{' '}
-          <Typography
-            variant="span"
-            sx={{ color: theme => theme.palette.error.main }}
-          >
-            Dog!!!{' '}
-          </Typography>
-          Image
+}: UploadImageProps) => (
+  <StyledStack>
+    <Box>
+      <Typography variant="body1" gutterBottom>
+        Upload a{' '}
+        <Typography
+          variant="span"
+          sx={{ color: theme => theme.palette.error.main }}
+        >
+          Dog!!!{' '}
         </Typography>
-      </Box>
-      <Stack alignItems="center" direction="row">
-        <CustomButton
-          tabIndex={-1}
-          component="label"
-          variant="containedPrimary"
-          startIcon={<CloudUploadIcon />}
-          sx={{ mr: 2 }}
-          disabled={isUploading}
-        >
-          Upload an image
-          <VisuallyHiddenInput type="file" hidden onChange={handleFileChange} />
-        </CustomButton>
-        <CustomButton
-          variant="containedPrimary"
-          onClick={handleUploadImage}
-          disabled={isUploading || !file}
-        >
-          {isUploading ? 'Uploading...' : 'Upload'}
-        </CustomButton>
-      </Stack>
-    </StyledStack>
-  );
-};
+        Image
+      </Typography>
+    </Box>
+    <Stack alignItems="center" direction="row">
+      <CustomButton
+        tabIndex={-1}
+        component="label"
+        variant="containedPrimary"
+        startIcon={<CloudUploadIcon />}
+        sx={{ mr: 2 }}
+        disabled={isUploading}
+      >
+        Upload an image
+        <VisuallyHiddenInput type="file" hidden onChange={handleFileChange} />
+      </CustomButton>
+      <CustomButton
+        variant="containedPrimary"
+        onClick={handleUploadImage}
+        disabled={isUploading || !file}
+      >
+        {isUploading ? 'Uploading...' : 'Upload'}
+      </CustomButton>
+    </Stack>
+  </StyledStack>
+);

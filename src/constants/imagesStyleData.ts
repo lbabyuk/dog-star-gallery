@@ -35,5 +35,5 @@ export const IMAGES_LAYOUT_DATA = [
   {
     gridColumn: { lg: '5 / span 2', xs: 'span 1' },
     gridRow: { lg: '3 / span 2', xs: 'auto' }
-  },
+  }
 ];

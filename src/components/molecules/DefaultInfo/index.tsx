@@ -14,33 +14,31 @@ export const DefaultInfo = ({
   title,
   btnText,
   onClick
-}: DefaultInfoProps) => {
-  return (
-    <Container>
-      <Box
-        sx={{
-          textAlign: 'center',
-          mt: 4,
-          height: 'auto',
-          minHeight: '50vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <Typography variant="h2" align="center" m={1} p={1}>
-          {title}
-        </Typography>
+}: DefaultInfoProps) => (
+  <Container>
+    <Box
+      sx={{
+        textAlign: 'center',
+        mt: 4,
+        height: 'auto',
+        minHeight: '50vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Typography variant="h2" align="center" m={1} p={1}>
+        {title}
+      </Typography>
 
-        <CustomButton
-          onClick={onClick}
-          variant="textPrimary"
-          endIcon={icon && <YellowArrowIcon />}
-        >
-          {btnText}
-        </CustomButton>
-      </Box>
-    </Container>
-  );
-};
+      <CustomButton
+        onClick={onClick}
+        variant="textPrimary"
+        endIcon={icon && <YellowArrowIcon />}
+      >
+        {btnText}
+      </CustomButton>
+    </Box>
+  </Container>
+);

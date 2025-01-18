@@ -28,7 +28,7 @@ export const StyledStack = styled(Stack)(({ theme }) => ({
   gap: '16px',
   margin: '20px',
   padding: '5px',
-  boxShadow: `4px 4px 0 0 ${theme.palette.grey[900]}`,
+  boxShadow: `3px 3px 0 0 ${theme.palette.grey[900]}`,
   border: `1px solid ${theme.palette.grey[300]}`,
   borderRadius: '20px'
 }));

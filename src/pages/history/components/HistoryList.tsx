@@ -2,8 +2,7 @@ import { Divider, ListItem, Typography } from '@mui/material';
 import moment from 'moment';
 import { useDeleteVotesMutation } from '../../../services/votes';
 import { getVoteFeedback } from './historyData';
-import { CustomImage } from '../../../components/atoms/CustomImage';
-import { CustomButton } from '../../../components/atoms/Button';
+import { CustomImage, CustomButton } from '../../../components/atoms';
 
 type BreedProps = {
   breed: {

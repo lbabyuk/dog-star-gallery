@@ -1,5 +1,5 @@
 import { Box, Theme } from '@mui/material';
-import { ElementType, ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 type ImageProps = {
   id?: string;
@@ -7,10 +7,8 @@ type ImageProps = {
   alt?: string;
   width?: string;
   height?: string;
-  sx?: {};
-  loading?: string;
+  sx?: object;
   children?: ReactNode;
-  component?: ElementType;
 };
 
 export const CustomImage = ({
@@ -21,31 +19,29 @@ export const CustomImage = ({
   height,
   sx,
   children
-}: ImageProps) => {
-  return (
-    <Box
-      component="img"
-      loading="lazy"
-      id={id}
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-      sx={(theme: Theme) => ({
-        display: 'block',
-        width: '100%',
-        height: '100%',
-        aspectRatio: 1,
-        objectFit: 'cover',
-        borderRadius: '20px',
-        boxShadow: `6px 6px 0 0 ${theme.palette.grey[900]}`,
-        '&:hover': {
-          boxShadow: `6px 6px 8px 0 ${theme.palette.action.hover}`
-        },
-        ...sx
-      })}
-    >
-      {children}
-    </Box>
-  );
-};
+}: ImageProps) => (
+  <Box
+    component="img"
+    loading="lazy"
+    id={id}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    sx={(theme: Theme) => ({
+      display: 'block',
+      width: '100%',
+      height: '100%',
+      aspectRatio: 1,
+      objectFit: 'cover',
+      borderRadius: '20px',
+      boxShadow: `3px 3px 0px 0  ${theme.palette.grey[900]}`,
+      '&:hover': {
+        boxShadow: `3px 3px 0px 0 ${theme.palette.action.hover}`
+      },
+      ...sx
+    })}
+  >
+    {children}
+  </Box>
+);

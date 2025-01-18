@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { HOME } from '../../../constants/routes';
-import { GridWrapper } from '../../../components/atoms/GridWrapper';
-import { GalleryImagesContent } from './GalleryImagesContent';
-import { GalleryItemProps } from './GalleryImagesContent';
+import { GridWrapper } from '../../../components/atoms';
+import { GalleryImagesContent, GalleryItemProps } from './GalleryImagesContent';
 
 type GalleryImagesProps = {
   images: GalleryItemProps[];

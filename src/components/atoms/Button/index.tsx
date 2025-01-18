@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps
@@ -5,7 +6,7 @@ import {
 
 export interface ButtonProps extends MuiButtonProps {
   children?: React.ReactNode;
-  sx?: {};
+  sx?: object;
   variant?:
     | 'containedPrimary'
     | 'textPrimary'

@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
+import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
-import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
 import {
   DefaultInfo,
   LoadingStatus,
