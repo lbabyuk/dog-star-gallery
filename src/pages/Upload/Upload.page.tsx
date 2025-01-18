@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Container, Stack } from '@mui/material';
+import { motion } from 'framer-motion';
 import {
   DefaultInfo,
   LoadingStatus,
@@ -52,46 +53,53 @@ export const Upload = () => {
 
   return (
     <Container>
-      <TitleComponent title={TITLES_DATA.uploadPageTitle} />
-      <Stack alignItems="center" gap={2}>
-        <UploadImage
-          handleUploadImage={handleUploadImage}
-          handleFileChange={handleFileChange}
-          file={file}
-          isUploading={isUploading}
-        />
-      </Stack>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <TitleComponent title={TITLES_DATA.uploadPageTitle} />
+        <Stack alignItems="center" gap={2}>
+          <UploadImage
+            handleUploadImage={handleUploadImage}
+            handleFileChange={handleFileChange}
+            file={file}
+            isUploading={isUploading}
+          />
+        </Stack>
 
-      {uploadedImages?.length === 0 ? (
-        <DefaultInfo title="" />
-      ) : (
-        <>
-          <GridWrapper>
-            {(uploadedImages || []).slice(0, visibleCount).map(image => (
-              <UploadedImages
-                image={image}
-                key={image.id}
-                handleDelete={handleDelete}
-              />
-            ))}
-          </GridWrapper>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              width: '100%'
-            }}
-          >
-            <CustomButton
-              variant="textPrimary"
-              onClick={loadMore}
-              endIcon={<YellowArrowIcon />}
+        {uploadedImages?.length === 0 ? (
+          <DefaultInfo title="" />
+        ) : (
+          <>
+            <GridWrapper>
+              {(uploadedImages || []).slice(0, visibleCount).map(image => (
+                <UploadedImages
+                  image={image}
+                  key={image.id}
+                  handleDelete={handleDelete}
+                />
+              ))}
+            </GridWrapper>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%'
+              }}
             >
-              Load More
-            </CustomButton>
-          </Box>
-        </>
-      )}
+              <CustomButton
+                variant="textPrimary"
+                onClick={loadMore}
+                endIcon={<YellowArrowIcon />}
+              >
+                Load More
+              </CustomButton>
+            </Box>
+          </>
+        )}
+      </motion.div>
     </Container>
   );
 };

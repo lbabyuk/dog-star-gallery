@@ -1,14 +1,19 @@
-import { CircularProgress, Box, styled } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { CircularProgressWithLabel } from './components';
 
-export const StyledBox = styled(Box)(() => ({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '90vh'
-}));
+export const LoadingStatus = () => {
+  const [progress, setProgress] = useState(10);
 
-export const LoadingStatus = () => (
-  <StyledBox>
-    <CircularProgress color="inherit" />
-  </StyledBox>
-);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(prevProgress =>
+        prevProgress >= 100 ? 0 : prevProgress + 10
+      );
+    }, 800);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  return <CircularProgressWithLabel value={progress} />;
+};

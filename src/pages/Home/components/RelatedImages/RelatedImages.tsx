@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Stack } from '@mui/material';
+import { motion } from 'framer-motion';
 import { GalleryItemProps } from '../GalleryImagesContent';
 import { RelatedImagesContent } from './RelatedImagesContent';
 import { CustomImage } from '../../../../components/atoms';
@@ -34,31 +35,38 @@ export const RelatedImages = () => {
 
   return (
     <Container>
-      <Stack justifyContent="space-between" gap={3}>
-        <TitleComponent
-          title={clickedBreed?.name ? clickedBreed?.name : '***'}
-        />
-        <RelatedImagesContent name={clickedBreed?.name} url={url} />
-        <Stack
-          flexDirection="row"
-          justifyContent="space-around"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          {relatedImages.map((item: GalleryItemProps) => (
-            <CustomImage
-              key={item.id}
-              src={item.url}
-              alt="Related Dog"
-              sx={{
-                margin: '5px',
-                width: '250px',
-                height: '250px'
-              }}
-            />
-          ))}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <Stack justifyContent="space-between" gap={3}>
+          <TitleComponent
+            title={clickedBreed?.name ? clickedBreed?.name : '***'}
+          />
+          <RelatedImagesContent name={clickedBreed?.name} url={url} />
+          <Stack
+            flexDirection="row"
+            justifyContent="space-around"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {relatedImages.map((item: GalleryItemProps) => (
+              <CustomImage
+                key={item.id}
+                src={item.url}
+                alt="Related Dog"
+                sx={{
+                  margin: '5px',
+                  width: '250px',
+                  height: '250px'
+                }}
+              />
+            ))}
+          </Stack>
         </Stack>
-      </Stack>
+      </motion.div>
     </Container>
   );
 };

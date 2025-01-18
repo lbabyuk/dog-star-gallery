@@ -5,6 +5,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Slider.css';
+import { motion } from 'framer-motion';
 import {
   PaginationComponent,
   TitleComponent,
@@ -40,17 +41,24 @@ export const Votes = () => {
 
   return (
     <Container>
-      <TitleComponent title={TITLES_DATA.votesPageTitle} />
-      <VotesSlider
-        votesImages={votesImages || []}
-        handleLikeClick={handleLikeClick}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <TitleComponent title={TITLES_DATA.votesPageTitle} />
+        <VotesSlider
+          votesImages={votesImages || []}
+          handleLikeClick={handleLikeClick}
+        />
 
-      <PaginationComponent
-        count={Math.ceil(TOTAL_COUNT / limit)}
-        page={page}
-        onChange={handlePagination}
-      />
+        <PaginationComponent
+          count={Math.ceil(TOTAL_COUNT / limit)}
+          page={page}
+          onChange={handlePagination}
+        />
+      </motion.div>
     </Container>
   );
 };

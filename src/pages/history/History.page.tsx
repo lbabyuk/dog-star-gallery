@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { List, Box, Container } from '@mui/material';
+import { motion } from 'framer-motion';
 import {
   DefaultInfo,
   LoadingStatus,
@@ -28,30 +29,37 @@ export const History = () => {
 
   return (
     <Container>
-      <TitleComponent title={TITLES_DATA.historyPageTitle} />
-      <Box
-        sx={{
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: '50px 0'
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
       >
-        <List
+        <TitleComponent title={TITLES_DATA.historyPageTitle} />
+        <Box
           sx={{
             width: '100%',
             display: 'flex',
-            flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            margin: '50px 0'
           }}
         >
-          {(breeds || []).map(breed => (
-            <HistoryList breed={breed} key={breed.id} />
-          ))}
-        </List>
-      </Box>
+          <List
+            sx={{
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            {(breeds || []).map(breed => (
+              <HistoryList breed={breed} key={breed.id} />
+            ))}
+          </List>
+        </Box>
+      </motion.div>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
+import { motion } from 'framer-motion';
 import { useGetFavoritesQuery } from '../../services/favorites';
 import {
   DefaultInfo,
@@ -39,28 +40,35 @@ export const Favorites = () => {
 
   return (
     <Container>
-      <Box>
-        <TitleComponent title={TITLES_DATA.favoritesPageTitle} />
-        <FavoriteImageList
-          favoriteImages={favoriteImages ?? []}
-          visibleCount={visibleCount}
-        />
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '100%'
-          }}
-        >
-          <CustomButton
-            variant="textPrimary"
-            onClick={loadMore}
-            endIcon={<YellowArrowIcon />}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <Box>
+          <TitleComponent title={TITLES_DATA.favoritesPageTitle} />
+          <FavoriteImageList
+            favoriteImages={favoriteImages ?? []}
+            visibleCount={visibleCount}
+          />
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              width: '100%'
+            }}
           >
-            Load More
-          </CustomButton>
+            <CustomButton
+              variant="textPrimary"
+              onClick={loadMore}
+              endIcon={<YellowArrowIcon />}
+            >
+              Load More
+            </CustomButton>
+          </Box>
         </Box>
-      </Box>
+      </motion.div>
     </Container>
   );
 };

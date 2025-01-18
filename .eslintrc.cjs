@@ -1,8 +1,23 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier', 'plugin:storybook/recommended'],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'storybook-static', '*.cjs'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'prettier',
+    'plugin:storybook/recommended'
+  ],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'storybook-static',
+    '*.cjs'
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   settings: {

@@ -1,5 +1,6 @@
 import { useState, ChangeEvent } from 'react';
 import { Container } from '@mui/material';
+import { motion } from 'framer-motion';
 import {
   useAddFavoritesMutation,
   useGetFavoritesQuery
@@ -44,18 +45,25 @@ export const Images = () => {
 
   return (
     <Container>
-      <TitleComponent title="Choose your favorite image" />
-      <SortedComponent ordered={setOrder} />
-      <ImagesList
-        images={images || []}
-        onAddFavorite={handleAddClick}
-        favoriteIds={favoriteIds}
-      />
-      <PaginationComponent
-        count={Math.ceil(TOTAL_COUNT / limit)}
-        page={page}
-        onChange={handlePagination}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <TitleComponent title="Choose your favorite image" />
+        <SortedComponent ordered={setOrder} />
+        <ImagesList
+          images={images || []}
+          onAddFavorite={handleAddClick}
+          favoriteIds={favoriteIds}
+        />
+        <PaginationComponent
+          count={Math.ceil(TOTAL_COUNT / limit)}
+          page={page}
+          onChange={handlePagination}
+        />
+      </motion.div>
     </Container>
   );
 };

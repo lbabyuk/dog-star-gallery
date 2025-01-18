@@ -36,6 +36,7 @@ export const SelectComponent = ({
       <Select
         labelId="select-label"
         value={imageType}
+        name="select"
         label="Image Format"
         onChange={onHandleImageTypeChange}
         sx={theme => ({

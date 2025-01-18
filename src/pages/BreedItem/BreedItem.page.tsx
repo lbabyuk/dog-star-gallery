@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
+import { motion } from 'framer-motion';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
@@ -30,54 +31,61 @@ export const BreedItem = () => {
 
   return (
     <Container>
-      <Box
-        sx={{
-          width: '100%',
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr' },
-          gap: '60px',
-          flexGrow: 1,
-          overflowX: 'hidden',
-          padding: '10px'
-        }}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
       >
-        <CustomImage
-          sx={{
-            marginBottom: '16px'
-          }}
-          src={breed?.image.url || ''}
-          alt={breed?.name}
-        />
-
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            height: '100%'
+            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1fr 1fr', lg: '1fr 1fr' },
+            gap: '60px',
+            flexGrow: 1,
+            // overflowX: 'hidden',
+            padding: '10px'
           }}
         >
-          <BreedItemContent
-            name={breed?.name}
-            origin={breed?.origin}
-            weight={breed?.weight?.imperial}
-            height={breed?.height?.imperial}
-            life={breed?.life_span}
-            breedFor={breed?.bred_for}
-            breedGroup={breed?.breed_group}
+          <CustomImage
+            sx={{
+              marginBottom: '16px'
+            }}
+            src={breed?.image.url || ''}
+            alt={breed?.name}
           />
 
-          <Box>
-            <CustomButton
-              onClick={() => navigate(`/breeds`)}
-              endIcon={<YellowArrowIcon />}
-              variant="outlinedPrimary"
-            >
-              Back to Breeds
-            </CustomButton>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              height: '100%'
+            }}
+          >
+            <BreedItemContent
+              name={breed?.name}
+              origin={breed?.origin}
+              weight={breed?.weight?.imperial}
+              height={breed?.height?.imperial}
+              life={breed?.life_span}
+              breedFor={breed?.bred_for}
+              breedGroup={breed?.breed_group}
+            />
+
+            <Box>
+              <CustomButton
+                onClick={() => navigate(`/breeds`)}
+                endIcon={<YellowArrowIcon />}
+                variant="outlinedPrimary"
+              >
+                Back to Breeds
+              </CustomButton>
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </motion.div>
     </Container>
   );
 };

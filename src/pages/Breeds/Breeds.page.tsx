@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Box, Container } from '@mui/material';
+import { motion } from 'framer-motion';
 import { useGetBreedsQuery, Breed } from '../../services/breeds';
 import {
   DefaultInfo,
@@ -11,9 +12,9 @@ import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { StyledBox } from './BreedsStyled';
 import { BreedsList } from './components/BreedsList';
 import { SortBreed } from './components/SortBreed';
-import { useDebounce } from '../../utilities/hooks';
 import { CustomButton } from '../../components/atoms';
 import { TITLES_DATA } from '../../constants/titlesData';
+import { useDebounce } from '../../hooks/useDebounce';
 
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });
@@ -61,40 +62,47 @@ export const Breeds = () => {
 
   return (
     <Container>
-      <TitleComponent title={TITLES_DATA.breedsPageTitle} />
-      <StyledBox>
-        <SearchComponent onChange={handleChange} input={searchQuery} />
-        <SortBreed
-          onHandleSortDown={handleSortedDown}
-          onHandleSortUp={handleSortedUp}
-        />
-      </StyledBox>
-
-      {filteredBreeds?.length === 0 ? (
-        <DefaultInfo title={TITLES_DATA.noBreedsFound} />
-      ) : (
-        <>
-          <BreedsList
-            filteredBreeds={filteredBreeds}
-            visibleCount={visibleCount}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <TitleComponent title={TITLES_DATA.breedsPageTitle} />
+        <StyledBox>
+          <SearchComponent onChange={handleChange} input={searchQuery} />
+          <SortBreed
+            onHandleSortDown={handleSortedDown}
+            onHandleSortUp={handleSortedUp}
           />
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              width: '100%'
-            }}
-          >
-            <CustomButton
-              variant="textPrimary"
-              onClick={loadMore}
-              endIcon={<YellowArrowIcon />}
+        </StyledBox>
+
+        {filteredBreeds?.length === 0 ? (
+          <DefaultInfo title={TITLES_DATA.noBreedsFound} />
+        ) : (
+          <>
+            <BreedsList
+              filteredBreeds={filteredBreeds}
+              visibleCount={visibleCount}
+            />
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                width: '100%'
+              }}
             >
-              Load More
-            </CustomButton>
-          </Box>
-        </>
-      )}
+              <CustomButton
+                variant="textPrimary"
+                onClick={loadMore}
+                endIcon={<YellowArrowIcon />}
+              >
+                Load More
+              </CustomButton>
+            </Box>
+          </>
+        )}
+      </motion.div>
     </Container>
   );
 };

@@ -1,26 +1,20 @@
 import { Stack, Typography } from '@mui/material';
-import { PowIcon } from '../../atoms/Icons';
+import { ReactTyped } from 'react-typed';
 
 type TitleComponentProps = {
   title: string;
 };
 export const TitleComponent = ({ title }: TitleComponentProps) => (
-  <Stack
-    flexDirection="row"
-    alignItems="center"
-    justifyContent="center"
-    gap={1}
-    mb="20px"
-  >
-    <Typography variant="h2">{title}</Typography>
-    <PowIcon
+  <Stack m="20px 0">
+    <Typography
+      variant="h2"
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '60px',
-        height: '60px'
+        textAlign: 'center',
+        textTransform: 'capitalize',
+        textWrap: 'balance'
       }}
-    />
+    >
+      <ReactTyped strings={[`${title}`]} typeSpeed={40} showCursor={false} />
+    </Typography>
   </Stack>
 );

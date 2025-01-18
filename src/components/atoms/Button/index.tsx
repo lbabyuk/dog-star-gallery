@@ -3,9 +3,10 @@ import {
   Button as MuiButton,
   ButtonProps as MuiButtonProps
 } from '@mui/material';
+import { ReactNode } from 'react';
 
 export interface ButtonProps extends MuiButtonProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   sx?: object;
   variant?:
     | 'containedPrimary'

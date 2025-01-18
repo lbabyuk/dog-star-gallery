@@ -49,6 +49,7 @@ export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
     <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
     <InputBase
       type="text"
+      name="searchInput"
       fullWidth
       value={input}
       onChange={onChange}

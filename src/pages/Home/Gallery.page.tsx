@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
+import { motion } from 'framer-motion';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
 import {
@@ -56,26 +57,33 @@ export const Gallery = () => {
 
   return (
     <Container>
-      <TitleComponent title="Breed Gallery" />
-      <StyledBox>
-        <SelectComponent
-          imageType={imageType}
-          onHandleImageTypeChange={handleImageTypeChange}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -100 }}
+        transition={{ duration: 2 }}
+      >
+        <TitleComponent title="Breed Gallery" />
+        <StyledBox>
+          <SelectComponent
+            imageType={imageType}
+            onHandleImageTypeChange={handleImageTypeChange}
+          />
+          <SortedComponent ordered={setOrder} />
+        </StyledBox>
+
+        {images?.length === 0 ? (
+          <DefaultInfo title={TITLES_DATA.noImagesFound} />
+        ) : (
+          <GalleryImages images={images || []} />
+        )}
+
+        <PaginationComponent
+          count={Math.ceil(TOTAL_COUNT / limit)}
+          page={page}
+          onChange={handlePagination}
         />
-        <SortedComponent ordered={setOrder} />
-      </StyledBox>
-
-      {images?.length === 0 ? (
-        <DefaultInfo title={TITLES_DATA.noImagesFound} />
-      ) : (
-        <GalleryImages images={images || []} />
-      )}
-
-      <PaginationComponent
-        count={Math.ceil(TOTAL_COUNT / limit)}
-        page={page}
-        onChange={handlePagination}
-      />
+      </motion.div>
     </Container>
   );
 };
