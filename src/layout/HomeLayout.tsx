@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Stack, styled } from '@mui/material';
-import { ScrollToTopButton } from '../components/molecules';
+import { Footer, Header, ScrollToTopButton } from '../components/molecules';
 
 type HomeLayoutProps = {
   children: ReactNode;
@@ -14,9 +14,11 @@ const StyledMain = styled('main')(({ theme }) => ({
   paddingBottom: '100px'
 }));
 
-export const HomeLayout = ({ children }: HomeLayoutProps) => (
+export const HomeLayout = ({ children }: HomeLayoutProps): JSX.Element => (
   <Stack sx={{ minHeight: '100dvh' }}>
+    <Header />
     <StyledMain>{children}</StyledMain>
     <ScrollToTopButton />
+    <Footer />
   </Stack>
 );

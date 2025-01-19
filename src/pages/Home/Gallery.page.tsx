@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useGetImagesQuery } from '../../services/images';
 import { GalleryImages } from './components/GalleryImages';
 import {
@@ -17,6 +16,7 @@ import {
   DEFAULT_IMAGE_TYPE,
   DEFAULT_ORDER_TYPE
 } from '../../constants/imageTypeData';
+import { MotionTransitionWrapper } from '../../components/atoms';
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -57,12 +57,7 @@ export const Gallery = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <TitleComponent title="Breed Gallery" />
         <StyledBox>
           <SelectComponent
@@ -83,7 +78,7 @@ export const Gallery = () => {
           page={page}
           onChange={handlePagination}
         />
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

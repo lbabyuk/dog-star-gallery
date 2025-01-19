@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { List, Box, Container } from '@mui/material';
-import { motion } from 'framer-motion';
 import {
   DefaultInfo,
   LoadingStatus,
@@ -10,6 +9,7 @@ import { useGetVotesQuery } from '../../services/votes';
 import { HistoryList } from './components/HistoryList';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
+import { MotionTransitionWrapper } from '../../components/atoms';
 
 export const History = () => {
   const { data: breeds, isLoading } = useGetVotesQuery({ sub_id: 'olena' });
@@ -29,12 +29,7 @@ export const History = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <TitleComponent title={TITLES_DATA.historyPageTitle} />
         <Box
           sx={{
@@ -59,7 +54,7 @@ export const History = () => {
             ))}
           </List>
         </Box>
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

@@ -1,11 +1,14 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useGetBreedsQuery } from '../../services/breeds';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { HOME } from '../../constants/routes';
 import { BreedItemContent } from './components/BreedItemContent';
-import { CustomButton, CustomImage } from '../../components/atoms';
+import {
+  CustomButton,
+  CustomImage,
+  MotionTransitionWrapper
+} from '../../components/atoms';
 import { DefaultInfo, LoadingStatus } from '../../components/molecules';
 
 export const BreedItem = () => {
@@ -31,12 +34,7 @@ export const BreedItem = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <Box
           sx={{
             width: '100%',
@@ -85,7 +83,7 @@ export const BreedItem = () => {
             </Box>
           </Box>
         </Box>
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

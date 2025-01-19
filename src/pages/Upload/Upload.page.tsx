@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { Box, Container, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
 import {
   DefaultInfo,
   LoadingStatus,
   TitleComponent
 } from '../../components/molecules';
-import { GridWrapper, CustomButton } from '../../components/atoms';
+import {
+  GridWrapper,
+  CustomButton,
+  MotionTransitionWrapper
+} from '../../components/atoms';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
 import { UploadImage } from './components/UploadImage';
 import { UploadedImages } from './components/UploadedImages';
@@ -16,21 +19,24 @@ import {
   useDeleteUploadedImageMutation
 } from '../../services/upload';
 import { TITLES_DATA } from '../../constants/titlesData';
+import { useVisibleImage } from '../../hooks/useVisibleImage';
 
 export const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
-  const [visibleCount, setVisibleCount] = useState(6);
+
   const { data: uploadedImages, isLoading } = useGetUploadImagesQuery({
     sub_id: 'olena'
   });
 
+  const { visibleData, handleShowImages, isAllVisible } = useVisibleImage(
+    uploadedImages,
+    3,
+    3
+  );
+
   const [addUploadedImage, { isLoading: isUploading }] =
     useAddUploadedImageMutation();
   const [deleteImage] = useDeleteUploadedImageMutation();
-
-  const loadMore = () => {
-    setVisibleCount(prevCount => prevCount + 6);
-  };
 
   const handleDelete = (id: string) => {
     deleteImage(id);
@@ -53,12 +59,7 @@ export const Upload = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <TitleComponent title={TITLES_DATA.uploadPageTitle} />
         <Stack alignItems="center" gap={2}>
           <UploadImage
@@ -74,7 +75,7 @@ export const Upload = () => {
         ) : (
           <>
             <GridWrapper>
-              {(uploadedImages || []).slice(0, visibleCount).map(image => (
+              {visibleData.map(image => (
                 <UploadedImages
                   image={image}
                   key={image.id}
@@ -91,15 +92,15 @@ export const Upload = () => {
             >
               <CustomButton
                 variant="textPrimary"
-                onClick={loadMore}
+                onClick={handleShowImages}
                 endIcon={<YellowArrowIcon />}
               >
-                Load More
+                {isAllVisible ? 'Show Less' : 'Show More'}
               </CustomButton>
             </Box>
           </>
         )}
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

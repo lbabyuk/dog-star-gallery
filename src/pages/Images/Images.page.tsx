@@ -1,6 +1,5 @@
 import { useState, ChangeEvent } from 'react';
 import { Container } from '@mui/material';
-import { motion } from 'framer-motion';
 import {
   useAddFavoritesMutation,
   useGetFavoritesQuery
@@ -14,6 +13,7 @@ import {
 import { ImagesList } from './components/ImagesList';
 import { useGetImagesQuery } from '../../services/images';
 import { TOTAL_COUNT } from '../../constants/paginationStyleData';
+import { MotionTransitionWrapper } from '../../components/atoms';
 
 export const Images = () => {
   const [page, setPage] = useState(1);
@@ -45,12 +45,7 @@ export const Images = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <TitleComponent title="Choose your favorite image" />
         <SortedComponent ordered={setOrder} />
         <ImagesList
@@ -63,7 +58,7 @@ export const Images = () => {
           page={page}
           onChange={handlePagination}
         />
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

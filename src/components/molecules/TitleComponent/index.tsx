@@ -14,7 +14,7 @@ export const TitleComponent = ({ title }: TitleComponentProps) => (
         textWrap: 'balance'
       }}
     >
-      <ReactTyped strings={[`${title}`]} typeSpeed={40} showCursor={false} />
+      <ReactTyped strings={[`${title}`]} typeSpeed={60} showCursor={false} />
     </Typography>
   </Stack>
 );

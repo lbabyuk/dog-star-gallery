@@ -3,9 +3,10 @@ import { ReactNode } from 'react';
 
 type GridWrapperProps = {
   children: ReactNode;
+  sx?: object;
 };
 
-export const GridWrapper = ({ children }: GridWrapperProps) => (
+export const GridWrapper = ({ children, sx }: GridWrapperProps) => (
   <Box
     sx={{
       display: 'grid',
@@ -16,7 +17,8 @@ export const GridWrapper = ({ children }: GridWrapperProps) => (
         lg: '1fr 1fr 1fr'
       },
       gap: '20px',
-      padding: '20px'
+      padding: '20px',
+      ...sx
     }}
   >
     {children}

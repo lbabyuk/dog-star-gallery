@@ -5,7 +5,6 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './Slider.css';
-import { motion } from 'framer-motion';
 import {
   PaginationComponent,
   TitleComponent,
@@ -16,6 +15,7 @@ import { useGetImagesQuery } from '../../services/images';
 import { VotesSlider } from './components/VotesSlider';
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 import { TITLES_DATA } from '../../constants/titlesData';
+import { MotionTransitionWrapper } from '../../components/atoms';
 
 export const Votes = () => {
   const [page, setPage] = useState(1);
@@ -41,12 +41,7 @@ export const Votes = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <TitleComponent title={TITLES_DATA.votesPageTitle} />
         <VotesSlider
           votesImages={votesImages || []}
@@ -58,7 +53,7 @@ export const Votes = () => {
           page={page}
           onChange={handlePagination}
         />
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

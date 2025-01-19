@@ -1,9 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Stack } from '@mui/material';
-import { motion } from 'framer-motion';
 import { GalleryItemProps } from '../GalleryImagesContent';
 import { RelatedImagesContent } from './RelatedImagesContent';
-import { CustomImage } from '../../../../components/atoms';
+import {
+  CustomImage,
+  MotionTransitionWrapper
+} from '../../../../components/atoms';
 import { TitleComponent, DefaultInfo } from '../../../../components/molecules';
 
 export const RelatedImages = () => {
@@ -35,12 +37,7 @@ export const RelatedImages = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <Stack justifyContent="space-between" gap={3}>
           <TitleComponent
             title={clickedBreed?.name ? clickedBreed?.name : '***'}
@@ -66,7 +63,7 @@ export const RelatedImages = () => {
             ))}
           </Stack>
         </Stack>
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

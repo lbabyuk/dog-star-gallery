@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
-import { motion } from 'framer-motion';
 import { useGetFavoritesQuery } from '../../services/favorites';
 import {
   DefaultInfo,
@@ -10,20 +8,21 @@ import {
 } from '../../components/molecules';
 import { FavoriteImageList } from './components/FavoriteImageList';
 import { YellowArrowIcon } from '../../components/atoms/Icons';
-import { CustomButton } from '../../components/atoms';
+import { CustomButton, MotionTransitionWrapper } from '../../components/atoms';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
+import { useVisibleImage } from '../../hooks/useVisibleImage';
 
 export const Favorites = () => {
-  const [visibleCount, setVisibleCount] = useState(6);
   const { data: favoriteImages, isLoading } = useGetFavoritesQuery({
     sub_id: 'olena'
   });
   const navigate = useNavigate();
-
-  const loadMore = () => {
-    setVisibleCount(prevCount => prevCount + 6);
-  };
+  const { visibleData, handleShowImages, isAllVisible } = useVisibleImage(
+    favoriteImages,
+    6,
+    3
+  );
 
   if (isLoading) return <LoadingStatus />;
 
@@ -40,18 +39,10 @@ export const Favorites = () => {
 
   return (
     <Container>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
-        transition={{ duration: 2 }}
-      >
+      <MotionTransitionWrapper>
         <Box>
           <TitleComponent title={TITLES_DATA.favoritesPageTitle} />
-          <FavoriteImageList
-            favoriteImages={favoriteImages ?? []}
-            visibleCount={visibleCount}
-          />
+          <FavoriteImageList favoriteImages={visibleData} />
           <Box
             sx={{
               display: 'flex',
@@ -61,14 +52,14 @@ export const Favorites = () => {
           >
             <CustomButton
               variant="textPrimary"
-              onClick={loadMore}
+              onClick={handleShowImages}
               endIcon={<YellowArrowIcon />}
             >
-              Load More
+              {isAllVisible ? 'Show less' : 'Show More'}
             </CustomButton>
           </Box>
         </Box>
-      </motion.div>
+      </MotionTransitionWrapper>
     </Container>
   );
 };

@@ -8,14 +8,10 @@ export type BreedsListProps = {
     temperament: string;
     image: { id: string; url: string };
   }>;
-  visibleCount: number;
 };
-export const BreedsList = ({
-  filteredBreeds,
-  visibleCount
-}: BreedsListProps) => (
+export const BreedsList = ({ filteredBreeds }: BreedsListProps) => (
   <GridWrapper>
-    {(filteredBreeds || []).slice(0, visibleCount).map(filteredBreed => (
+    {(filteredBreeds || []).map(filteredBreed => (
       <BreedsListContent filteredBreed={filteredBreed} key={filteredBreed.id} />
     ))}
   </GridWrapper>
