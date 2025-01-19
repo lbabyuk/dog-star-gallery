@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography } from '@mui/material';
-import { YellowArrowIcon } from '../../../components/atoms/Icons';
-import { CustomImage } from '../../../components/atoms/CustomImage';
-import { CustomButton } from '../../../components/atoms/Button';
-import { CardWrapper } from '../../../components/atoms/CardWrapper';
+import {
+  CustomButton,
+  CardWrapper,
+  CustomImage,
+  YellowArrowIcon
+} from '../../../components/atoms';
 
 export type BreedListContentProps = {
   filteredBreed: {

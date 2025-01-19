@@ -1,5 +1,5 @@
 import { Button, ButtonGroup, Stack, styled, Typography } from '@mui/material';
-import { SortDownIcon, SortUpIcon, SortRandomIcon } from '../../atoms/Icons';
+import { SortDownIcon, SortUpIcon, SortRandomIcon } from '../../atoms';
 
 type Ordered = {
   ordered: (arg: string) => void;

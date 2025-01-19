@@ -7,14 +7,15 @@ import {
   SearchComponent,
   TitleComponent
 } from '../../components/molecules';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
+import {
+  CustomButton,
+  MotionTransitionWrapper,
+  YellowArrowIcon
+} from '../../components/atoms';
 import { StyledBox } from './BreedsStyled';
-import { BreedsList } from './components/BreedsList';
-import { SortBreed } from './components/SortBreed';
-import { CustomButton, MotionTransitionWrapper } from '../../components/atoms';
+import { BreedsList, SortBreed } from './components';
 import { TITLES_DATA } from '../../constants/titlesData';
-import { useDebounce } from '../../hooks/useDebounce';
-import { useVisibleImage } from '../../hooks/useVisibleImage';
+import { useDebounce, useVisibleImage } from '../../hooks';
 
 export const Breeds = () => {
   const { data: breeds, isLoading } = useGetBreedsQuery({ limit: 25 });

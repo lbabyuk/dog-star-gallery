@@ -1,14 +1,14 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Box, Container } from '@mui/material';
 import { useGetBreedsQuery } from '../../services/breeds';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
-import { HOME } from '../../constants/routes';
-import { BreedItemContent } from './components/BreedItemContent';
 import {
   CustomButton,
   CustomImage,
-  MotionTransitionWrapper
+  MotionTransitionWrapper,
+  YellowArrowIcon
 } from '../../components/atoms';
+import { HOME } from '../../constants/routes';
+import { BreedItemContent } from './components/BreedItemContent';
 import { DefaultInfo, LoadingStatus } from '../../components/molecules';
 
 export const BreedItem = () => {

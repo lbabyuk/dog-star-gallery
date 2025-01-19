@@ -6,7 +6,7 @@ import {
   TitleComponent
 } from '../../components/molecules';
 import { useGetVotesQuery } from '../../services/votes';
-import { HistoryList } from './components/HistoryList';
+import { HistoryList } from './components';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
 import { MotionTransitionWrapper } from '../../components/atoms';

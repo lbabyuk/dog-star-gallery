@@ -1,5 +1,5 @@
 import { ButtonGroup, Typography } from '@mui/material';
-import { SortDownIcon, SortUpIcon } from '../../../components/atoms/Icons';
+import { SortDownIcon, SortUpIcon } from '../../../components/atoms';
 import { StyledButton } from '../BreedsStyled';
 
 type SortBreedProps = {

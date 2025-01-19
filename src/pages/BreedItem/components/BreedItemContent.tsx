@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/material';
-import { LogoIcon } from '../../../components/atoms/Icons';
+import { LogoIcon } from '../../../components/atoms';
 
 type BreedItemContentProps = {
   name: string;

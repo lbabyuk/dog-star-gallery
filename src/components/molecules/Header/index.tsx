@@ -1,9 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Toolbar, Container, styled, Box, AppBar } from '@mui/material';
-import { HeaderLinks } from './components/HeaderLinks';
-import { HeaderPopupMenu } from '../HeaderPopupMenu';
-import { BigLogoIcon } from '../../atoms/Icons';
-import { HeaderIconLinks } from './components/HeaderIconLinks';
+import { HeaderLinks, HeaderPopupMenu, HeaderIconLinks } from './components';
+import { BigLogoIcon } from '../../atoms';
 
 export const StyledHeader = styled(AppBar)(({ theme }) => ({
   width: '100%',

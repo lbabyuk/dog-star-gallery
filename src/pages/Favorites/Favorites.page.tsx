@@ -6,12 +6,15 @@ import {
   LoadingStatus,
   TitleComponent
 } from '../../components/molecules';
-import { FavoriteImageList } from './components/FavoriteImageList';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
-import { CustomButton, MotionTransitionWrapper } from '../../components/atoms';
+import { FavoriteImageList } from './components';
+import {
+  CustomButton,
+  MotionTransitionWrapper,
+  YellowArrowIcon
+} from '../../components/atoms';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
-import { useVisibleImage } from '../../hooks/useVisibleImage';
+import { useVisibleImage } from '../../hooks';
 
 export const Favorites = () => {
   const { data: favoriteImages, isLoading } = useGetFavoritesQuery({

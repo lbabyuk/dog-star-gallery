@@ -1,9 +1,5 @@
 import { JSX } from 'react';
-import {
-  DislikeIcon,
-  LikeIcon,
-  HeartIcon
-} from '../../../components/atoms/Icons';
+import { DislikeIcon, LikeIcon, HeartIcon } from '../../../components/atoms';
 
 export const voteIconData: Record<number, JSX.Element> = {
   0: <HeartIcon />,

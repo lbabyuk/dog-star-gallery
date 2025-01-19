@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { Container, Box, SelectChangeEvent, styled } from '@mui/material';
 import { useGetImagesQuery } from '../../services/images';
-import { GalleryImages } from './components/GalleryImages';
+
 import {
   DefaultInfo,
   LoadingStatus,
@@ -17,6 +17,7 @@ import {
   DEFAULT_ORDER_TYPE
 } from '../../constants/imageTypeData';
 import { MotionTransitionWrapper } from '../../components/atoms';
+import { GalleryImages } from './components';
 
 export const StyledBox = styled(Box)(({ theme }) => ({
   display: 'flex',

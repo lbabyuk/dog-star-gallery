@@ -1,12 +1,14 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Stack } from '@mui/material';
-import { GalleryItemProps } from '../GalleryImagesContent';
-import { RelatedImagesContent } from './RelatedImagesContent';
+
 import {
   CustomImage,
   MotionTransitionWrapper
 } from '../../../../components/atoms';
 import { TitleComponent, DefaultInfo } from '../../../../components/molecules';
+
+import { RelatedImagesContent } from './RelatedImagesContent';
+import { GalleryItemProps } from '../GalleryImages/types';
 
 export const RelatedImages = () => {
   const location = useLocation();

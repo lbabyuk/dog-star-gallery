@@ -1,6 +1,6 @@
 import { Stack, Box, Typography } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { CustomButton } from '../../../components/atoms/Button';
+import { CustomButton } from '../../../components/atoms';
 import { StyledStack, VisuallyHiddenInput } from '../UploadStyled';
 
 type UploadImageProps = {

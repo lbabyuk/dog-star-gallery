@@ -24,3 +24,10 @@ export const ICON_SIZE = {
   xs: '30px',
   md: '35px'
 };
+
+export const ICON_STYLE = {
+  display: 'flex',
+  width: ICON_SIZE,
+  height: ICON_SIZE,
+  p: 0
+};

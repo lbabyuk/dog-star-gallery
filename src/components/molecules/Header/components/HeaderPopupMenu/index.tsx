@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IconButton, MenuItem, Typography, Menu } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { headerMenu } from '../../../constants/headerMenu';
+import { headerMenu } from '../../../../../constants/headerMenu';
 
 export const HeaderPopupMenu = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

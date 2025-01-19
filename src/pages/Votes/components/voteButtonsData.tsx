@@ -1,8 +1,4 @@
-import {
-  HeartIcon,
-  LikeIcon,
-  DislikeIcon
-} from '../../../components/atoms/Icons';
+import { HeartIcon, LikeIcon, DislikeIcon } from '../../../components/atoms';
 import {
   BUTTON_STYLE,
   VOTES_VALUE,

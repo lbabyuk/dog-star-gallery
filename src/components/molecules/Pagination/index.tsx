@@ -2,7 +2,7 @@
 import { Icon, Pagination, PaginationItem, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { PaginationDotsIcon } from '../../atoms/Icons';
+import { PaginationDotsIcon } from '../../atoms';
 import {
   PAGINATION_STYLE,
   SVG_SIZE

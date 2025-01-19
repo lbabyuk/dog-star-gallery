@@ -8,8 +8,8 @@ import {
   BorderHeartIcon,
   CrossContainedIcon,
   CrossOutlinedIcon
-} from '../../../../atoms/Icons';
-import { ICON_SIZE } from '../../../../../constants/headerMenu';
+} from '../../../../atoms';
+import { ICON_STYLE } from '../../../../../constants/headerMenu';
 
 export const HeaderIconLinks = () => (
   <Box
@@ -27,20 +27,14 @@ export const HeaderIconLinks = () => (
         isActive ? (
           <HeartIcon
             sx={{
-              display: 'flex',
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0
+              ...ICON_STYLE
             }}
           />
         ) : (
           <BorderHeartIcon
             sx={{
-              display: 'flex',
-              color: theme => theme.palette.warning.main,
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0
+              ...ICON_STYLE,
+              color: theme => theme.palette.warning.main
             }}
           />
         )
@@ -51,19 +45,13 @@ export const HeaderIconLinks = () => (
         isActive ? (
           <CrossContainedIcon
             sx={{
-              display: 'flex',
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0
+              ...ICON_STYLE
             }}
           />
         ) : (
           <CrossOutlinedIcon
             sx={{
-              display: 'flex',
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0
+              ...ICON_STYLE
             }}
           />
         )
@@ -74,10 +62,7 @@ export const HeaderIconLinks = () => (
         isActive ? (
           <CloudUploadIcon
             sx={{
-              display: 'flex',
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0,
+              ...ICON_STYLE,
               color: theme => theme.palette.warning.main,
               filter: theme =>
                 `drop-shadow(4px 2px 0 ${theme.palette.grey[900]})`
@@ -86,10 +71,7 @@ export const HeaderIconLinks = () => (
         ) : (
           <CloudUploadOutlinedIcon
             sx={{
-              display: 'flex',
-              width: ICON_SIZE,
-              height: ICON_SIZE,
-              p: 0,
+              ...ICON_STYLE,
               color: theme => theme.palette.warning.main
             }}
           />

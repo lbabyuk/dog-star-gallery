@@ -1,8 +1,7 @@
 import CircularProgress, {
   CircularProgressProps
 } from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Typography, Box } from '@mui/material';
 
 interface CircularProgressWithLabelProps extends CircularProgressProps {
   value: number;

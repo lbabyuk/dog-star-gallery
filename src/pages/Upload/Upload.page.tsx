@@ -8,18 +8,18 @@ import {
 import {
   GridWrapper,
   CustomButton,
-  MotionTransitionWrapper
+  MotionTransitionWrapper,
+  YellowArrowIcon
 } from '../../components/atoms';
-import { YellowArrowIcon } from '../../components/atoms/Icons';
-import { UploadImage } from './components/UploadImage';
-import { UploadedImages } from './components/UploadedImages';
+import { UploadImage, UploadedImages } from './components';
+
 import {
   useAddUploadedImageMutation,
   useGetUploadImagesQuery,
   useDeleteUploadedImageMutation
 } from '../../services/upload';
 import { TITLES_DATA } from '../../constants/titlesData';
-import { useVisibleImage } from '../../hooks/useVisibleImage';
+import { useVisibleImage } from '../../hooks';
 
 export const Upload = () => {
   const [file, setFile] = useState<File | null>(null);

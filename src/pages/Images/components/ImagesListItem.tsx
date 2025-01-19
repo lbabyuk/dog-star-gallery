@@ -1,6 +1,10 @@
 import { Box, Theme } from '@mui/material';
-import { BorderHeartIcon } from '../../../components/atoms/Icons';
-import { CustomButton, CustomImage } from '../../../components/atoms';
+
+import {
+  CustomButton,
+  CustomImage,
+  BorderHeartIcon
+} from '../../../components/atoms';
 import {
   ICON_SIZE,
   IMAGES_LAYOUT_DATA

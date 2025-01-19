@@ -1,6 +1,6 @@
 import { Card, IconButton, styled, Box, CardMedia } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
-import { BorderHeartIcon, BlackBorderHeartIcon } from '../../atoms/Icons';
+import { BorderHeartIcon, BlackBorderHeartIcon } from '../../atoms';
 
 type HeartIconProps = {
   state: 'active' | 'default';

@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { CustomImage } from '../../../components/atoms/CustomImage';
-import { CustomButton } from '../../../components/atoms/Button';
+import { CustomButton, CustomImage } from '../../../components/atoms';
 
 type FavoriteImageListItemProps = {
   onDeleteFavorite: (id: number) => void;

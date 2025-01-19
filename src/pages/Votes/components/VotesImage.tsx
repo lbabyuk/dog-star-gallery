@@ -1,5 +1,5 @@
 import { Theme } from '@mui/material';
-import { CustomImage } from '../../../components/atoms/CustomImage';
+import { CustomImage } from '../../../components/atoms';
 
 type VotesImageProps = {
   isActive?: boolean;

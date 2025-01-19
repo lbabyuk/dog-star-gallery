@@ -1,30 +1,27 @@
-import { Typography, Box, Container, Toolbar } from '@mui/material';
+import { Typography, Box, Container, Toolbar, styled } from '@mui/material';
+
+export const StyledFooter = styled(Box)(({ theme }) => ({
+  position: 'fixed',
+  bottom: 0,
+  width: '100%',
+  backgroundColor: theme.palette.grey[100]
+}));
+
+export const StyledTypography = styled(Typography)(({ theme }) => ({
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  color: theme.palette.text.primary,
+  margin: '0 auto'
+}));
 
 export const Footer = () => (
-  <Box
-    component="footer"
-    sx={{
-      position: 'fixed',
-      bottom: 0,
-      width: '100%',
-      backgroundColor: theme => theme.palette.grey[100]
-    }}
-  >
+  <StyledFooter>
     <Container>
       <Toolbar disableGutters>
-        <Typography
-          variant="semiBold1"
-          sx={{
-            m: 1,
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            color: theme => theme.palette.text.primary,
-            margin: '0 auto'
-          }}
-        >
+        <StyledTypography variant="semiBold1">
           {`© ${new Date().getFullYear()} Made by Olena Babyuk`}
-        </Typography>
+        </StyledTypography>
       </Toolbar>
     </Container>
-  </Box>
+  </StyledFooter>
 );

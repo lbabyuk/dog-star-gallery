@@ -12,7 +12,7 @@ import {
 } from '../../components/molecules';
 import { useAddVotesMutation } from '../../services/votes';
 import { useGetImagesQuery } from '../../services/images';
-import { VotesSlider } from './components/VotesSlider';
+import { VotesSlider } from './components';
 import { LIMIT, TOTAL_COUNT } from '../../constants/paginationStyleData';
 import { TITLES_DATA } from '../../constants/titlesData';
 import { MotionTransitionWrapper } from '../../components/atoms';

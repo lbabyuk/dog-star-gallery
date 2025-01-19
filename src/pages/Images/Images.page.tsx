@@ -10,10 +10,10 @@ import {
   PaginationComponent,
   TitleComponent
 } from '../../components/molecules';
-import { ImagesList } from './components/ImagesList';
 import { useGetImagesQuery } from '../../services/images';
 import { TOTAL_COUNT } from '../../constants/paginationStyleData';
 import { MotionTransitionWrapper } from '../../components/atoms';
+import { ImagesList } from './components';
 
 export const Images = () => {
   const [page, setPage] = useState(1);

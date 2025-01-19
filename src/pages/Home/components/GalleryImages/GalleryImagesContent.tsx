@@ -2,21 +2,11 @@ import { Typography } from '@mui/material';
 import {
   CustomImage,
   CustomButton,
-  CardWrapper
-} from '../../../components/atoms';
-import { PowIcon, YellowArrowIcon } from '../../../components/atoms/Icons';
-
-export type GalleryItemProps = {
-  id: string;
-  url: string;
-  breeds: [
-    {
-      id: number;
-      name: string;
-      breed_group: string;
-    }
-  ];
-};
+  CardWrapper,
+  PowIcon,
+  YellowArrowIcon
+} from '../../../../components/atoms';
+import { GalleryItemProps } from './types';
 
 export type GalleryImagesContentProps = {
   onHandleImageClick: (item: GalleryItemProps) => void;

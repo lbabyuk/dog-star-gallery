@@ -1,6 +1,6 @@
 import { useDeleteFavoritesMutation } from '../../../services/favorites';
 import { FavoriteImageListItem } from './FavoriteImageListItem';
-import { GridWrapper } from '../../../components/atoms/GridWrapper';
+import { GridWrapper } from '../../../components/atoms';
 
 type FavoriteImageListProps = {
   favoriteImages: Array<{

@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { Container, Box, Typography } from '@mui/material';
-import { CustomButton } from '../../atoms';
-import { YellowArrowIcon } from '../../atoms/Icons';
+import { Container, Box, Typography, styled } from '@mui/material';
+import { CustomButton, YellowArrowIcon } from '../../atoms';
 
 type DefaultInfoProps = {
   title: string;
@@ -9,6 +8,18 @@ type DefaultInfoProps = {
   onClick?: () => void;
   icon?: ReactNode;
 };
+
+export const StyledBox = styled(Box)(() => ({
+  textAlign: 'center',
+  marginTop: 4,
+  height: 'auto',
+  minHeight: '50vh',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center'
+}));
+
 export const DefaultInfo = ({
   icon,
   title,
@@ -16,18 +27,7 @@ export const DefaultInfo = ({
   onClick
 }: DefaultInfoProps) => (
   <Container>
-    <Box
-      sx={{
-        textAlign: 'center',
-        mt: 4,
-        height: 'auto',
-        minHeight: '50vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
+    <StyledBox>
       <Typography variant="h2" align="center" m={1} p={1}>
         {title}
       </Typography>
@@ -39,6 +39,6 @@ export const DefaultInfo = ({
       >
         {btnText}
       </CustomButton>
-    </Box>
+    </StyledBox>
   </Container>
 );
