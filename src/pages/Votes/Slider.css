@@ -25,7 +25,19 @@
   box-shadow: 3px 3px 0 0 #a239f4;
 }
 
-.button-next,
+.swiper-pagination-bullet {
+  background-color: #5f556d;
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #a239f4;
+}
+
+/* *** */
+/* .button-next,
 .button-prev {
   position: absolute;
   top: 50%;
@@ -68,3 +80,13 @@
 .button-prev img {
   display: flex;
 }
+   {/*  navigation={{
+         prevEl: '.button-prev',
+         nextEl: '.button-next'
+       }}
+      <div className="button-prev">
+        <img src={arrowLeft} alt="Left" />
+      </div>
+      <div className="button-next">
+        <img src={arrowRight} alt="Right" />
+      </div> */

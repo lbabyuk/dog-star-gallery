@@ -1,8 +1,6 @@
 import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation } from 'swiper/modules';
-import arrowLeft from '../../../assets/arrow-left.svg';
-import arrowRight from '../../../assets/arrow-right.svg';
+import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
 
 import { CustomButton } from '../../../components/atoms';
 import { VOTES_BUTTONS_DATA } from './voteButtonsData';
@@ -19,11 +17,11 @@ export const VotesSlider = ({
 }: VotesImagesProps) => (
   <Box>
     <Swiper
-      modules={[EffectCoverflow, Navigation]}
-      navigation={{
-        prevEl: '.button-prev',
-        nextEl: '.button-next'
+      modules={[EffectCoverflow, Pagination, Navigation]}
+      pagination={{
+        clickable: true
       }}
+      navigation
       grabCursor
       slidesPerView="auto"
       centeredSlides
@@ -62,12 +60,6 @@ export const VotesSlider = ({
           }
         </SwiperSlide>
       ))}
-      <div className="button-prev">
-        <img src={arrowLeft} alt="Left" />
-      </div>
-      <div className="button-next">
-        <img src={arrowRight} alt="Right" />
-      </div>
     </Swiper>
   </Box>
 );
