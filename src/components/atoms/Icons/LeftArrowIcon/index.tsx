@@ -5,7 +5,7 @@ export const LeftArrowIcon = (props: SvgIconProps) => {
   return (
     <SvgIcon sx={sx}>
       <svg
-        fill="#000000"
+        fill="currentColor"
         height="800px"
         width="800px"
         version="1.1"

@@ -7,11 +7,7 @@ import {
   SearchComponent,
   TitleComponent
 } from '../../components/molecules';
-import {
-  CustomButton,
-  MotionTransitionWrapper,
-  YellowArrowIcon
-} from '../../components/atoms';
+import { CustomButton, MotionTransitionWrapper } from '../../components/atoms';
 import { StyledBox } from './BreedsStyled';
 import { BreedsList, SortBreed } from './components';
 import { TITLES_DATA } from '../../constants/titlesData';
@@ -86,11 +82,7 @@ export const Breeds = () => {
                 width: '100%'
               }}
             >
-              <CustomButton
-                variant="textPrimary"
-                onClick={handleShowImages}
-                endIcon={<YellowArrowIcon />}
-              >
+              <CustomButton variant="textPrimary" onClick={handleShowImages}>
                 {isAllVisible ? 'Show Less' : 'Show More'}
               </CustomButton>
             </Box>

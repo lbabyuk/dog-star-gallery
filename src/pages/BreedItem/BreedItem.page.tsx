@@ -5,7 +5,7 @@ import {
   CustomButton,
   CustomImage,
   MotionTransitionWrapper,
-  YellowArrowIcon
+  RightArrowIcon
 } from '../../components/atoms';
 import { HOME } from '../../constants/routes';
 import { BreedItemContent } from './components/BreedItemContent';
@@ -75,7 +75,7 @@ export const BreedItem = () => {
             <Box>
               <CustomButton
                 onClick={() => navigate(`/breeds`)}
-                endIcon={<YellowArrowIcon />}
+                endIcon={<RightArrowIcon />}
                 variant="outlinedPrimary"
               >
                 Back to Breeds

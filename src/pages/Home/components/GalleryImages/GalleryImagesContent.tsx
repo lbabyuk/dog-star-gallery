@@ -4,7 +4,7 @@ import {
   CustomButton,
   CardWrapper,
   PowIcon,
-  YellowArrowIcon
+  RightArrowIcon
 } from '../../../../components/atoms';
 import { GalleryItemProps } from './types';
 
@@ -37,7 +37,7 @@ export const GalleryImagesContent = ({
     </Typography>
     <CustomButton
       startIcon={<PowIcon />}
-      endIcon={<YellowArrowIcon />}
+      endIcon={<RightArrowIcon />}
       onClick={() => onHandleImageClick(item)}
       variant="containedPrimary"
     >

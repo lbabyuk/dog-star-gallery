@@ -8,8 +8,7 @@ import {
 import {
   GridWrapper,
   CustomButton,
-  MotionTransitionWrapper,
-  YellowArrowIcon
+  MotionTransitionWrapper
 } from '../../components/atoms';
 import { UploadImage, UploadedImages } from './components';
 
@@ -90,11 +89,7 @@ export const Upload = () => {
                 width: '100%'
               }}
             >
-              <CustomButton
-                variant="textPrimary"
-                onClick={handleShowImages}
-                endIcon={<YellowArrowIcon />}
-              >
+              <CustomButton variant="textPrimary" onClick={handleShowImages}>
                 {isAllVisible ? 'Show Less' : 'Show More'}
               </CustomButton>
             </Box>

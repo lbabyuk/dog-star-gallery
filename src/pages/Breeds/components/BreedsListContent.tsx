@@ -4,7 +4,7 @@ import {
   CustomButton,
   CardWrapper,
   CustomImage,
-  YellowArrowIcon
+  RightArrowIcon
 } from '../../../components/atoms';
 
 export type BreedListContentProps = {
@@ -58,7 +58,7 @@ export const BreedsListContent = ({ filteredBreed }: BreedListContentProps) => {
       <Box>
         <CustomButton
           variant="containedPrimary"
-          endIcon={<YellowArrowIcon />}
+          endIcon={<RightArrowIcon />}
           onClick={() => navigate(`/breeds/${filteredBreed.id}`)}
         >
           Learn More

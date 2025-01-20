@@ -1,10 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 import { Container } from '@mui/material';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './Slider.css';
 import {
   PaginationComponent,
   TitleComponent,

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Container, Box, Typography, styled } from '@mui/material';
-import { CustomButton, YellowArrowIcon } from '../../atoms';
+import { CustomButton, RightArrowIcon } from '../../atoms';
 
 type DefaultInfoProps = {
   title: string;
@@ -35,7 +35,7 @@ export const DefaultInfo = ({
       <CustomButton
         onClick={onClick}
         variant="textPrimary"
-        endIcon={icon && <YellowArrowIcon />}
+        endIcon={icon && <RightArrowIcon />}
       >
         {btnText}
       </CustomButton>

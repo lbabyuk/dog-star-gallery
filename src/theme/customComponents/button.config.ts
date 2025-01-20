@@ -66,7 +66,8 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       fontWeight: 'bold',
       color: palette.primary.main,
       '&:hover': {
-        color: palette.action.hover
+        color: palette.action.hover,
+        backgroundColor: 'transparent'
       },
       '&:focus, &:active': {
         outline: 'none',

@@ -7,11 +7,7 @@ import {
   TitleComponent
 } from '../../components/molecules';
 import { FavoriteImageList } from './components';
-import {
-  CustomButton,
-  MotionTransitionWrapper,
-  YellowArrowIcon
-} from '../../components/atoms';
+import { CustomButton, MotionTransitionWrapper } from '../../components/atoms';
 import { HOME } from '../../constants/routes';
 import { TITLES_DATA } from '../../constants/titlesData';
 import { useVisibleImage } from '../../hooks';
@@ -53,11 +49,7 @@ export const Favorites = () => {
               width: '100%'
             }}
           >
-            <CustomButton
-              variant="textPrimary"
-              onClick={handleShowImages}
-              endIcon={<YellowArrowIcon />}
-            >
+            <CustomButton variant="textPrimary" onClick={handleShowImages}>
               {isAllVisible ? 'Show less' : 'Show More'}
             </CustomButton>
           </Box>

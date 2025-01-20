@@ -1,10 +1,8 @@
 import { Box } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Navigation, Pagination } from 'swiper/modules';
-
 import { CustomButton } from '../../../components/atoms';
 import { VOTES_BUTTONS_DATA } from './voteButtonsData';
 import { VotesImage } from './VotesImage';
+import { CustomSlider } from '../../../components/molecules/CustomSlider.tsx/CustomSlider';
 
 type VotesImagesProps = {
   handleLikeClick: (id: string, value: number) => () => void;
@@ -16,50 +14,41 @@ export const VotesSlider = ({
   votesImages
 }: VotesImagesProps) => (
   <Box>
-    <Swiper
-      modules={[EffectCoverflow, Pagination, Navigation]}
-      pagination={{
-        clickable: true
-      }}
-      navigation
-      grabCursor
+    <CustomSlider
       slidesPerView="auto"
       centeredSlides
       effect="coverflow"
-      coverflowEffect={{
+      coverflowEffectConfig={{
         rotate: 50,
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows: true
+        slideShadows: false
       }}
+      showPagination
+      showNavigation
       className="mySwiper"
-    >
-      {(votesImages || []).map(votesImage => (
-        <SwiperSlide key={votesImage.id} className="slide-inner">
-          {({ isActive }) =>
-            isActive ? (
-              <>
-                <VotesImage src={votesImage.url} alt={votesImage.id} isActive />
+      data={votesImages || []}
+      getKey={item => item.id}
+      renderItem={(item, { isActive }) =>
+        isActive ? (
+          <>
+            <VotesImage src={item.url} alt={item.id} isActive />
 
-                {VOTES_BUTTONS_DATA(votesImage.id, handleLikeClick).map(
-                  item => (
-                    <CustomButton
-                      variant="textSecondary"
-                      key={item.key}
-                      onClick={item.onclick}
-                      startIcon={item.icon}
-                      sx={item.sx}
-                    />
-                  )
-                )}
-              </>
-            ) : (
-              <VotesImage src={votesImage.url} alt={votesImage.id} />
-            )
-          }
-        </SwiperSlide>
-      ))}
-    </Swiper>
+            {VOTES_BUTTONS_DATA(item.id, handleLikeClick).map(itemBtn => (
+              <CustomButton
+                variant="textSecondary"
+                key={itemBtn.key}
+                onClick={itemBtn.onclick}
+                startIcon={itemBtn.icon}
+                sx={itemBtn.sx}
+              />
+            ))}
+          </>
+        ) : (
+          <VotesImage src={item.url} alt={item.id} />
+        )
+      }
+    />
   </Box>
 );

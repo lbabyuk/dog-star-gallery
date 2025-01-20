@@ -1,2 +1,3 @@
 export * from './RelatedImages';
-export * from './RelatedImagesContent';
+export * from './RelatedImagesSlider';
+export * from './RelatedImage';
