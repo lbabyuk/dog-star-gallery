@@ -41,7 +41,10 @@ export const SelectComponent = ({
         onChange={onHandleImageTypeChange}
         sx={theme => ({
           borderRadius: '10px',
-          height: '60px',
+          height: {
+            xs: '40px',
+            md: '45px'
+          },
           width: { sx: '100%', md: '400px' },
           boxShadow: `2px 2px 0 0 ${theme.palette.grey[900]}`,
           '&:hover': {
