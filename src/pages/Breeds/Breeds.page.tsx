@@ -52,8 +52,12 @@ export const Breeds = () => {
     3
   );
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
+  };
+
+  const handleClearInput = () => {
+    setSearchQuery('');
   };
 
   if (isLoading) return <LoadingStatus />;
@@ -63,7 +67,11 @@ export const Breeds = () => {
       <MotionTransitionWrapper>
         <TitleComponent title={TITLES_DATA.breedsPageTitle} />
         <StyledBox>
-          <SearchComponent onChange={handleChange} input={searchQuery} />
+          <SearchComponent
+            handleChangeInput={handleChangeInput}
+            searchQuery={searchQuery}
+            handleClearInput={handleClearInput}
+          />
           <SortBreed
             onHandleSortDown={handleSortedDown}
             onHandleSortUp={handleSortedUp}

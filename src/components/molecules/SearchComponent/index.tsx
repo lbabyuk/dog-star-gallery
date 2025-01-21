@@ -1,11 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { FC, ChangeEvent } from 'react';
-import { Divider, InputBase, Paper, PaperProps, styled } from '@mui/material';
+import {
+  Divider,
+  InputBase,
+  Paper,
+  PaperProps,
+  styled,
+  IconButton
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 
 type InputProps = {
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  input: string;
+  handleChangeInput: (event: ChangeEvent<HTMLInputElement>) => void;
+  searchQuery: string;
+  handleClearInput: () => void;
 };
 
 interface StyledPaperProps extends PaperProps {
@@ -37,7 +46,11 @@ export const StyledPaper = styled((props: StyledPaperProps) => (
   }
 }));
 
-export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
+export const SearchComponent: FC<InputProps> = ({
+  handleChangeInput,
+  searchQuery,
+  handleClearInput
+}) => (
   <StyledPaper component="form">
     <SearchIcon
       sx={{
@@ -51,9 +64,17 @@ export const SearchComponent: FC<InputProps> = ({ onChange, input }) => (
       type="text"
       name="searchInput"
       fullWidth
-      value={input}
-      onChange={onChange}
+      value={searchQuery}
+      onChange={handleChangeInput}
       placeholder="Search dog by name..."
     />
+    <IconButton onClick={handleClearInput}>
+      <ClearIcon
+        sx={{
+          fontSize: { xs: 20, sm: 25 },
+          color: theme => theme.palette.grey[500]
+        }}
+      />
+    </IconButton>
   </StyledPaper>
 );
