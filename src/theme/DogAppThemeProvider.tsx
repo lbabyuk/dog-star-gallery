@@ -1,12 +1,12 @@
 import { CssBaseline, Theme, ThemeProvider } from '@mui/material';
 import { FC, PropsWithChildren } from 'react';
-import defaultTheme from './theme';
+import { theme as defaultTheme } from './theme';
 
 export const DogAppThemeProvider: FC<
   PropsWithChildren<{
     theme?: Theme;
   }>
-> = ({ theme = defaultTheme, children }) => (
+> = ({ children, theme = defaultTheme }) => (
   <ThemeProvider theme={theme}>
     <CssBaseline />
     {children}

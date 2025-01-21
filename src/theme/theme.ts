@@ -1,8 +1,31 @@
 import { createTheme } from '@mui/material/styles';
-import { MuiButtonConfig } from './button.config';
+import { MuiButtonConfig } from './customComponents/button.config';
+import { overrideTypography } from './customComponents/overrideTypography';
 
-// A custom theme for this app
-const theme = createTheme({
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    containedPrimary: true;
+    textPrimary: true;
+    textSecondary: true;
+    outlinedPrimary: true;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    subtitle3: true;
+    subtitle4: true;
+    semiBold1: true;
+    semiBold2: true;
+    underlined1: true;
+    underlined2: true;
+    caption1: true;
+    caption2: true;
+    span: true;
+  }
+}
+
+export const mainTheme = createTheme({
   palette: {
     primary: {
       main: '#921FED',
@@ -13,23 +36,36 @@ const theme = createTheme({
       contrastText: '#921FED'
     },
     text: {
-      primary: '#5F556D'
-      // secondary: "#FFFFFF",
+      primary: '#5F556D',
+      secondary: '#FFFFFF'
     },
     grey: {
       100: '#FBFAFC',
       300: '#E6E6E6',
-      500: '#ADA7B8'
+      500: '#ADA7B8',
+      600: '#FCFAFA',
+      700: '#B2BAC2',
+      800: '#ccc',
+      900: '#212121'
     },
     action: {
       hover: '#A239F4',
       selected: '#B568F2'
     },
     warning: {
-      main: '#FFCF32'
+      main: '#FFCF32',
+      light: '#F7E4A8'
     },
     background: {
       paper: '#FBFAFC'
+    },
+    error: {
+      main: '#FF004D',
+      100: '#F6D0D9'
+    },
+    success: {
+      main: '#17C614',
+      100: '#D9F5D9'
     }
   },
   typography: {
@@ -38,15 +74,33 @@ const theme = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 600
-  },
-  components: {
-    MuiButton: MuiButtonConfig,
-    MuiTab: {
-      defaultProps: {
-        disableRipple: true
-      }
-    }
   }
 });
 
-export default theme;
+export const theme = createTheme({
+  ...mainTheme,
+  components: {
+    ...mainTheme.components,
+    MuiButton: MuiButtonConfig,
+    MuiTypography: {
+      defaultProps: {
+        variantMapping: {
+          subtitle3: 'h6',
+          subtitle4: 'h6',
+          semiBold1: 'p',
+          semiBold2: 'p',
+          underlined1: 'p',
+          underlined2: 'p',
+          caption1: 'p',
+          caption2: 'p',
+          span: 'span'
+        }
+      }
+    }
+  },
+  typography: {
+    ...mainTheme.typography,
+    fontFamily: "'Dosis', sans-serif",
+    ...overrideTypography(mainTheme)
+  }
+});
