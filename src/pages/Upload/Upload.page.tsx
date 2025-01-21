@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { Box, Container, Stack } from '@mui/material';
-import {
-  DefaultInfo,
-  LoadingStatus,
-  TitleComponent
-} from '../../components/molecules';
+import { LoadingStatus, TitleComponent } from '../../components/molecules';
 import {
   GridWrapper,
   CustomButton,
@@ -59,7 +55,11 @@ export const Upload = () => {
   return (
     <Container>
       <MotionTransitionWrapper>
-        <TitleComponent title={TITLES_DATA.uploadPageTitle} />
+        {uploadedImages?.length === 0 ? (
+          <TitleComponent title={TITLES_DATA.noUploads} />
+        ) : (
+          <TitleComponent title={TITLES_DATA.uploadPageTitle} />
+        )}
         <Stack alignItems="center" gap={2}>
           <UploadImage
             handleUploadImage={handleUploadImage}
@@ -68,20 +68,17 @@ export const Upload = () => {
             isUploading={isUploading}
           />
         </Stack>
-
-        {uploadedImages?.length === 0 ? (
-          <DefaultInfo title="" />
-        ) : (
-          <>
-            <GridWrapper>
-              {visibleData.map(image => (
-                <UploadedImages
-                  image={image}
-                  key={image.id}
-                  handleDelete={handleDelete}
-                />
-              ))}
-            </GridWrapper>
+        <>
+          <GridWrapper>
+            {visibleData.map(image => (
+              <UploadedImages
+                image={image}
+                key={image.id}
+                handleDelete={handleDelete}
+              />
+            ))}
+          </GridWrapper>
+          {uploadedImages?.length !== 0 ? (
             <Box
               sx={{
                 display: 'flex',
@@ -93,8 +90,8 @@ export const Upload = () => {
                 {isAllVisible ? 'Show Less' : 'Show More'}
               </CustomButton>
             </Box>
-          </>
-        )}
+          ) : null}
+        </>
       </MotionTransitionWrapper>
     </Container>
   );

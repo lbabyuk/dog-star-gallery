@@ -68,13 +68,15 @@ export const SearchComponent: FC<InputProps> = ({
       onChange={handleChangeInput}
       placeholder="Search dog by name..."
     />
-    <IconButton onClick={handleClearInput}>
-      <ClearIcon
-        sx={{
-          fontSize: { xs: 20, sm: 25 },
-          color: theme => theme.palette.grey[500]
-        }}
-      />
-    </IconButton>
+    {searchQuery ? (
+      <IconButton onClick={handleClearInput}>
+        <ClearIcon
+          sx={{
+            fontSize: { xs: 20, sm: 18 },
+            color: theme => theme.palette.grey[500]
+          }}
+        />
+      </IconButton>
+    ) : null}
   </StyledPaper>
 );

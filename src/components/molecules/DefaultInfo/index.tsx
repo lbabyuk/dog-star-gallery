@@ -1,6 +1,10 @@
 import { ReactNode } from 'react';
 import { Container, Box, Typography, styled } from '@mui/material';
-import { CustomButton, RightArrowIcon } from '../../atoms';
+import {
+  CustomButton,
+  MotionTransitionWrapper,
+  RightArrowIcon
+} from '../../atoms';
 
 type DefaultInfoProps = {
   title: string;
@@ -27,18 +31,20 @@ export const DefaultInfo = ({
   onClick
 }: DefaultInfoProps) => (
   <Container>
-    <StyledBox>
-      <Typography variant="h2" align="center" m={1} p={1}>
-        {title}
-      </Typography>
+    <MotionTransitionWrapper>
+      <StyledBox>
+        <Typography variant="h2" align="center" m={1} p={1}>
+          {title}
+        </Typography>
 
-      <CustomButton
-        onClick={onClick}
-        variant="textPrimary"
-        endIcon={icon && <RightArrowIcon />}
-      >
-        {btnText}
-      </CustomButton>
-    </StyledBox>
+        <CustomButton
+          onClick={onClick}
+          variant="textPrimary"
+          endIcon={icon && <RightArrowIcon />}
+        >
+          {btnText}
+        </CustomButton>
+      </StyledBox>
+    </MotionTransitionWrapper>
   </Container>
 );

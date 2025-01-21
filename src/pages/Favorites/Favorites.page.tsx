@@ -50,7 +50,7 @@ export const Favorites = () => {
             }}
           >
             <CustomButton variant="textPrimary" onClick={handleShowImages}>
-              {isAllVisible ? 'Show less' : 'Show More'}
+              {isAllVisible ? 'Show Less' : 'Show More'}
             </CustomButton>
           </Box>
         </Box>
