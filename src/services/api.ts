@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
+import { BASE_URL } from '../utilities';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://api.thedogapi.com/v1/',
+  baseUrl: BASE_URL,
   prepareHeaders: headers => {
     headers.set('x-api-key', import.meta.env.VITE_API_KEY);
     return headers;
