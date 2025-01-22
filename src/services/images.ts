@@ -1,4 +1,5 @@
 import { api } from './api';
+import { IMAGES_URL } from '../utilities';
 
 export interface Image {
   id: string;
@@ -49,7 +50,7 @@ export const imagesApi = api.injectEndpoints({
         mime_types = 'jpg',
         has_breeds = true
       }) => ({
-        url: `images/search?size=medium&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=${has_breeds}`
+        url: `${IMAGES_URL}/search?size=medium&limit=${limit}&page=${page}&order=${order}&mime_types=${mime_types}&has_breeds=${has_breeds}`
       }),
       providesTags: (result = []) =>
         result
@@ -61,14 +62,14 @@ export const imagesApi = api.injectEndpoints({
     }),
     deleteImage: build.mutation<{ id: string }, string>({
       query: id => ({
-        url: `images/${id}`,
+        url: `${IMAGES_URL}/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: [{ type: 'Images' as const, id: 'LIST' }]
     }),
     getImageById: build.query<ImagesResponse, { id?: string }>({
       query: ({ id }) => ({
-        url: `images/${id}`
+        url: `${IMAGES_URL}/${id}`
       })
     })
   })

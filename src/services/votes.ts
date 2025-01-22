@@ -1,4 +1,5 @@
 import { api } from './api';
+import { VOTES_URL } from '../utilities';
 
 export interface Votes {
   image_id: string;
@@ -23,7 +24,7 @@ export type VotesResponse = {
 export const votesApi = api.injectEndpoints({
   endpoints: build => ({
     getVotes: build.query<VotesResponse, { sub_id?: string }>({
-      query: ({ sub_id }) => ({ url: `votes?sub_id=${sub_id}` }),
+      query: ({ sub_id }) => ({ url: `${VOTES_URL}?sub_id=${sub_id}` }),
 
       providesTags: (result = []) =>
         result
@@ -35,7 +36,7 @@ export const votesApi = api.injectEndpoints({
     }),
     addVotes: build.mutation<unknown, Votes>({
       query: body => ({
-        url: `votes`,
+        url: `${VOTES_URL}`,
         method: 'POST',
         body
       }),
@@ -44,7 +45,7 @@ export const votesApi = api.injectEndpoints({
 
     deleteVotes: build.mutation<{ id: number }, number>({
       query: id => ({
-        url: `votes/${id}`,
+        url: `${VOTES_URL}/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: [{ type: 'Votes' as const, id: 'LIST' }]

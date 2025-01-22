@@ -1,3 +1,4 @@
+import { BREEDS_URL } from '../utilities';
 import { api } from './api';
 
 export interface Breed {
@@ -36,7 +37,7 @@ export const breedsApi = api.injectEndpoints({
       }
     >({
       query: ({ limit = 25, page = 0 }) => ({
-        url: `breeds?limit=${limit}&page=${page}`
+        url: `${BREEDS_URL}?limit=${limit}&page=${page}`
       }),
       providesTags: (result = []) =>
         result
@@ -48,7 +49,7 @@ export const breedsApi = api.injectEndpoints({
     }),
     getBreedById: build.query<BreedsResponse, { id?: string }>({
       query: ({ id }) => ({
-        url: `breeds/${id}`
+        url: `${BREEDS_URL}/${id}`
       })
     })
   })
